@@ -1,9 +1,24 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+
+// ==========================================
+// Hook phát hiện mobile / desktop
+// ==========================================
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  return isMobile;
+}
 
 // ==========================================
 // 1. CÁNH HOA DẠI BAY (PETALS)
 // ==========================================
-const PETALS = [
+const PETALS_FULL = [
   { id: 1, left: '4%', size: 14, color: '#FFB7C5', duration: 11, delay: 0, xOffset: 35, rotateDir: 1 },
   { id: 2, left: '11%', size: 12, color: '#FFFFFF', duration: 14, delay: 2.5, xOffset: -40, rotateDir: -1 },
   { id: 3, left: '19%', size: 16, color: '#FDE047', duration: 12, delay: 1.2, xOffset: 45, rotateDir: 1 },
@@ -20,10 +35,19 @@ const PETALS = [
   { id: 14, left: '67%', size: 13, color: '#F472B6', duration: 13.0, delay: 4.8, xOffset: -35, rotateDir: -1 },
 ];
 
+const PETALS_LITE = [
+  { id: 1, left: '8%', size: 14, color: '#FFB7C5', duration: 14, delay: 0, xOffset: 35, rotateDir: 1 },
+  { id: 2, left: '25%', size: 16, color: '#FDE047', duration: 16, delay: 2.5, xOffset: -40, rotateDir: -1 },
+  { id: 3, left: '42%', size: 13, color: '#FECDD3', duration: 13, delay: 1.2, xOffset: 45, rotateDir: 1 },
+  { id: 4, left: '58%', size: 15, color: '#FFFFFF', duration: 15, delay: 4.0, xOffset: -30, rotateDir: -1 },
+  { id: 5, left: '75%', size: 14, color: '#DDD6FE', duration: 14, delay: 0.8, xOffset: 40, rotateDir: 1 },
+  { id: 6, left: '90%', size: 12, color: '#FFD1DC', duration: 17, delay: 3.2, xOffset: -35, rotateDir: -1 },
+];
+
 // ==========================================
 // 2. LÁ CÂY THẢO NGUYÊN BAY (LEAVES)
 // ==========================================
-const LEAVES = [
+const LEAVES_FULL = [
   { id: 1, left: '7%', size: 18, color: '#86EFAC', duration: 13, delay: 1.0, xOffset: 55 },
   { id: 2, left: '23%', size: 15, color: '#4ADE80', duration: 16, delay: 4.2, xOffset: -45 },
   { id: 3, left: '39%', size: 20, color: '#A7F3D0', duration: 14, delay: 2.8, xOffset: 60 },
@@ -34,10 +58,17 @@ const LEAVES = [
   { id: 8, left: '80%', size: 15, color: '#A7F3D0', duration: 14.5, delay: 6.0, xOffset: -40 },
 ];
 
+const LEAVES_LITE = [
+  { id: 1, left: '12%', size: 18, color: '#86EFAC', duration: 15, delay: 1.0, xOffset: 50 },
+  { id: 2, left: '38%', size: 16, color: '#4ADE80', duration: 18, delay: 4.0, xOffset: -45 },
+  { id: 3, left: '62%', size: 17, color: '#A7F3D0', duration: 16, delay: 2.5, xOffset: 55 },
+  { id: 4, left: '85%', size: 15, color: '#6EE7B7', duration: 17, delay: 5.5, xOffset: -40 },
+];
+
 // ==========================================
 // 3. HOA BỒ CÔNG ANH BAY THEO GIÓ (DANDELION SEEDS)
 // ==========================================
-const DANDELIONS = [
+const DANDELIONS_FULL = [
   { id: 1, left: '6%', size: 26, duration: 16, delay: 0.5, xOffset: 65, rotate: 25 },
   { id: 2, left: '14%', size: 22, duration: 20, delay: 4.2, xOffset: -45, rotate: -20 },
   { id: 3, left: '22%', size: 30, duration: 18, delay: 2.0, xOffset: 70, rotate: 30 },
@@ -54,10 +85,18 @@ const DANDELIONS = [
   { id: 14, left: '83%', size: 28, duration: 17, delay: 6.0, xOffset: 55, rotate: 24 },
 ];
 
+const DANDELIONS_LITE = [
+  { id: 1, left: '10%', size: 26, duration: 18, delay: 0.5, xOffset: 55, rotate: 25 },
+  { id: 2, left: '30%', size: 24, duration: 22, delay: 4.0, xOffset: -45, rotate: -20 },
+  { id: 3, left: '50%', size: 28, duration: 17, delay: 2.0, xOffset: 60, rotate: 30 },
+  { id: 4, left: '70%', size: 22, duration: 20, delay: 6.0, xOffset: -50, rotate: -15 },
+  { id: 5, left: '88%', size: 25, duration: 19, delay: 3.5, xOffset: 50, rotate: 22 },
+];
+
 // ==========================================
 // 4. HẠT PHẤN HOA LẤP LÁNH DƯỚI NẮNG (SUN POLLEN)
 // ==========================================
-const SUN_SPECKLES = Array.from({ length: 22 }, (_, i) => ({
+const SUN_SPECKLES_FULL = Array.from({ length: 22 }, (_, i) => ({
   id: i,
   left: `${3 + (i * 4.5)}%`,
   top: `${8 + ((i * 19) % 85)}%`,
@@ -67,130 +106,66 @@ const SUN_SPECKLES = Array.from({ length: 22 }, (_, i) => ({
 }));
 
 // ==========================================
-// 5. ĐÀN BƯỚM THẢO NGUYÊN ĐA SẮC (DREAMY BUTTERFLIES)
+// 5. ĐÀN BƯỚM THẢO NGUYÊN ĐA SẮC (CHỈ DESKTOP)
 // ==========================================
 const BUTTERFLIES = [
-  // Bướm 1: Hồng phấn & Vàng kim (bay từ trái sang phải, uốn lượn trung tâm)
   {
-    id: 'bf-1',
-    size: 28,
-    colorTop: '#F472B6',
-    colorBottom: '#FBBF24',
-    bodyColor: '#4B382A',
-    startX: '-5vw',
-    endX: '105vw',
-    yKeyframes: ['30vh', '20vh', '38vh', '15vh', '28vh'],
-    duration: 24,
-    delay: 1,
-    scale: 1,
-    direction: 1,
-  },
-  // Bướm 2: Tím Lavender & Vàng chanh (bay từ phải sang trái, uốn lượn phía trên)
-  {
-    id: 'bf-2',
-    size: 26,
-    colorTop: '#A78BFA',
-    colorBottom: '#FDE047',
-    bodyColor: '#4B382A',
-    startX: '105vw',
-    endX: '-5vw',
-    yKeyframes: ['65vh', '48vh', '70vh', '42vh', '60vh'],
-    duration: 28,
-    delay: 11,
-    scale: 0.95,
-    direction: -1,
-  },
-  // Bướm 3: Xanh ngọc lam Sky Blue & Cyan (bay chéo từ góc dưới trái lên góc trên phải)
-  {
-    id: 'bf-3',
-    size: 25,
-    colorTop: '#38BDF8',
-    colorBottom: '#67E8F9',
-    bodyColor: '#334155',
-    startX: '-6vw',
-    endX: '106vw',
-    yKeyframes: ['75vh', '55vh', '40vh', '22vh', '10vh'],
-    duration: 26,
-    delay: 6,
-    scale: 0.9,
-    direction: 1,
-  },
-  // Bướm 4: Cam Hổ phách & Vàng ấm (bay từ phải sang trái tầng thấp)
-  {
-    id: 'bf-4',
-    size: 30,
-    colorTop: '#FB923C',
-    colorBottom: '#FBBF24',
-    bodyColor: '#4B382A',
-    startX: '106vw',
-    endX: '-6vw',
-    yKeyframes: ['22vh', '35vh', '18vh', '45vh', '25vh'],
-    duration: 22,
-    delay: 17,
-    scale: 1.05,
-    direction: -1,
-  },
-  // Cặp đôi bướm tình nhân 5A & 5B (bay cùng nhau quấn quýt)
-  {
-    id: 'bf-5a',
-    size: 20,
-    colorTop: '#FDA4AF',
-    colorBottom: '#FDE68A',
-    bodyColor: '#5C3A21',
-    startX: '-5vw',
-    endX: '105vw',
-    yKeyframes: ['48vh', '40vh', '52vh', '36vh', '44vh'],
-    duration: 25,
-    delay: 14,
-    scale: 0.8,
-    direction: 1,
+    id: 'bf-1', size: 28, colorTop: '#F472B6', colorBottom: '#FBBF24', bodyColor: '#4B382A',
+    startX: '-5vw', endX: '105vw', yKeyframes: ['30vh', '20vh', '38vh', '15vh', '28vh'],
+    duration: 24, delay: 1, direction: 1,
   },
   {
-    id: 'bf-5b',
-    size: 18,
-    colorTop: '#C084FC',
-    colorBottom: '#FBCFE8',
-    bodyColor: '#5C3A21',
-    startX: '-7vw',
-    endX: '103vw',
-    yKeyframes: ['52vh', '43vh', '56vh', '39vh', '47vh'],
-    duration: 25,
-    delay: 14.3,
-    scale: 0.75,
-    direction: 1,
+    id: 'bf-2', size: 26, colorTop: '#A78BFA', colorBottom: '#FDE047', bodyColor: '#4B382A',
+    startX: '105vw', endX: '-5vw', yKeyframes: ['65vh', '48vh', '70vh', '42vh', '60vh'],
+    duration: 28, delay: 11, direction: -1,
   },
-  // Bướm 6: Xanh bạc hà Mint & Thảo mộc
   {
-    id: 'bf-6',
-    size: 24,
-    colorTop: '#34D399',
-    colorBottom: '#FEF08A',
-    bodyColor: '#1E3A2F',
-    startX: '105vw',
-    endX: '-5vw',
-    yKeyframes: ['80vh', '65vh', '85vh', '58vh', '72vh'],
-    duration: 27,
-    delay: 20,
-    scale: 0.9,
-    direction: -1,
+    id: 'bf-3', size: 25, colorTop: '#38BDF8', colorBottom: '#67E8F9', bodyColor: '#334155',
+    startX: '-6vw', endX: '106vw', yKeyframes: ['75vh', '55vh', '40vh', '22vh', '10vh'],
+    duration: 26, delay: 6, direction: 1,
+  },
+  {
+    id: 'bf-4', size: 30, colorTop: '#FB923C', colorBottom: '#FBBF24', bodyColor: '#4B382A',
+    startX: '106vw', endX: '-6vw', yKeyframes: ['22vh', '35vh', '18vh', '45vh', '25vh'],
+    duration: 22, delay: 17, direction: -1,
+  },
+  {
+    id: 'bf-5a', size: 20, colorTop: '#FDA4AF', colorBottom: '#FDE68A', bodyColor: '#5C3A21',
+    startX: '-5vw', endX: '105vw', yKeyframes: ['48vh', '40vh', '52vh', '36vh', '44vh'],
+    duration: 25, delay: 14, direction: 1,
+  },
+  {
+    id: 'bf-5b', size: 18, colorTop: '#C084FC', colorBottom: '#FBCFE8', bodyColor: '#5C3A21',
+    startX: '-7vw', endX: '103vw', yKeyframes: ['52vh', '43vh', '56vh', '39vh', '47vh'],
+    duration: 25, delay: 14.3, direction: 1,
+  },
+  {
+    id: 'bf-6', size: 24, colorTop: '#34D399', colorBottom: '#FEF08A', bodyColor: '#1E3A2F',
+    startX: '105vw', endX: '-5vw', yKeyframes: ['80vh', '65vh', '85vh', '58vh', '72vh'],
+    duration: 27, delay: 20, direction: -1,
   },
 ];
 
 export function DreamyMeadowAtmosphere() {
+  const isMobile = useIsMobile();
+
+  const petals = isMobile ? PETALS_LITE : PETALS_FULL;
+  const leaves = isMobile ? LEAVES_LITE : LEAVES_FULL;
+  const dandelions = isMobile ? DANDELIONS_LITE : DANDELIONS_FULL;
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* 1. BỨC TRANH THẢO NGUYÊN NẮNG MAI TRỮ TÌNH (FIXED MEADOW CANVAS) */}
+      {/* 1. BỨC TRANH THẢO NGUYÊN NẮNG MAI TRỮ TÌNH */}
       <div className="absolute inset-0 w-full h-full">
         <img
           src="/images/meadow-bg.jpg"
           alt="Bức tranh thảo nguyên vườn hoa thơ mộng"
           className="w-full h-full object-cover object-center scale-105 opacity-[0.52] filter saturate-[1.1] contrast-[0.98]"
+          loading="eager"
         />
 
-        {/* Lớp phủ chuyển sắc mềm mại kết hợp ánh nắng vàng rực rỡ */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF4EB]/65 via-[#FAF4EB]/40 to-[#FAF4EB]/75" />
         
-        {/* Vầng sáng thái dương tỏa rạng */}
         <div 
           className="absolute inset-0 opacity-40 pointer-events-none"
           style={{
@@ -201,32 +176,23 @@ export function DreamyMeadowAtmosphere() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#FAF4EB] via-[#FAF4EB]/60 to-transparent" />
       </div>
 
-      {/* 2. HIỆU ỨNG CÁNH HOA BAY ĐA SẮC MÀU (FLOWER PETALS) */}
+      {/* 2. CÁNH HOA BAY */}
       <div className="absolute inset-0 overflow-hidden">
-        {PETALS.map((petal) => (
+        {petals.map((petal) => (
           <motion.div
             key={`petal-${petal.id}`}
-            className="absolute top-0"
+            className="absolute top-0 will-change-transform"
             style={{
               left: petal.left,
               width: petal.size,
               height: petal.size * 1.3,
             }}
-            initial={{
-              y: '-8vh',
-              x: 0,
-              opacity: 0,
-              rotateZ: 0,
-              rotateX: 0,
-              rotateY: 0,
-            }}
+            initial={{ y: '-8vh', opacity: 0 }}
             animate={{
               y: ['-8vh', '108vh'],
               x: [0, petal.xOffset, -petal.xOffset * 0.5, petal.xOffset * 0.7],
               opacity: [0, 0.85, 0.85, 0.2, 0],
-              rotateZ: [0, petal.rotateDir * 360, petal.rotateDir * 720],
-              rotateX: [0, 180, 360],
-              rotateY: [0, 180, 360],
+              rotate: [0, petal.rotateDir * 360, petal.rotateDir * 720],
             }}
             transition={{
               duration: petal.duration,
@@ -252,24 +218,19 @@ export function DreamyMeadowAtmosphere() {
         ))}
       </div>
 
-      {/* 3. HIỆU ỨNG HOA BỒ CÔNG ANH BAY THEO GIÓ (DANDELION SEEDS) */}
+      {/* 3. HOA BỒ CÔNG ANH BAY THEO GIÓ */}
       <div className="absolute inset-0 overflow-hidden">
-        {DANDELIONS.map((dan) => (
+        {dandelions.map((dan) => (
           <motion.div
             key={`dan-${dan.id}`}
-            className="absolute"
+            className="absolute will-change-transform"
             style={{
               left: dan.left,
               width: dan.size,
               height: dan.size * 1.4,
               bottom: '-12vh',
             }}
-            initial={{
-              y: '0vh',
-              x: 0,
-              opacity: 0,
-              rotate: 0,
-            }}
+            initial={{ y: '0vh', opacity: 0 }}
             animate={{
               y: ['0vh', '-120vh'],
               x: [0, dan.xOffset, -dan.xOffset * 0.4, dan.xOffset * 0.8],
@@ -283,15 +244,10 @@ export function DreamyMeadowAtmosphere() {
               ease: 'easeInOut',
             }}
           >
-            {/* Cấu trúc dù lông tơ hoa bồ công anh thanh thoát */}
             <svg viewBox="0 0 40 56" className="w-full h-full drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)]">
-              {/* Cuống hạt */}
               <line x1="20" y1="18" x2="20" y2="48" stroke="rgba(120, 100, 70, 0.5)" strokeWidth="1.2" strokeLinecap="round" />
-              {/* Hạt giống hình bầu dục ở đáy */}
               <ellipse cx="20" cy="48" rx="2.2" ry="4" fill="#6B4F36" opacity="0.85" />
               <ellipse cx="19.5" cy="47" rx="0.8" ry="2" fill="rgba(255,255,255,0.4)" />
-              
-              {/* Tán tơ bồ công anh tỏa tròn hình chiếc dù */}
               <g stroke="rgba(255, 255, 255, 0.9)" strokeWidth="0.9" strokeLinecap="round">
                 <line x1="20" y1="18" x2="20" y2="2" />
                 <line x1="20" y1="18" x2="10" y2="5" />
@@ -303,8 +259,6 @@ export function DreamyMeadowAtmosphere() {
                 <line x1="20" y1="18" x2="14" y2="8" />
                 <line x1="20" y1="18" x2="26" y2="8" />
               </g>
-
-              {/* Các chùm lông tơ li ti ở đầu sợi dù */}
               <circle cx="20" cy="2" r="1.2" fill="#FFFFFF" opacity="0.9" />
               <circle cx="10" cy="5" r="1.1" fill="#FFFFFF" opacity="0.9" />
               <circle cx="30" cy="5" r="1.1" fill="#FFFFFF" opacity="0.9" />
@@ -319,30 +273,23 @@ export function DreamyMeadowAtmosphere() {
         ))}
       </div>
 
-      {/* 4. HIỆU ỨNG LÁ CÂY BAY (LEAVES) */}
+      {/* 4. LÁ CÂY BAY */}
       <div className="absolute inset-0 overflow-hidden">
-        {LEAVES.map((leaf) => (
+        {leaves.map((leaf) => (
           <motion.div
             key={`leaf-${leaf.id}`}
-            className="absolute top-0"
+            className="absolute top-0 will-change-transform"
             style={{
               left: leaf.left,
               width: leaf.size,
               height: leaf.size * 1.5,
             }}
-            initial={{
-              y: '-10vh',
-              x: 0,
-              opacity: 0,
-              rotateZ: 0,
-            }}
+            initial={{ y: '-10vh', opacity: 0 }}
             animate={{
               y: ['-10vh', '110vh'],
               x: [0, leaf.xOffset, leaf.xOffset * -0.6, leaf.xOffset * 0.8],
               opacity: [0, 0.75, 0.8, 0.3, 0],
-              rotateZ: [0, 180, 360, 540],
-              rotateX: [0, 360],
-              rotateY: [0, 180, 360],
+              rotate: [0, 180, 360, 540],
             }}
             transition={{
               duration: leaf.duration,
@@ -365,114 +312,101 @@ export function DreamyMeadowAtmosphere() {
         ))}
       </div>
 
-      {/* 5. ĐỐM PHẤN HOA LẤP LÁNH TRONG NẮNG (SUN POLLEN) */}
+      {/* 5. ĐỐM PHẤN HOA — Desktop: JS animation đầy đủ | Mobile: CSS animation nhẹ */}
       <div className="absolute inset-0 overflow-hidden">
-        {SUN_SPECKLES.map((dot) => (
-          <motion.div
-            key={`dot-${dot.id}`}
-            className="absolute rounded-full"
-            style={{
-              left: dot.left,
-              top: dot.top,
-              width: dot.size,
-              height: dot.size,
-              backgroundColor: ['#FDE047', '#FFD700', '#F3E5AB', '#FFB7C5'][dot.id % 4],
-              boxShadow: '0 0 8px rgba(253, 224, 71, 0.8)',
-            }}
-            animate={{
-              y: [0, -25, 0],
-              x: [0, 12 * Math.sin(dot.id), 0],
-              opacity: [0.2, 0.85, 0.2],
-              scale: [0.8, 1.3, 0.8],
-            }}
-            transition={{
-              duration: dot.duration,
-              delay: dot.delay,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-        ))}
+        {isMobile
+          ? Array.from({ length: 8 }, (_, i) => (
+              <div
+                key={`dot-${i}`}
+                className="absolute rounded-full animate-pulse"
+                style={{
+                  left: `${10 + i * 12}%`,
+                  top: `${15 + ((i * 23) % 65)}%`,
+                  width: 2 + (i % 3) * 1.5,
+                  height: 2 + (i % 3) * 1.5,
+                  backgroundColor: ['#FDE047', '#FFD700', '#F3E5AB', '#FFB7C5'][i % 4],
+                  boxShadow: '0 0 6px rgba(253, 224, 71, 0.6)',
+                  opacity: 0.5,
+                  animationDelay: `${i * 0.4}s`,
+                  animationDuration: `${3 + (i % 3)}s`,
+                }}
+              />
+            ))
+          : SUN_SPECKLES_FULL.map((dot) => (
+              <motion.div
+                key={`dot-${dot.id}`}
+                className="absolute rounded-full"
+                style={{
+                  left: dot.left,
+                  top: dot.top,
+                  width: dot.size,
+                  height: dot.size,
+                  backgroundColor: ['#FDE047', '#FFD700', '#F3E5AB', '#FFB7C5'][dot.id % 4],
+                  boxShadow: '0 0 8px rgba(253, 224, 71, 0.8)',
+                }}
+                animate={{
+                  y: [0, -25, 0],
+                  x: [0, 12 * Math.sin(dot.id), 0],
+                  opacity: [0.2, 0.85, 0.2],
+                  scale: [0.8, 1.3, 0.8],
+                }}
+                transition={{
+                  duration: dot.duration,
+                  delay: dot.delay,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+            ))}
       </div>
 
-      {/* 6. ĐÀN BƯỚM THẢO NGUYÊN BAY LƯỢN ĐA SẮC MÀU (DREAMY BUTTERFLIES) */}
-      {BUTTERFLIES.map((bf) => (
-        <motion.div
-          key={bf.id}
-          className="absolute pointer-events-none"
-          style={{
-            width: bf.size,
-            height: bf.size,
-          }}
-          initial={{
-            x: bf.startX,
-            y: bf.yKeyframes[0],
-            opacity: 0,
-          }}
-          animate={{
-            x: [bf.startX, bf.endX],
-            y: bf.yKeyframes,
-            opacity: [0, 0.85, 0.95, 0.9, 0],
-          }}
-          transition={{
-            duration: bf.duration,
-            repeat: Infinity,
-            delay: bf.delay,
-            ease: 'linear',
-          }}
-        >
-          {/* Cánh bướm vỗ nhịp nhàng sinh động */}
+      {/* 6. ĐÀN BƯỚM — Chỉ hiển thị trên Desktop */}
+      {!isMobile &&
+        BUTTERFLIES.map((bf) => (
           <motion.div
+            key={bf.id}
+            className="absolute pointer-events-none"
+            style={{ width: bf.size, height: bf.size }}
+            initial={{ x: bf.startX, y: bf.yKeyframes[0], opacity: 0 }}
             animate={{
-              scaleX: [1, 0.22, 1],
-              rotate: bf.direction === 1 ? [15, 0, 22, 5] : [-15, 0, -22, -5],
+              x: [bf.startX, bf.endX],
+              y: bf.yKeyframes,
+              opacity: [0, 0.85, 0.95, 0.9, 0],
             }}
             transition={{
-              scaleX: { duration: 0.26 + (bf.size % 4) * 0.03, repeat: Infinity, ease: 'easeInOut' },
-              rotate: { duration: 2.2, repeat: Infinity, ease: 'easeInOut' },
+              duration: bf.duration,
+              repeat: Infinity,
+              delay: bf.delay,
+              ease: 'linear',
             }}
-            className={`w-full h-full ${bf.direction === -1 ? 'scale-x-[-1]' : ''}`}
           >
-            <svg viewBox="0 0 32 32" className="w-full h-full drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
-              {/* Cánh trên trái & phải */}
-              <path
-                d="M16 16 C12 5, 2 7, 3 16 C5 22, 13 20, 16 16 Z"
-                fill={bf.colorTop}
-                opacity="0.9"
-              />
-              <path
-                d="M16 16 C20 5, 30 7, 29 16 C27 22, 19 20, 16 16 Z"
-                fill={bf.colorTop}
-                opacity="0.9"
-              />
-              
-              {/* Cánh dưới trái & phải */}
-              <path
-                d="M16 16 C11 23, 5 25, 7 28 C10 30, 15 23, 16 16 Z"
-                fill={bf.colorBottom}
-                opacity="0.85"
-              />
-              <path
-                d="M16 16 C21 23, 27 25, 25 28 C22 30, 17 23, 16 16 Z"
-                fill={bf.colorBottom}
-                opacity="0.85"
-              />
-              
-              {/* Đốm họa tiết cánh bướm */}
-              <circle cx="10" cy="13" r="1.8" fill="rgba(255,255,255,0.7)" />
-              <circle cx="22" cy="13" r="1.8" fill="rgba(255,255,255,0.7)" />
-              <circle cx="11" cy="23" r="1.2" fill="rgba(255,255,255,0.6)" />
-              <circle cx="21" cy="23" r="1.2" fill="rgba(255,255,255,0.6)" />
-
-              {/* Thân bướm & râu */}
-              <ellipse cx="16" cy="16" rx="1.2" ry="7" fill={bf.bodyColor} />
-              <line x1="16" y1="10" x2="13" y2="5" stroke={bf.bodyColor} strokeWidth="0.8" strokeLinecap="round" />
-              <line x1="16" y1="10" x2="19" y2="5" stroke={bf.bodyColor} strokeWidth="0.8" strokeLinecap="round" />
-            </svg>
+            <motion.div
+              animate={{
+                scaleX: [1, 0.22, 1],
+                rotate: bf.direction === 1 ? [15, 0, 22, 5] : [-15, 0, -22, -5],
+              }}
+              transition={{
+                scaleX: { duration: 0.26 + (bf.size % 4) * 0.03, repeat: Infinity, ease: 'easeInOut' },
+                rotate: { duration: 2.2, repeat: Infinity, ease: 'easeInOut' },
+              }}
+              className={`w-full h-full ${bf.direction === -1 ? 'scale-x-[-1]' : ''}`}
+            >
+              <svg viewBox="0 0 32 32" className="w-full h-full drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]">
+                <path d="M16 16 C12 5, 2 7, 3 16 C5 22, 13 20, 16 16 Z" fill={bf.colorTop} opacity="0.9" />
+                <path d="M16 16 C20 5, 30 7, 29 16 C27 22, 19 20, 16 16 Z" fill={bf.colorTop} opacity="0.9" />
+                <path d="M16 16 C11 23, 5 25, 7 28 C10 30, 15 23, 16 16 Z" fill={bf.colorBottom} opacity="0.85" />
+                <path d="M16 16 C21 23, 27 25, 25 28 C22 30, 17 23, 16 16 Z" fill={bf.colorBottom} opacity="0.85" />
+                <circle cx="10" cy="13" r="1.8" fill="rgba(255,255,255,0.7)" />
+                <circle cx="22" cy="13" r="1.8" fill="rgba(255,255,255,0.7)" />
+                <circle cx="11" cy="23" r="1.2" fill="rgba(255,255,255,0.6)" />
+                <circle cx="21" cy="23" r="1.2" fill="rgba(255,255,255,0.6)" />
+                <ellipse cx="16" cy="16" rx="1.2" ry="7" fill={bf.bodyColor} />
+                <line x1="16" y1="10" x2="13" y2="5" stroke={bf.bodyColor} strokeWidth="0.8" strokeLinecap="round" />
+                <line x1="16" y1="10" x2="19" y2="5" stroke={bf.bodyColor} strokeWidth="0.8" strokeLinecap="round" />
+              </svg>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      ))}
-
+        ))}
     </div>
   );
 }

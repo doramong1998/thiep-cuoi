@@ -27,9 +27,9 @@ export function GiftScene() {
       */}
 
       {/* Footer tông màu sáng lãng mạn, thanh thoát và hài hòa với trang */}
-      <footer className="relative py-16 sm:py-24 bg-gradient-to-b from-amber-50/60 via-[#fffcf6]/90 to-amber-100/70 backdrop-blur-md text-amber-950 text-center px-4 overflow-hidden border-t border-amber-300/40 select-none">
+      <footer className="relative py-16 sm:py-24 bg-gradient-to-b from-amber-50/80 via-[#fffcf6] to-amber-100/80 text-amber-950 text-center px-4 overflow-hidden border-t border-amber-300/40 select-none">
         {/* Ánh sáng vàng hồng dịu dàng lan tỏa */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-48 bg-gradient-to-r from-amber-200/30 via-rose-200/30 to-amber-200/30 blur-3xl pointer-events-none -z-10" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-40 bg-gradient-to-r from-amber-200/20 via-rose-200/20 to-amber-200/20 pointer-events-none -z-10" />
 
         <motion.div
           className="relative z-10 max-w-xl mx-auto flex flex-col items-center"

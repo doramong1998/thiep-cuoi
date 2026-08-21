@@ -4,7 +4,7 @@ import { Heart } from 'lucide-react';
 
 export function CountdownScene() {
   return (
-    <section className="min-h-[60vh] flex flex-col items-center justify-center bg-gradient-to-b from-amber-50/20 via-rose-50/15 to-amber-50/25 backdrop-blur-[0.5px] relative overflow-hidden px-4 py-16 sm:py-20">
+    <section className="min-h-[60vh] flex flex-col items-center justify-center bg-gradient-to-b from-amber-50/20 via-rose-50/15 to-amber-50/25 relative overflow-hidden px-4 py-16 sm:py-20">
       {/* Decorative dots */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: `radial-gradient(circle, #D4AF37 1px, transparent 1px)`,

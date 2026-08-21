@@ -20,7 +20,7 @@ export function GalleryScene() {
   const prev = useCallback(() => setSelectedIndex(p => p !== null ? (p - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length : null), []);
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-b from-amber-50/20 via-rose-50/15 to-amber-50/25 backdrop-blur-[0.5px] px-4">
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-amber-50/20 via-rose-50/15 to-amber-50/25 px-4">
       <motion.div
         className="text-center mb-10"
         initial={{ opacity: 0, y: 20 }}

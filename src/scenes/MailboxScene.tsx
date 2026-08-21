@@ -109,11 +109,11 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-50/30 pointer-events-none" />
       
       <div 
-        className="absolute w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full pointer-events-none opacity-45 blur-3xl transition-all duration-1000"
+        className="absolute w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full pointer-events-none opacity-35 transition-opacity duration-1000"
         style={{
           background: isOpen 
-            ? 'radial-gradient(circle, rgba(212,175,55,0.22) 0%, rgba(255,215,0,0.08) 50%, transparent 75%)'
-            : 'radial-gradient(circle, rgba(212,175,55,0.14) 0%, rgba(232,212,176,0.06) 50%, transparent 75%)',
+            ? 'radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(255,215,0,0.06) 50%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(232,212,176,0.04) 50%, transparent 70%)',
         }}
       />
 
@@ -154,28 +154,21 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
         </svg>
       </div>
 
-      {/* 4. Hiệu ứng cánh hoa và đốm sáng lơ lửng rơi nhẹ nhàng */}
+      {/* 4. Đốm sáng lơ lửng nhẹ nhàng — Giảm từ 10 xuống 5, dùng CSS animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {Array.from({ length: 10 }, (_, i) => (
-          <motion.div
+        {Array.from({ length: 5 }, (_, i) => (
+          <div
             key={i}
-            className="absolute rounded-full"
+            className="absolute rounded-full animate-pulse"
             style={{
               width: 5 + (i % 3) * 3,
               height: 5 + (i % 3) * 3,
-              left: `${8 + i * 9}%`,
+              left: `${10 + i * 18}%`,
+              top: `${15 + ((i * 23) % 60)}%`,
               backgroundColor: ['#FFD1DC', '#D4AF37', '#FFB7C5', '#F5E6CC'][i % 4],
-              opacity: 0.35,
-            }}
-            animate={{
-              y: ['-6vh', '106vh'],
-              x: [0, Math.sin(i * 1.4) * 30, 0],
-            }}
-            transition={{
-              duration: 13 + (i % 4) * 2,
-              repeat: Infinity,
-              delay: i * 0.9,
-              ease: 'linear',
+              opacity: 0.3,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + i}s`,
             }}
           />
         ))}

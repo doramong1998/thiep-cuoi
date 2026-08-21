@@ -224,7 +224,7 @@ export function LetterScene({ onContinue }: LetterSceneProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 w-full">
             
             {/* THẺ NHÀ TRAI */}
-            <div className="relative rounded-2xl bg-[#fffdf9]/90 backdrop-blur-md p-5 sm:p-6 border border-amber-300/60 shadow-[0_12px_30px_-8px_rgba(90,60,30,0.12)] flex flex-col justify-between text-center group">
+            <div className="relative rounded-2xl bg-[#fffdf9]/95 p-5 sm:p-6 border border-amber-300/60 shadow-[0_12px_30px_-8px_rgba(90,60,30,0.12)] flex flex-col justify-between text-center group">
               {/* Viền đôi mỏng hoàng gia */}
               <div className="absolute inset-2 rounded-xl border border-amber-200/40 pointer-events-none" />
               
@@ -277,7 +277,7 @@ export function LetterScene({ onContinue }: LetterSceneProps) {
 
 
             {/* THẺ NHÀ GÁI */}
-            <div className="relative rounded-2xl bg-[#fffdf9]/90 backdrop-blur-md p-5 sm:p-6 border border-amber-300/60 shadow-[0_12px_30px_-8px_rgba(90,60,30,0.12)] flex flex-col justify-between text-center group">
+            <div className="relative rounded-2xl bg-[#fffdf9]/95 p-5 sm:p-6 border border-amber-300/60 shadow-[0_12px_30px_-8px_rgba(90,60,30,0.12)] flex flex-col justify-between text-center group">
               {/* Viền đôi mỏng hoàng gia */}
               <div className="absolute inset-2 rounded-xl border border-amber-200/40 pointer-events-none" />
               
