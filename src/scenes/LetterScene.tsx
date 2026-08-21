@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart, ChevronDown, MapPin, ExternalLink, Sparkles, Gamepad2 } from 'lucide-react';
+import { Heart, MapPin, ExternalLink, Sparkles, Gamepad2 } from 'lucide-react';
 import { BRIDE, GROOM, BRIDE_FAMILY, GROOM_FAMILY } from '@/data/wedding';
 
 interface LetterSceneProps {

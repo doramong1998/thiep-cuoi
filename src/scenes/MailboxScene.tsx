@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Sparkles, Heart, ChevronDown, Calendar, Clock, MapPin, RotateCw } from 'lucide-react';
-import { BRIDE, GROOM, WEDDING_INFO } from '@/data/wedding';
+import { Sparkles, Heart, RotateCw } from 'lucide-react';
+import { BRIDE, GROOM } from '@/data/wedding';
 
 interface MailboxSceneProps {
   onOpen?: () => void;
@@ -34,7 +34,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
 
   // Tự động hiển thị tooltip gợi ý sau 3 giây mở thư nếu người dùng chưa lật thiệp
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: ReturnType<typeof setTimeout>;
     if (isOpen && !isFlipped) {
       timer = setTimeout(() => {
         setShowFlipHint(true);
