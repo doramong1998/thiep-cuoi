@@ -60,10 +60,7 @@ export function GiftScene() {
             <div className="h-px w-14 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
           </div>
 
-          {/* Dòng bản quyền sắc nét, tươi sáng */}
-          <p className="font-['Montserrat',sans-serif] text-xs sm:text-sm text-amber-800/80 tracking-wider font-medium">
-            {GROOM.fullName} ❤️ {BRIDE.fullName} · Forever & Always
-          </p>
+        
         </motion.div>
       </footer>
     </>

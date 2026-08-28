@@ -23,9 +23,10 @@ export function GalleryScene() {
     <section className="py-16 sm:py-20 bg-gradient-to-b from-amber-50/20 via-rose-50/15 to-amber-50/25 px-4">
       <motion.div
         className="text-center mb-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.9, y: 40 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <h2 className="font-['Alex_Brush',cursive] text-4xl sm:text-6xl text-amber-950 drop-shadow-sm font-normal">
           Album Ảnh Cưới Của Chúng Mình
@@ -40,19 +41,21 @@ export function GalleryScene() {
         </div>
       </motion.div>
 
-      {/* Masonry Grid */}
+      {/* Masonry Grid (Animation Zoom To & Lệch Lên Khi Scroll + Hover To & Lệch Nhẹ, Không Viền) */}
       <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 max-w-5xl mx-auto">
         {GALLERY_IMAGES.map((img, i) => (
           <motion.button
             key={img.id}
-            className={`w-full ${img.aspectClass} rounded-lg overflow-hidden cursor-pointer group relative block mb-3 border-2 border-amber-100 hover:border-amber-300 transition-colors`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.04 }}
+            className={`w-full ${img.aspectClass} rounded-lg overflow-hidden cursor-pointer group relative block mb-3 shadow-sm hover:shadow-xl transition-shadow duration-300`}
+            initial={{ opacity: 0, scale: 0.85, y: 45 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            whileHover={{ scale: 1.05, y: -6, rotate: i % 2 === 0 ? 1 : -1 }}
+            whileTap={{ scale: 0.98 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.65, delay: (i % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => open(i)}
           >
-            <div className={`w-full h-full bg-gradient-to-br ${img.bgGradient} transition-transform duration-300 group-hover:scale-110 flex items-center justify-center`}>
+            <div className={`w-full h-full bg-gradient-to-br ${img.bgGradient} transition-transform duration-500 group-hover:scale-110 flex items-center justify-center`}>
               <span className="text-3xl opacity-20">📷</span>
             </div>
           </motion.button>

@@ -19,7 +19,7 @@ export function CountdownScene() {
         className="text-center z-10 max-w-xl mx-auto flex flex-col items-center"
       >
         <p className="font-['Cormorant_Garamond',serif] italic text-base sm:text-xl text-amber-800/90 mb-1 max-w-lg mx-auto leading-relaxed">
-          Cảm ơn Quý khách và Bạn bè đã luôn yêu thương, chúc phúc và đến chung vui cùng chúng mình!
+          Cảm ơn mọi người đã luôn yêu thương, chúc phúc và đến chung vui cùng chúng mình!
         </p>
 
         <h2 className="font-['Alex_Brush',cursive] text-4xl sm:text-6xl text-amber-950 mb-3 drop-shadow-sm font-normal">

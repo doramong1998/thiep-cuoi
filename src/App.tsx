@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { DreamyMeadowAtmosphere } from '@/components/DreamyMeadowAtmosphere';
+import { MusicFloatingButton } from '@/components/MusicFloatingButton';
 import { MailboxScene } from '@/scenes/MailboxScene';
 import { LetterScene } from '@/scenes/LetterScene';
 import { CountdownScene } from '@/scenes/CountdownScene';
@@ -62,6 +63,9 @@ function App() {
 
       {/* Scene 8: Gift + Footer */}
       <GiftScene />
+
+      {/* Floating Music Button */}
+      <MusicFloatingButton />
     </div>
   );
 }

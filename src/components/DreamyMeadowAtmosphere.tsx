@@ -16,97 +16,72 @@ function useIsMobile() {
 }
 
 // ==========================================
-// 1. CÁNH HOA DẠI BAY (PETALS)
+// 1. CÁNH HOA DẠI BAY (PETALS) - Đã giảm 1/2 số lượng
 // ==========================================
 const PETALS_FULL = [
-  { id: 1, left: '4%', size: 14, color: '#FFB7C5', duration: 11, delay: 0, xOffset: 35, rotateDir: 1 },
-  { id: 2, left: '11%', size: 12, color: '#FFFFFF', duration: 14, delay: 2.5, xOffset: -40, rotateDir: -1 },
-  { id: 3, left: '19%', size: 16, color: '#FDE047', duration: 12, delay: 1.2, xOffset: 45, rotateDir: 1 },
-  { id: 4, left: '27%', size: 13, color: '#E9D5FF', duration: 15, delay: 4.0, xOffset: -30, rotateDir: -1 },
-  { id: 5, left: '36%', size: 15, color: '#FECDD3', duration: 13, delay: 0.8, xOffset: 50, rotateDir: 1 },
-  { id: 6, left: '45%', size: 11, color: '#FFB6C1', duration: 16, delay: 3.2, xOffset: -35, rotateDir: -1 },
-  { id: 7, left: '53%', size: 14, color: '#FFFFFF', duration: 12.5, delay: 1.7, xOffset: 40, rotateDir: 1 },
-  { id: 8, left: '62%', size: 15, color: '#FBBF24', duration: 14.5, delay: 5.1, xOffset: -45, rotateDir: -1 },
-  { id: 9, left: '71%', size: 13, color: '#DDD6FE', duration: 11.5, delay: 2.1, xOffset: 30, rotateDir: 1 },
-  { id: 10, left: '79%', size: 16, color: '#FDA4AF', duration: 13.5, delay: 0.3, xOffset: -50, rotateDir: -1 },
-  { id: 11, left: '87%', size: 12, color: '#FFFFFF', duration: 15.5, delay: 3.8, xOffset: 35, rotateDir: 1 },
-  { id: 12, left: '94%', size: 14, color: '#FFD1DC', duration: 12.0, delay: 1.5, xOffset: -40, rotateDir: -1 },
-  { id: 13, left: '15%', size: 15, color: '#FDE68A', duration: 14.0, delay: 6.2, xOffset: 40, rotateDir: 1 },
-  { id: 14, left: '67%', size: 13, color: '#F472B6', duration: 13.0, delay: 4.8, xOffset: -35, rotateDir: -1 },
+  { id: 1, left: '6%', size: 14, color: '#FFB7C5', duration: 11, delay: 0, xOffset: 35, rotateDir: 1 },
+  { id: 2, left: '20%', size: 16, color: '#FDE047', duration: 12, delay: 1.2, xOffset: 45, rotateDir: 1 },
+  { id: 3, left: '36%', size: 15, color: '#FECDD3', duration: 13, delay: 0.8, xOffset: 50, rotateDir: 1 },
+  { id: 4, left: '53%', size: 14, color: '#FFFFFF', duration: 12.5, delay: 1.7, xOffset: 40, rotateDir: 1 },
+  { id: 5, left: '68%', size: 13, color: '#DDD6FE', duration: 11.5, delay: 2.1, xOffset: 30, rotateDir: 1 },
+  { id: 6, left: '82%', size: 16, color: '#FDA4AF', duration: 13.5, delay: 0.3, xOffset: -50, rotateDir: -1 },
+  { id: 7, left: '94%', size: 14, color: '#FFD1DC', duration: 12.0, delay: 1.5, xOffset: -40, rotateDir: -1 },
 ];
 
 const PETALS_LITE = [
-  { id: 1, left: '8%', size: 14, color: '#FFB7C5', duration: 14, delay: 0, xOffset: 35, rotateDir: 1 },
-  { id: 2, left: '25%', size: 16, color: '#FDE047', duration: 16, delay: 2.5, xOffset: -40, rotateDir: -1 },
-  { id: 3, left: '42%', size: 13, color: '#FECDD3', duration: 13, delay: 1.2, xOffset: 45, rotateDir: 1 },
-  { id: 4, left: '58%', size: 15, color: '#FFFFFF', duration: 15, delay: 4.0, xOffset: -30, rotateDir: -1 },
-  { id: 5, left: '75%', size: 14, color: '#DDD6FE', duration: 14, delay: 0.8, xOffset: 40, rotateDir: 1 },
-  { id: 6, left: '90%', size: 12, color: '#FFD1DC', duration: 17, delay: 3.2, xOffset: -35, rotateDir: -1 },
+  { id: 1, left: '12%', size: 14, color: '#FFB7C5', duration: 14, delay: 0, xOffset: 35, rotateDir: 1 },
+  { id: 2, left: '50%', size: 15, color: '#FFFFFF', duration: 15, delay: 2.5, xOffset: -30, rotateDir: -1 },
+  { id: 3, left: '85%', size: 14, color: '#DDD6FE', duration: 14, delay: 0.8, xOffset: 40, rotateDir: 1 },
 ];
 
 // ==========================================
-// 2. LÁ CÂY THẢO NGUYÊN BAY (LEAVES)
+// 2. LÁ CÂY THẢO NGUYÊN BAY (LEAVES) - Đã giảm 1/2 số lượng
 // ==========================================
 const LEAVES_FULL = [
-  { id: 1, left: '7%', size: 18, color: '#86EFAC', duration: 13, delay: 1.0, xOffset: 55 },
-  { id: 2, left: '23%', size: 15, color: '#4ADE80', duration: 16, delay: 4.2, xOffset: -45 },
-  { id: 3, left: '39%', size: 20, color: '#A7F3D0', duration: 14, delay: 2.8, xOffset: 60 },
-  { id: 4, left: '57%', size: 16, color: '#A3E635', duration: 17, delay: 0.5, xOffset: -50 },
-  { id: 5, left: '72%', size: 17, color: '#86EFAC', duration: 15, delay: 3.5, xOffset: 50 },
-  { id: 6, left: '86%', size: 19, color: '#6EE7B7', duration: 13.5, delay: 5.5, xOffset: -55 },
-  { id: 7, left: '31%', size: 16, color: '#4ADE80', duration: 18, delay: 2.0, xOffset: 45 },
-  { id: 8, left: '80%', size: 15, color: '#A7F3D0', duration: 14.5, delay: 6.0, xOffset: -40 },
+  { id: 1, left: '10%', size: 18, color: '#86EFAC', duration: 13, delay: 1.0, xOffset: 55 },
+  { id: 2, left: '35%', size: 20, color: '#A7F3D0', duration: 14, delay: 2.8, xOffset: 60 },
+  { id: 3, left: '65%', size: 17, color: '#86EFAC', duration: 15, delay: 3.5, xOffset: 50 },
+  { id: 4, left: '88%', size: 19, color: '#6EE7B7', duration: 13.5, delay: 5.5, xOffset: -55 },
 ];
 
 const LEAVES_LITE = [
-  { id: 1, left: '12%', size: 18, color: '#86EFAC', duration: 15, delay: 1.0, xOffset: 50 },
-  { id: 2, left: '38%', size: 16, color: '#4ADE80', duration: 18, delay: 4.0, xOffset: -45 },
-  { id: 3, left: '62%', size: 17, color: '#A7F3D0', duration: 16, delay: 2.5, xOffset: 55 },
-  { id: 4, left: '85%', size: 15, color: '#6EE7B7', duration: 17, delay: 5.5, xOffset: -40 },
+  { id: 1, left: '20%', size: 18, color: '#86EFAC', duration: 15, delay: 1.0, xOffset: 50 },
+  { id: 2, left: '75%', size: 17, color: '#A7F3D0', duration: 16, delay: 2.5, xOffset: 55 },
 ];
 
 // ==========================================
-// 3. HOA BỒ CÔNG ANH BAY THEO GIÓ (DANDELION SEEDS)
+// 3. HOA BỒ CÔNG ANH BAY THEO GIÓ (DANDELION SEEDS) - Đã giảm 1/2 số lượng
 // ==========================================
 const DANDELIONS_FULL = [
-  { id: 1, left: '6%', size: 26, duration: 16, delay: 0.5, xOffset: 65, rotate: 25 },
-  { id: 2, left: '14%', size: 22, duration: 20, delay: 4.2, xOffset: -45, rotate: -20 },
-  { id: 3, left: '22%', size: 30, duration: 18, delay: 2.0, xOffset: 70, rotate: 30 },
-  { id: 4, left: '33%', size: 24, duration: 22, delay: 6.5, xOffset: -55, rotate: -15 },
-  { id: 5, left: '42%', size: 28, duration: 17, delay: 1.5, xOffset: 60, rotate: 20 },
-  { id: 6, left: '51%', size: 20, duration: 19, delay: 5.0, xOffset: -40, rotate: -25 },
-  { id: 7, left: '61%', size: 32, duration: 15, delay: 3.2, xOffset: 80, rotate: 35 },
-  { id: 8, left: '70%', size: 25, duration: 21, delay: 7.8, xOffset: -60, rotate: -18 },
-  { id: 9, left: '78%', size: 27, duration: 18, delay: 0.8, xOffset: 50, rotate: 22 },
-  { id: 10, left: '88%', size: 23, duration: 23, delay: 4.5, xOffset: -50, rotate: -30 },
-  { id: 11, left: '95%', size: 29, duration: 16, delay: 2.7, xOffset: 75, rotate: 28 },
-  { id: 12, left: '18%', size: 21, duration: 24, delay: 8.5, xOffset: 45, rotate: 15 },
-  { id: 13, left: '48%', size: 25, duration: 19, delay: 9.2, xOffset: -65, rotate: -22 },
-  { id: 14, left: '83%', size: 28, duration: 17, delay: 6.0, xOffset: 55, rotate: 24 },
+  { id: 1, left: '8%', size: 26, duration: 16, delay: 0.5, xOffset: 65, rotate: 25 },
+  { id: 2, left: '24%', size: 30, duration: 18, delay: 2.0, xOffset: 70, rotate: 30 },
+  { id: 3, left: '42%', size: 28, duration: 17, delay: 1.5, xOffset: 60, rotate: 20 },
+  { id: 4, left: '58%', size: 24, duration: 22, delay: 6.5, xOffset: -55, rotate: -15 },
+  { id: 5, left: '72%', size: 32, duration: 15, delay: 3.2, xOffset: 80, rotate: 35 },
+  { id: 6, left: '85%', size: 27, duration: 18, delay: 0.8, xOffset: 50, rotate: 22 },
+  { id: 7, left: '95%', size: 29, duration: 16, delay: 2.7, xOffset: 75, rotate: 28 },
 ];
 
 const DANDELIONS_LITE = [
-  { id: 1, left: '10%', size: 26, duration: 18, delay: 0.5, xOffset: 55, rotate: 25 },
-  { id: 2, left: '30%', size: 24, duration: 22, delay: 4.0, xOffset: -45, rotate: -20 },
-  { id: 3, left: '50%', size: 28, duration: 17, delay: 2.0, xOffset: 60, rotate: 30 },
-  { id: 4, left: '70%', size: 22, duration: 20, delay: 6.0, xOffset: -50, rotate: -15 },
-  { id: 5, left: '88%', size: 25, duration: 19, delay: 3.5, xOffset: 50, rotate: 22 },
+  { id: 1, left: '15%', size: 26, duration: 18, delay: 0.5, xOffset: 55, rotate: 25 },
+  { id: 2, left: '50%', size: 28, duration: 17, delay: 2.0, xOffset: 60, rotate: 30 },
+  { id: 3, left: '85%', size: 25, duration: 19, delay: 3.5, xOffset: 50, rotate: 22 },
 ];
 
 // ==========================================
-// 4. HẠT PHẤN HOA LẤP LÁNH DƯỚI NẮNG (SUN POLLEN)
+// 4. HẠT PHẤN HOA LẤP LÁNH DƯỚI NẮNG (SUN POLLEN) - Đã giảm 1/2 số lượng
 // ==========================================
-const SUN_SPECKLES_FULL = Array.from({ length: 22 }, (_, i) => ({
+const SUN_SPECKLES_FULL = Array.from({ length: 11 }, (_, i) => ({
   id: i,
-  left: `${3 + (i * 4.5)}%`,
-  top: `${8 + ((i * 19) % 85)}%`,
+  left: `${4 + (i * 9)}%`,
+  top: `${10 + ((i * 23) % 80)}%`,
   size: 2 + (i % 3) * 1.5,
   duration: 4 + (i % 4) * 2,
-  delay: (i * 0.35) % 3,
+  delay: (i * 0.4) % 3,
 }));
 
 // ==========================================
-// 5. ĐÀN BƯỚM THẢO NGUYÊN ĐA SẮC (CHỈ DESKTOP)
+// 5. ĐÀN BƯỚM THẢO NGUYÊN ĐA SẮC (CHỈ DESKTOP) - Đã giảm 1/2 số lượng
 // ==========================================
 const BUTTERFLIES = [
   {
@@ -117,32 +92,17 @@ const BUTTERFLIES = [
   {
     id: 'bf-2', size: 26, colorTop: '#A78BFA', colorBottom: '#FDE047', bodyColor: '#4B382A',
     startX: '105vw', endX: '-5vw', yKeyframes: ['65vh', '48vh', '70vh', '42vh', '60vh'],
-    duration: 28, delay: 11, direction: -1,
+    duration: 28, delay: 9, direction: -1,
   },
   {
     id: 'bf-3', size: 25, colorTop: '#38BDF8', colorBottom: '#67E8F9', bodyColor: '#334155',
     startX: '-6vw', endX: '106vw', yKeyframes: ['75vh', '55vh', '40vh', '22vh', '10vh'],
-    duration: 26, delay: 6, direction: 1,
+    duration: 26, delay: 5, direction: 1,
   },
   {
     id: 'bf-4', size: 30, colorTop: '#FB923C', colorBottom: '#FBBF24', bodyColor: '#4B382A',
     startX: '106vw', endX: '-6vw', yKeyframes: ['22vh', '35vh', '18vh', '45vh', '25vh'],
-    duration: 22, delay: 17, direction: -1,
-  },
-  {
-    id: 'bf-5a', size: 20, colorTop: '#FDA4AF', colorBottom: '#FDE68A', bodyColor: '#5C3A21',
-    startX: '-5vw', endX: '105vw', yKeyframes: ['48vh', '40vh', '52vh', '36vh', '44vh'],
-    duration: 25, delay: 14, direction: 1,
-  },
-  {
-    id: 'bf-5b', size: 18, colorTop: '#C084FC', colorBottom: '#FBCFE8', bodyColor: '#5C3A21',
-    startX: '-7vw', endX: '103vw', yKeyframes: ['52vh', '43vh', '56vh', '39vh', '47vh'],
-    duration: 25, delay: 14.3, direction: 1,
-  },
-  {
-    id: 'bf-6', size: 24, colorTop: '#34D399', colorBottom: '#FEF08A', bodyColor: '#1E3A2F',
-    startX: '105vw', endX: '-5vw', yKeyframes: ['80vh', '65vh', '85vh', '58vh', '72vh'],
-    duration: 27, delay: 20, direction: -1,
+    duration: 22, delay: 15, direction: -1,
   },
 ];
 
@@ -315,19 +275,19 @@ export function DreamyMeadowAtmosphere() {
       {/* 5. ĐỐM PHẤN HOA — Desktop: JS animation đầy đủ | Mobile: CSS animation nhẹ */}
       <div className="absolute inset-0 overflow-hidden">
         {isMobile
-          ? Array.from({ length: 8 }, (_, i) => (
+          ? Array.from({ length: 4 }, (_, i) => (
               <div
                 key={`dot-${i}`}
                 className="absolute rounded-full animate-pulse"
                 style={{
-                  left: `${10 + i * 12}%`,
-                  top: `${15 + ((i * 23) % 65)}%`,
+                  left: `${15 + i * 24}%`,
+                  top: `${20 + ((i * 27) % 60)}%`,
                   width: 2 + (i % 3) * 1.5,
                   height: 2 + (i % 3) * 1.5,
                   backgroundColor: ['#FDE047', '#FFD700', '#F3E5AB', '#FFB7C5'][i % 4],
                   boxShadow: '0 0 6px rgba(253, 224, 71, 0.6)',
                   opacity: 0.5,
-                  animationDelay: `${i * 0.4}s`,
+                  animationDelay: `${i * 0.6}s`,
                   animationDuration: `${3 + (i % 3)}s`,
                 }}
               />

@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PixelEngine } from '@/canvas/PixelEngine';
 import { MilestoneCard } from '@/components/MilestoneCard';
+import { MobileJourney } from '@/components/MobileJourney';
 import { MILESTONES } from '@/data/wedding';
 import type { Milestone } from '@/types';
 
@@ -15,6 +16,9 @@ export function JourneyScene() {
   const [activeMilestone, setActiveMilestone] = useState<Milestone | null>(null);
 
   useLayoutEffect(() => {
+    // Chỉ khởi tạo GSAP ScrollTrigger và Pixel Canvas trên màn hình Desktop (>= 768px)
+    if (window.innerWidth < 768) return;
+
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -57,7 +61,13 @@ export function JourneyScene() {
 
   return (
     <>
-      <div ref={containerRef} className="relative w-full h-screen overflow-hidden">
+      {/* 1. Giao diện Journey dành riêng cho Mobile (Dạng Timeline & Ảnh dấu mốc nghệ thuật) */}
+      <div className="block md:hidden">
+        <MobileJourney />
+      </div>
+
+      {/* 2. Giao diện Pixel Game Side-scrolling dành cho Desktop */}
+      <div ref={containerRef} className="hidden md:block relative w-full h-screen overflow-hidden">
         <canvas
           ref={canvasRef}
           className="absolute inset-0"
