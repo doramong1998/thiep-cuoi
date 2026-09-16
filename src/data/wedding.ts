@@ -54,7 +54,7 @@ export const MILESTONES: Milestone[] = [
     title: 'Buổi Hẹn Hò Đầu Tiên',
     date: '22/06/2024',
     description:
-      'Một cuộc hẹn tưởng như bình thường nhưng lại mở đầu cho câu chuyện đặc biệt của chúng mình. Từ những câu chuyện không hồi kết đến những nụ cười ngại ngùng, mọi thứ bắt đầu từ đây.',
+      'Một buổi hẹn hò tưởng chừng rất bình thường, nhưng lại là khoảnh khắc cuộc sống của hai người bắt đầu giao nhau. Từ những câu chuyện còn ngập ngừng đến những nụ cười chẳng muốn kết thúc, chúng mình đã vô tình bước vào câu chuyện đẹp nhất của tuổi trẻ.',
     icon: '☕',
     season: 'summer',
     scrollStart: 0,
@@ -66,10 +66,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'cao-bang',
-    title: 'Cao Bằng – Chuyến Đi Đầu Tiên',
+    title: 'Chuyến Đi Đầu Tiên Của Hai Đứa',
     date: '02/09/2024',
     description:
-      'Chuyến đi xa đầu tiên cùng nhau. Những cung đường đẹp, những khung cảnh hùng vĩ và những bức ảnh đầu tiên đã trở thành ký ức đáng nhớ của tuổi trẻ.',
+      'Lần đầu cùng nhau đi xa, cùng ngắm những cung đường mới và những khung cảnh chưa từng thấy. Cao Bằng không chỉ là một chuyến du lịch, mà còn là nơi lưu giữ những ký ức đầu tiên của hai đứa trên hành trình yêu thương.',
     icon: '🏞️',
     season: 'autumn',
     scrollStart: 0.083,
@@ -81,10 +81,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'da-lat',
-    title: 'Đà Lạt Mộng Mơ',
+    title: 'Có Một Đà Lạt Của Riêng Chúng Mình',
     date: '14/12/2024',
     description:
-      'Giữa tiết trời se lạnh của Đà Lạt, chúng mình cùng dạo bước qua những con dốc nhỏ, thưởng thức ly cà phê nóng và lưu giữ thật nhiều khoảnh khắc đẹp bên nhau.',
+      'Giữa những cơn mưa lất phất và tiết trời se lạnh của Đà Lạt, chúng mình cùng đi qua những con dốc nhỏ, cùng chia sẻ những câu chuyện rất dài và những khoảnh khắc rất yên bình. Đó là lần đầu tiên cảm nhận rõ rằng chỉ cần ở cạnh nhau, nơi nào cũng trở nên đặc biệt.',
     icon: '🌲',
     season: 'winter',
     scrollStart: 0.166,
@@ -96,10 +96,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'new-year',
-    title: 'Đón Giao Thừa Cùng Nhau',
+    title: 'Khoảnh Khắc Bước Sang Năm Mới',
     date: '01/01/2025',
     description:
-      'Lần đầu tiên cùng nhau bước sang một năm mới. Dưới ánh đèn và pháo hoa, chúng mình trao nhau những lời chúc và những hy vọng cho tương lai.',
+      'Giữa ánh đèn rực rỡ và những chùm pháo hoa trên bầu trời, chúng mình cùng đếm ngược những giây cuối cùng của năm cũ. Lần đầu tiên đón giao thừa cùng nhau, và cũng là lần đầu tiên mong rằng mọi năm sau đều sẽ có đối phương bên cạnh.',
     icon: '🎆',
     season: 'winter',
     scrollStart: 0.249,
@@ -111,10 +111,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'birthdays',
-    title: 'Sinh Nhật Của Chúng Mình',
+    title: 'Những Ngày Đặc Biệt Của Chúng Mình',
     date: '18/01 & 30/04',
     description:
-      'Từ những người xa lạ trở thành người luôn xuất hiện trong những dịp đặc biệt nhất của nhau. Hai ngày sinh nhật, hai kỷ niệm ngọt ngào và thật nhiều yêu thương.',
+      'Từ người xa lạ trở thành người đầu tiên muốn gặp trong ngày sinh nhật. Những món quà, những lời chúc và cả sự hiện diện của nhau đã khiến những ngày đặc biệt ấy trở nên ý nghĩa hơn bao giờ hết.',
     icon: '🎂',
     season: 'spring',
     scrollStart: 0.332,
@@ -126,10 +126,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'ly-son',
-    title: 'Hội An & Lý Sơn',
+    title: 'Nắng Gió Hội An & Lý Sơn',
     date: '28/06/2025',
     description:
-      'Biển xanh, nắng vàng và những ngày rong ruổi bên nhau. Chuyến đi giúp chúng mình hiểu nhau hơn và có thêm thật nhiều câu chuyện để kể.',
+      'Những con phố vàng, những bãi biển xanh và những ngày rong ruổi không cần vội vã. Chúng mình đã cùng nhau lưu giữ thêm thật nhiều kỷ niệm, để rồi nhận ra rằng điều đẹp nhất trong mỗi chuyến đi không phải là điểm đến, mà là người đồng hành.',
     icon: '🌊',
     season: 'summer',
     scrollStart: 0.415,
@@ -141,10 +141,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'concert',
-    title: 'Đu Concert Cùng Nhau',
+    title: 'Thanh Xuân Rực Rỡ',
     date: '06/08/2025',
     description:
-      'Giữa hàng ngàn người xa lạ, chúng mình vẫn tìm thấy nhau. Một đêm đầy âm nhạc, cảm xúc và những ký ức thanh xuân không thể nào quên.',
+      'Giữa hàng ngàn người xa lạ và những giai điệu vang lên trong đêm, chúng mình vẫn nắm chặt tay nhau. Một đêm của âm nhạc, của cảm xúc và của những ký ức mà sau này nhắc lại, cả hai sẽ luôn mỉm cười.',
     icon: '🎵',
     season: 'summer',
     scrollStart: 0.498,
@@ -156,10 +156,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'one-year',
-    title: 'Tròn Một Năm Yêu Nhau',
+    title: '365 Ngày Yêu Thương',
     date: '12/08/2025',
     description:
-      '365 ngày bên nhau với biết bao niềm vui, kỷ niệm và những lần cùng vượt qua khó khăn. Một năm không dài nhưng đủ để chúng mình hiểu rằng đây là người mình muốn đồng hành cả đời.',
+      'Một năm không quá dài, nhưng đủ để chúng mình đi qua rất nhiều điều cùng nhau. Có những ngày vui vẻ, có những lúc giận hờn, nhưng sau tất cả, điều quý giá nhất vẫn là chúng mình chưa từng buông tay nhau.',
     icon: '💕',
     season: 'autumn',
     scrollStart: 0.581,
@@ -171,10 +171,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'sapa',
-    title: 'Mùa Đông Sa Pa',
+    title: 'Mùa Đông Và Những Cái Nắm Tay',
     date: '06/12/2025',
     description:
-      'Những con đường mờ sương, cái lạnh vùng cao và đôi bàn tay luôn nắm chặt. Một chuyến đi khép lại năm cũ bằng những ký ức thật ấm áp.',
+      'Giữa màn sương của Sa Pa và cái lạnh vùng cao, đôi bàn tay vẫn tìm thấy nhau giữa dòng người. Một chuyến đi cuối năm không chỉ lưu giữ những khung hình đẹp, mà còn lưu giữ thật nhiều cảm xúc ấm áp.',
     icon: '🏔️',
     season: 'winter',
     scrollStart: 0.664,
@@ -186,10 +186,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'nha-trang',
-    title: 'Nha Trang Mùa Hè',
+    title: 'Mùa Hè Của Chúng Mình',
     date: '01/06/2026',
     description:
-      'Biển xanh, cát trắng và những ngày ngập tràn tiếng cười. Chúng mình tiếp tục viết thêm những chương đẹp nhất cho câu chuyện tình yêu của mình.',
+      'Biển xanh, cát trắng và những tiếng cười không ngớt. Thêm một chuyến đi, thêm một mùa hè cùng nhau, và thêm một chương thật đẹp được viết tiếp trong cuốn nhật ký tình yêu của hai đứa.',
     icon: '🏖️',
     season: 'summer',
     scrollStart: 0.747,
@@ -201,10 +201,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'proposal',
-    title: 'Lời Cầu Hôn',
+    title: 'Lời Hứa Cho Cả Một Đời',
     date: '01/08/2026',
     description:
-      'Sau tất cả những chuyến đi, những kỷ niệm và những tháng ngày đồng hành, anh đã hỏi câu hỏi quan trọng nhất. Và em đã mỉm cười gật đầu.',
+      'Sau tất cả những chuyến đi, những kỷ niệm và những tháng ngày đồng hành, anh đã lấy hết can đảm để hỏi câu hỏi quan trọng nhất cuộc đời. Và trong khoảnh khắc em mỉm cười gật đầu, tương lai của chúng mình đã chính thức bắt đầu.',
     icon: '💍',
     season: 'summer',
     scrollStart: 0.83,
@@ -216,10 +216,10 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'forever',
-    title: 'Ngày Chúng Mình Về Chung Một Nhà',
+    title: 'Về Chung Một Nhà',
     date: '25/10/2026',
     description:
-      'Hành trình yêu thương vẫn đang tiếp tục. Và chương đẹp nhất của câu chuyện này sẽ được viết nên trong ngày trọng đại của chúng mình.',
+      'Từ hai người xa lạ trở thành một phần không thể thiếu trong cuộc sống của nhau. Hôm nay không phải là điểm kết thúc của hành trình yêu thương, mà là ngày chúng mình cùng mở ra chương mới đẹp nhất — chương mang tên gia đình.',
     icon: '💒',
     season: 'spring',
     scrollStart: 0.913,

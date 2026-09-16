@@ -184,11 +184,11 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
         }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p className="text-[11px] sm:text-xs tracking-[0.3em] uppercase text-amber-800/80 font-medium mb-1.5 font-['Montserrat',sans-serif]">
+        <p className="text-[11px] sm:text-xs tracking-[0.3em] uppercase text-amber-800/80 font-medium mb-2 font-['Montserrat',sans-serif]">
           Wedding Invitation
         </p>
         <h1 className="font-['Great_Vibes',cursive] text-3xl sm:text-5xl text-[#6d4c2a] drop-shadow-sm">
-           {GROOM.firstName}  &amp; {BRIDE.firstName}
+           {GROOM.firstName}  &amp;  {BRIDE.firstName}
         </h1>
         <div className="flex items-center justify-center gap-2 mt-2">
           <div className="h-px w-10 bg-amber-300" />
@@ -382,18 +382,18 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
 
                   {/* Phần giữa: Tiêu đề WEDDING INVITATION & Tên cặp đôi */}
                   <div className="flex flex-col items-center my-auto">
-                    <p className="font-['Montserrat',sans-serif] text-xs sm:text-sm uppercase tracking-[0.35em] text-amber-100 font-semibold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
+                    <p className="font-['Montserrat',sans-serif] text-xs sm:text-sm uppercase tracking-[0.35em] text-amber-100 font-semibold drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
                       Wedding Invitation
                     </p>
                     
-                    <div className="flex items-center justify-center gap-2 my-1">
+                    <div className="flex items-center justify-center gap-4 my-4">
                       <div className="h-px w-8 bg-amber-300/80 drop-shadow" />
                       <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400 drop-shadow-md" />
                       <div className="h-px w-8 bg-amber-300/80 drop-shadow" />
                     </div>
 
                     <h2 className="font-['Great_Vibes',cursive] text-3xl sm:text-4xl text-amber-50 drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)]">
-                      {GROOM.firstName} &amp; {BRIDE.firstName}
+                      {GROOM.firstName}  &amp;  {BRIDE.firstName}
                     </h2>
                   </div>
 

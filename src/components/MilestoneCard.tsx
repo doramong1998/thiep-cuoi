@@ -19,7 +19,7 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
         >
           <div className="bg-amber-50/95 rounded-xl border-2 border-amber-200 overflow-hidden">
             {/* Milestone image */}
-            <div className="h-80 sm:h-86 relative overflow-hidden">
+            <div className="h-80 sm:h-100 relative overflow-hidden">
               <img
                 src={milestone.image}
                 alt={milestone.title}

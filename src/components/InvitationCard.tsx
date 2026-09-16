@@ -39,17 +39,17 @@ export function InvitationCard() {
           <div className="h-px w-10 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
         </div>
 
-        <p className="text-xs text-amber-700/80 font-['Montserrat',sans-serif] uppercase tracking-[0.25em] font-medium mb-2">
-          Trân trọng kính mời
-        </p>
 
         {/* Lời mời chân thành từ cặp đôi */}
-        <p className="text-xs sm:text-[13px] text-amber-900/90 font-['Cormorant_Garamond',serif] italic leading-relaxed max-w-sm mx-auto mb-3 px-2">
-          “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
-          {' '}Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh.<br className="hidden sm:inline" />
-          {' '}Cuộc sống quý giá không chỉ ở đích đến, mà còn ở những khoảnh khắc chia sẻ cùng nhau.<br className="hidden sm:inline" />
-          {' '}Vì vậy, chúng mình mong được bạn chung vui trong ngày hạnh phúc này.”
-        </p>
+      <p className="text-xs sm:text-[13px] text-amber-900/90 font-['Cormorant_Garamond',serif] italic leading-relaxed max-w-sm mx-auto mb-3 px-2">
+  “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
+  {' '}Và niềm vui ấy sẽ trọn vẹn hơn khi có bạn cùng sẻ chia.<br className="hidden sm:inline" />
+  {' '}Bởi hạnh phúc không chỉ nằm ở những ngày phía trước,<br className="hidden sm:inline" />
+  {' '}mà còn ở những khoảnh khắc được cùng nhau lưu giữ.<br className="hidden sm:inline" />
+  {' '}Chúng mình rất mong được đón bạn đến chung vui<br className="hidden sm:inline" />
+  {' '}trong ngày đặc biệt này.”
+</p>
+
 
         {/* Names */}
         <h2 className="font-['Great_Vibes',cursive] text-3xl sm:text-4xl text-amber-950 mb-1 drop-shadow-sm">
