@@ -6,7 +6,6 @@ import { LetterScene } from '@/scenes/LetterScene';
 import { CountdownScene } from '@/scenes/CountdownScene';
 import { JourneyScene } from '@/scenes/JourneyScene';
 import { GalleryScene } from '@/scenes/GalleryScene';
-import { RSVPScene } from '@/scenes/RSVPScene';
 import { GiftScene } from '@/scenes/GiftScene';
 
 function App() {
@@ -54,7 +53,7 @@ function App() {
       <div className="h-8 bg-gradient-to-b from-amber-50 to-amber-50" />
 
       {/* Scene 7: RSVP */}
-      <RSVPScene />
+      {/* <RSVPScene /> */}
 
       {/* Scene: Countdown to Wedding Day (Đếm ngược ngày cưới ở cuối trang) */}
       <div id="countdown-scene">

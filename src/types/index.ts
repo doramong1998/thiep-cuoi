@@ -17,6 +17,11 @@ export interface Milestone {
   season: 'spring' | 'summer' | 'autumn' | 'winter';
   scrollStart: number; // 0-1 progress
   scrollEnd: number;
+  // Mobile Journey fields
+  chapter: string;
+  year: string;
+  image: string;
+  aspectText?: string;
 }
 
 // Guest message

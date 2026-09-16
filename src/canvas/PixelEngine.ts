@@ -139,11 +139,14 @@ export class PixelEngine {
   private checkMilestone(): void {
     let found: Milestone | null = null;
     for (const m of this.milestones) {
-      const mid = (m.scrollStart + m.scrollEnd) / 2;
-      if (Math.abs(this.progress - mid) < 0.04) {
+      if (this.progress >= m.scrollStart && this.progress < m.scrollEnd) {
         found = m;
         break;
       }
+    }
+    // Edge case: progress === 1.0 should match the last milestone
+    if (!found && this.progress >= 1.0 && this.milestones.length > 0) {
+      found = this.milestones[this.milestones.length - 1];
     }
     if (found !== this.activeMilestone) {
       this.activeMilestone = found;
@@ -156,13 +159,13 @@ export class PixelEngine {
     blend: number;
     nextSeason: Season;
   } {
-    const seasonMap: { start: number; end: number; season: Season }[] = [
-      { start: 0, end: 0.33, season: 'spring' },
-      { start: 0.33, end: 0.5, season: 'summer' },
-      { start: 0.5, end: 0.67, season: 'autumn' },
-      { start: 0.67, end: 0.83, season: 'winter' },
-      { start: 0.83, end: 1.0, season: 'spring' },
-    ];
+    // Build season map dynamically from milestones
+    const seasonMap: { start: number; end: number; season: Season }[] =
+      this.milestones.map((m) => ({
+        start: m.scrollStart,
+        end: m.scrollEnd,
+        season: m.season,
+      }));
 
     for (let i = 0; i < seasonMap.length; i++) {
       const seg = seasonMap[i];

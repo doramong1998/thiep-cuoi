@@ -188,7 +188,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
           Wedding Invitation
         </p>
         <h1 className="font-['Great_Vibes',cursive] text-3xl sm:text-5xl text-[#6d4c2a] drop-shadow-sm">
-          {BRIDE.firstName} &amp; {GROOM.firstName}
+           {GROOM.firstName}  &amp; {BRIDE.firstName}
         </h1>
         <div className="flex items-center justify-center gap-2 mt-2">
           <div className="h-px w-10 bg-amber-300" />
@@ -222,151 +222,34 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
             whileHover={!isOpen ? { y: -4 } : undefined}
             whileTap={!isOpen ? { scale: 0.98 } : undefined}
           >
-            {/* Kích thước chuẩn của phong bì (Mobile: 335x225px, Desktop: 450x300px) */}
+            {/* Ảnh phong bì mail.png thay thế SVG */}
             <div className="relative w-[335px] h-[225px] sm:w-[450px] sm:h-[300px]">
               
-              {/* 1.1 Lớp lưng phong bì (Z-Index 10: Nằm ở đáy) */}
-              <div
-                className="absolute inset-0 rounded-2xl overflow-hidden"
+              {/* 1.1 Ảnh phong bì mail.png */}
+              <img
+                src="/images/mail.png"
+                alt="Phong bì thiệp cưới"
+                className="absolute inset-0 w-full h-full object-contain rounded-2xl select-none pointer-events-none"
                 style={{
                   zIndex: 10,
-                  background: 'linear-gradient(155deg, #f5ebd9 0%, #e8d7be 50%, #d8c3a5 100%)',
-                  boxShadow: isOpen
-                    ? '0 20px 45px -15px rgba(90, 65, 40, 0.2)'
-                    : isHovered
-                      ? '0 30px 65px -10px rgba(110, 75, 40, 0.3), 0 12px 30px -5px rgba(110, 75, 40, 0.2)'
-                      : '0 20px 50px -10px rgba(110, 75, 40, 0.22), 0 8px 20px -5px rgba(110, 75, 40, 0.12)',
-                  transition: 'box-shadow 0.4s ease',
-                }}
-              >
-                {/* Đổ bóng nhẹ bên trong lòng phong bì */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-transparent pointer-events-none" />
-              </div>
-
-              {/* 1.2 Thân túi đựng mặt trước vector SVG (Z-Index 30) */}
-              <div 
-                className="absolute inset-0 rounded-2xl overflow-hidden cursor-pointer" 
-                style={{ 
-                  zIndex: 30,
+                  filter: isHovered && !isOpen
+                    ? 'drop-shadow(0 30px 65px rgba(110, 75, 40, 0.3))'
+                    : 'drop-shadow(0 20px 50px rgba(110, 75, 40, 0.22))',
+                  transition: 'filter 0.4s ease',
                   opacity: cardEmerged ? 0.75 : 1,
-                  transition: 'opacity 0.6s ease',
                 }}
+                draggable={false}
+              />
+
+              {/* 1.2 Lớp click bao phủ toàn bộ ảnh phong bì */}
+              <div 
+                className="absolute inset-0 cursor-pointer" 
+                style={{ zIndex: 30 }}
                 onClick={handleOpen}
-              >
-                <svg
-                  viewBox="0 0 400 270"
-                  className="w-full h-full drop-shadow-[0_-3px_8px_rgba(90,60,30,0.15)]"
-                  preserveAspectRatio="none"
-                >
-                  <defs>
-                    {/* Gradient màu túi mặt trước */}
-                    <linearGradient id="pocketGradFixed" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#e8dac6" />
-                      <stop offset="40%" stopColor="#dfceb8" />
-                      <stop offset="100%" stopColor="#cfbda4" />
-                    </linearGradient>
-
-                    {/* Gradient đổ bóng nếp gấp cánh trái */}
-                    <linearGradient id="leftFoldGradFixed" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="rgba(255,255,255,0.25)" />
-                      <stop offset="70%" stopColor="transparent" />
-                      <stop offset="100%" stopColor="rgba(0,0,0,0.06)" />
-                    </linearGradient>
-
-                    {/* Gradient đổ bóng nếp gấp cánh phải */}
-                    <linearGradient id="rightFoldGradFixed" x1="100%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="rgba(255,255,255,0.25)" />
-                      <stop offset="70%" stopColor="transparent" />
-                      <stop offset="100%" stopColor="rgba(0,0,0,0.06)" />
-                    </linearGradient>
-                  </defs>
-
-                  {/* Khối thân trước liền mạch */}
-                  <path
-                    d="M 0,80 L 200,165 L 400,80 L 400,270 L 0,270 Z"
-                    fill="url(#pocketGradFixed)"
-                  />
-
-                  {/* Nếp bóng gấp tam giác bên trái */}
-                  <path
-                    d="M 0,0 L 200,165 L 0,270 Z"
-                    fill="url(#leftFoldGradFixed)"
-                  />
-
-                  {/* Nếp bóng gấp tam giác bên phải */}
-                  <path
-                    d="M 400,0 L 200,165 L 400,270 Z"
-                    fill="url(#rightFoldGradFixed)"
-                  />
-
-                  {/* Đường gân gập giấy tinh tế từ hai góc đáy lên tâm chữ V */}
-                  <line x1="0" y1="270" x2="200" y2="165" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" />
-                  <line x1="0" y1="270" x2="200" y2="165" stroke="rgba(100,70,40,0.12)" strokeWidth="0.8" />
-                  
-                  <line x1="400" y1="270" x2="200" y2="165" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" />
-                  <line x1="400" y1="270" x2="200" y2="165" stroke="rgba(100,70,40,0.12)" strokeWidth="0.8" />
-
-                  {/* Viền vàng kim tuyến chạy dọc đường cắt miệng túi */}
-                  <path
-                    d="M 0,80 L 200,165 L 400,80"
-                    fill="none"
-                    stroke="rgba(212,175,55,0.4)"
-                    strokeWidth="1.2"
-                  />
-                </svg>
-              </div>
+              />
 
               {/* 1.3 Con dấu sáp niêm phong Ruby (Z-Index 45: Nằm giữa miệng túi khi đóng) */}
-              <motion.div
-                className="absolute left-1/2 -translate-x-1/2 cursor-pointer"
-                style={{
-                  top: '52%',
-                  zIndex: 45,
-                }}
-                animate={
-                  isOpen
-                    ? {
-                        scale: [1, 1.25, 0.4],
-                        opacity: [1, 0.8, 0],
-                        y: [0, -10, 20],
-                      }
-                    : isHovered
-                      ? {
-                          scale: 1.08,
-                          y: -2,
-                        }
-                      : {
-                          scale: 1,
-                          y: 0,
-                        }
-                }
-                transition={{
-                  duration: isOpen ? 0.45 : 0.25,
-                  ease: 'easeOut',
-                }}
-                onClick={handleOpen}
-              >
-                <div className="relative flex items-center justify-center">
-                  {/* Vòng sáng phát ra nhịp thở nhẹ khi chưa mở */}
-                  {!isOpen && (
-                    <div className="absolute -inset-2 rounded-full seal-glow opacity-75" />
-                  )}
-
-                  {/* Khối con dấu dập nổi màu đỏ ruby */}
-                  <div
-                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:scale-105 transition-transform"
-                    style={{
-                      background: 'radial-gradient(circle at 35% 30%, #d84a56 0%, #b32a39 45%, #7a1520 85%, #560a12 100%)',
-                      boxShadow: '0 6px 16px rgba(100, 20, 30, 0.5), inset 0 2px 4px rgba(255, 200, 200, 0.5), inset 0 -3px 6px rgba(0, 0, 0, 0.6)',
-                      border: '1.5px solid rgba(255, 215, 0, 0.45)',
-                    }}
-                  >
-                    <div className="flex items-center justify-center pointer-events-none">
-                      <Heart className="w-6 h-6 sm:w-7 sm:h-7 text-amber-200 fill-amber-300 drop-shadow-md" />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+      
 
               {/* 1.4 Hiệu ứng nổ hạt bụi vàng kim tuyến khi phá vỡ niêm phong sáp */}
               <AnimatePresence>
@@ -510,7 +393,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
                     </div>
 
                     <h2 className="font-['Great_Vibes',cursive] text-3xl sm:text-4xl text-amber-50 drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)]">
-                      {BRIDE.firstName} &amp; {GROOM.firstName}
+                      {GROOM.firstName} &amp; {BRIDE.firstName}
                     </h2>
                   </div>
 

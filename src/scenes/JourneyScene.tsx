@@ -36,7 +36,7 @@ export function JourneyScene() {
         trigger: container,
         pin: true,
         start: 'top top',
-        end: '+=3500',
+        end: '+=5500',
         scrub: 1,
         onUpdate: (self) => {
           engine.setProgress(self.progress);

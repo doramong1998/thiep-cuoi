@@ -1,55 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
-
-export interface JourneyMilestone {
-  id: number;
-  chapter: string;
-  year: string;
-  title: string;
-  description: string;
-  image: string;
-  aspectText?: string;
-}
-
-const JOURNEY_DATA: JourneyMilestone[] = [
-  {
-    id: 1,
-    chapter: 'CHƯƠNG 01',
-    year: '2021',
-    title: 'Lần đầu gặp gỡ',
-    description: 'Một cuộc gặp rất tình cờ, một lời chào còn ngại ngùng, và một câu chuyện dài bắt đầu từ đó.',
-    image: '/images/couple.jpg',
-    aspectText: '1200 × 1500 px',
-  },
-  {
-    id: 2,
-    chapter: 'CHƯƠNG 02',
-    year: '2022',
-    title: 'Cùng nhau trưởng thành',
-    description: 'Những chuyến đi, những ngày bận rộn và cả những phút yếu lòng đã dạy chúng mình cách luôn chọn nhau.',
-    image: '/images/bride.jpg',
-    aspectText: '1200 × 1500 px',
-  },
-  {
-    id: 3,
-    chapter: 'CHƯƠNG 03',
-    year: '2026',
-    title: 'Lời hẹn trăm năm',
-    description: 'Giữa một chiều đầy nắng, câu trả lời “Em đồng ý” đã mở ra chương mới đẹp nhất của hai đứa.',
-    image: '/images/groom.jpg',
-    aspectText: '1200 × 1500 px',
-  },
-  {
-    id: 4,
-    chapter: 'CHƯƠNG 04',
-    year: '2026',
-    title: 'Về chung một nhà',
-    description: 'Chúng mình mong bạn sẽ ở đó, chứng kiến và sẻ chia niềm vui trong ngày đặc biệt này.',
-    image: '/images/couple.jpg',
-    aspectText: '1200 × 1500 px',
-  },
-];
+import { MILESTONES } from '@/data/wedding';
 
 export function MobileJourney() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -57,7 +9,7 @@ export function MobileJourney() {
   const milestoneRefs = useRef<(HTMLDivElement | null)[]>([]);
   const isFirstMount = useRef(true);
 
-  const activeMilestone = JOURNEY_DATA[activeIndex];
+  const activeMilestone = MILESTONES[activeIndex];
 
   // Chỉ cuộn ngang NỘI BỘ container khi người dùng đổi activeIndex, tuyệt đối không làm trôi scroll của toàn trang web
   useEffect(() => {
@@ -82,11 +34,11 @@ export function MobileJourney() {
   }, [activeIndex]);
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev > 0 ? prev - 1 : JOURNEY_DATA.length - 1));
+    setActiveIndex((prev) => (prev > 0 ? prev - 1 : MILESTONES.length - 1));
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev < JOURNEY_DATA.length - 1 ? prev + 1 : 0));
+    setActiveIndex((prev) => (prev < MILESTONES.length - 1 ? prev + 1 : 0));
   };
 
   return (
@@ -150,21 +102,10 @@ export function MobileJourney() {
 
                   {/* Watermark số chương lớn nghệ thuật ở góc dưới phải */}
                   <div className="absolute bottom-1.5 right-2.5 font-serif font-bold text-6xl sm:text-7xl text-white/40 select-none pointer-events-none drop-shadow-sm">
-                    {String(activeMilestone.id).padStart(2, '0')}
+                    {String(activeIndex + 1).padStart(2, '0')}
                   </div>
 
-                  {/* Huy hiệu giữa ảnh */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                    <div className="w-22 h-22 sm:w-26 sm:h-26 rounded-full bg-white/20 backdrop-blur-xs border border-white/40 flex flex-col items-center justify-center text-center p-2 shadow-sm">
-                      <Sparkles className="w-3.5 h-3.5 text-white/90 mb-0.5" />
-                      <span className="text-[9px] sm:text-[10px] text-white font-medium uppercase font-['Cinzel',serif] tracking-wider leading-tight">
-                        ẢNH {activeMilestone.title}
-                      </span>
-                      <span className="text-[8px] text-white/80 font-mono mt-0.5">
-                        {activeMilestone.aspectText}
-                      </span>
-                    </div>
-                  </div>
+
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -198,7 +139,7 @@ export function MobileJourney() {
                 className="h-full bg-[#6E1C24]"
                 initial={false}
                 animate={{
-                  width: `${((activeIndex + 1) / JOURNEY_DATA.length) * 100}%`,
+                  width: `${((activeIndex + 1) / MILESTONES.length) * 100}%`,
                 }}
                 transition={{ duration: 0.35, ease: 'easeInOut' }}
               />
@@ -206,7 +147,7 @@ export function MobileJourney() {
 
             {/* Số trang 03 / 04 */}
             <div className="font-['Cinzel',serif] text-xs font-bold text-[#6E1C24] tracking-wider mr-2">
-              {String(activeIndex + 1).padStart(2, '0')} / {String(JOURNEY_DATA.length).padStart(2, '0')}
+              {String(activeIndex + 1).padStart(2, '0')} / {String(MILESTONES.length).padStart(2, '0')}
             </div>
 
             {/* Nút Next */}
@@ -230,29 +171,6 @@ export function MobileJourney() {
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-        <div className="w-full relative px-4 mb-3 flex items-center justify-between max-w-[340px]">
-          {/* Đường nối ngang phía sau */}
-          <div className="absolute left-8 right-8 top-1/2 -translate-y-1/2 h-0.5 bg-[#D4AF37]/40 z-0" />
-
-          {JOURNEY_DATA.map((item, index) => {
-            const isActive = index === activeIndex;
-            return (
-              <button
-                key={`btn-${item.id}`}
-                onClick={() => setActiveIndex(index)}
-                aria-label={`Xem mốc ${item.chapter}`}
-                className={`relative z-10 w-9 h-9 rounded-full flex items-center justify-center font-['Cinzel',serif] text-xs font-bold transition-all duration-300 cursor-pointer ${
-                  isActive
-                    ? 'bg-[#6E1C24] text-white shadow-[0_0_12px_rgba(110,28,36,0.4)] scale-110 border-2 border-amber-300'
-                    : 'bg-[#FFFDF9] text-[#78350F] border-2 border-[#D4AF37]/60 hover:border-[#6E1C24] hover:text-[#6E1C24]'
-                }`}
-              >
-                {String(item.id).padStart(2, '0')}
-              </button>
-            );
-          })}
-        </div>
-
         {/* ========================================================
             3. DANH SÁCH THẺ DẤU MỐC CUỘN NGANG (HORIZONTAL SCROLL TIMELINE)
            ======================================================== */}
@@ -265,7 +183,7 @@ export function MobileJourney() {
             WebkitOverflowScrolling: 'touch',
           }}
         >
-          {JOURNEY_DATA.map((item, index) => {
+          {MILESTONES.map((item, index) => {
             const isActive = index === activeIndex;
 
             return (

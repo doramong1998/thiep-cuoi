@@ -18,12 +18,21 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
           transition={{ type: 'spring', damping: 20, stiffness: 200 }}
         >
           <div className="bg-amber-50/95 backdrop-blur-md rounded-xl border-2 border-amber-200 shadow-xl shadow-amber-900/10 overflow-hidden">
-            {/* Image placeholder */}
-            <div className="h-32 sm:h-40 bg-gradient-to-br from-pink-100 to-amber-100 flex items-center justify-center relative">
-              <span className="text-5xl">{milestone.icon}</span>
+            {/* Milestone image */}
+            <div className="h-80 sm:h-80 relative overflow-hidden">
+              <img
+                src={milestone.image}
+                alt={milestone.title}
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               {/* Date badge */}
               <div className="absolute bottom-2 left-3 px-2 py-0.5 bg-amber-900/80 text-amber-50 text-[10px] font-mono rounded">
                 {milestone.date}
+              </div>
+              {/* Chapter badge */}
+              <div className="absolute top-2 right-3 px-2 py-0.5 bg-white/90 text-amber-900 text-[10px] font-bold font-mono rounded">
+                {milestone.chapter}
               </div>
             </div>
 
