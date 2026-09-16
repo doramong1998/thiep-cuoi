@@ -17,9 +17,9 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
           exit={{ opacity: 0, x: 60, scale: 0.9 }}
           transition={{ type: 'spring', damping: 20, stiffness: 200 }}
         >
-          <div className="bg-amber-50/95 backdrop-blur-md rounded-xl border-2 border-amber-200 shadow-xl shadow-amber-900/10 overflow-hidden">
+          <div className="bg-amber-50/95 rounded-xl border-2 border-amber-200 overflow-hidden">
             {/* Milestone image */}
-            <div className="h-80 sm:h-80 relative overflow-hidden">
+            <div className="h-80 sm:h-86 relative overflow-hidden">
               <img
                 src={milestone.image}
                 alt={milestone.title}

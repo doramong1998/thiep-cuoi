@@ -5,47 +5,47 @@ export const WEDDING_DATE = '2026-10-25T10:00:00+07:00';
 export const BRIDE = {
   firstName: 'Nghĩa',
   fullName: 'Vũ Thị Nghĩa',
-  displayName: 'THANH HẰNG', // or VŨ THỊ NGHĨA
+  displayName: 'VŨ THỊ NGHĨA', // or VŨ THỊ NGHĨA
   rank: 'Ái Nữ',
-  birthDate: '20.08.2001',
+  birthDate: '18.01.1999',
 };
 
 export const GROOM = {
   firstName: 'Huy',
   fullName: 'Trần Quang Huy',
-  displayName: 'MINH TRÍ', // or TRẦN QUANG HUY
+  displayName: 'TRẦN QUANG HUY', // or TRẦN QUANG HUY
   rank: 'Trưởng Nam',
-  birthDate: '06.05.1998',
+  birthDate: '30.04.1998',
 };
 
 export const GROOM_FAMILY = {
   title: 'NHÀ TRAI',
-  father: 'Trần Văn Cường',
-  mother: 'Nguyễn Thị Lan',
+  father: 'Trần Thanh Thản',
+  mother: 'Nguyễn Thị Xuân Mai',
   groom: 'Trần Quang Huy',
   rank: 'Trưởng Nam',
-  address: 'Số 123, Đường ABC, Quận Cầu Giấy, TP. Hà Nội',
-  phone: '0912 345 678',
-  mapUrl: 'https://maps.google.com/?q=Hà+Nội',
+  address: 'Số 12 Ngõ 155 Đường 32, Xã Vật Lại, TP. Hà Nội',
+  phone: '0978727524',
+  mapUrl: 'https://maps.app.goo.gl/z2aQin6N1gAjdFbU9',
 };
 
 export const BRIDE_FAMILY = {
   title: 'NHÀ GÁI',
-  father: 'Vũ Văn Hùng',
-  mother: 'Phạm Thị Mai',
+  father: 'Vũ Song Hào',
+  mother: 'Nguyễn Thị Yến',
   bride: 'Vũ Thị Nghĩa',
   rank: 'Ái Nữ',
-  address: 'Số 456, Đường DEF, Quận Ba Đình, TP. Hà Nội',
-  phone: '0987 654 321',
-  mapUrl: 'https://maps.google.com/?q=Hà+Nội',
+  address: 'Thôn Tân Thể, xã Ngọc Thiện, Bắc Ninh',
+  phone: '0981384115',
+  mapUrl: 'https://maps.app.goo.gl/3jSpHTNjVX5Rv4je6',
 };
 
 export const WEDDING_INFO = {
   date: '25.10.2026',
-  time: '10:00',
+  time: '15:30',
   venue: 'Tư gia nhà trai',
-  address: 'Số 123, Đường ABC, Quận Cầu Giấy, TP. Hà Nội',
-  mapUrl: 'https://maps.google.com/?q=Hà+Nội',
+  address: 'Đường 32, Xã Vật Lại, TP. Hà Nội',
+  mapUrl: 'https://maps.app.goo.gl/pTBEyKMNEPoEXAsM7',
 };
 
 export const MILESTONES: Milestone[] = [

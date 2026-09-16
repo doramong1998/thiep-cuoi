@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Heart, MapPin, ExternalLink, Sparkles, Gamepad2, Clock } from 'lucide-react';
-import { BRIDE, GROOM, BRIDE_FAMILY, GROOM_FAMILY } from '@/data/wedding';
+import { BRIDE, GROOM, BRIDE_FAMILY, GROOM_FAMILY, WEDDING_INFO } from '@/data/wedding';
 
 interface LetterSceneProps {
   onContinue: () => void;
@@ -328,12 +328,12 @@ export function LetterScene({ onContinue }: LetterSceneProps) {
                   </h4>
 
                   <p className="text-xs sm:text-sm text-amber-900 font-semibold font-['Playfair_Display',serif] mt-0.5">
-                    Tư gia Nhà Trai
+                    Nhà hàng Phượng Ớt
                   </p>
 
                   <p className="text-[11px] sm:text-xs text-amber-800/80 font-['Cormorant_Garamond',serif] leading-relaxed mt-1 flex items-start gap-1">
                     <MapPin className="w-3 h-3 text-amber-600 shrink-0 mt-0.5" />
-                    <span>{GROOM_FAMILY.address}</span>
+                    <span>{WEDDING_INFO.address}</span>
                   </p>
                 </div>
               </motion.div>

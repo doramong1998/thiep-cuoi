@@ -430,7 +430,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
                 <div className="absolute bottom-4 right-4 text-amber-500/50 text-xs pointer-events-none z-20">✤</div>
 
                 {/* Phần banner ảnh kỷ niệm phía trên */}
-                <div className="relative h-48 sm:h-56 overflow-hidden shrink-0">
+                <div className="relative h-60 sm:h-68 overflow-hidden shrink-0">
                   <img
                     src="/images/couple.jpg"
                     alt="Ảnh kỷ niệm Nghĩa & Huy"

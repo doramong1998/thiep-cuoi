@@ -71,7 +71,7 @@ export function MobileJourney() {
           <div className="absolute -inset-1 rounded-2xl bg-[#FAF5EE] border border-[#EAE0D2] -rotate-1 shadow-sm pointer-events-none" />
 
           {/* Thẻ chính hiển thị ảnh */}
-          <div className="relative rounded-2xl bg-white p-3 sm:p-3.5 border border-[#E5D7C3] shadow-[0_15px_35px_rgba(100,60,30,0.12)] overflow-hidden">
+          <div className="relative rounded-2xl bg-white p-3 sm:p-3.5 border border-[#E5D7C3] shadow-[0_15px_35px_rgba(100,60,30,0.12)] overflow-hidden mt-2" >
             {/* Tag Chương ở góc trên bên trái */}
             <div className="absolute top-0 left-4 z-20">
               <div className="px-3 py-0.5 bg-[#6E1C24] text-white text-[10px] font-bold tracking-widest font-['Cinzel',serif] rounded-b-md shadow-md uppercase">
@@ -95,6 +95,18 @@ export function MobileJourney() {
                     src={activeMilestone.image}
                     alt={activeMilestone.title}
                     className="w-full h-full object-cover object-top"
+                    loading="eager"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      if (target.parentElement) {
+                        target.parentElement.classList.add('flex', 'items-center', 'justify-center');
+                        const fallback = document.createElement('span');
+                        fallback.textContent = activeMilestone.icon;
+                        fallback.className = 'text-5xl';
+                        target.parentElement.appendChild(fallback);
+                      }
+                    }}
                   />
 
                   {/* Lớp phủ chuyển sắc tối nhẹ */}
@@ -230,7 +242,7 @@ export function MobileJourney() {
                   </h3>
 
                   {/* Mô tả ngắn */}
-                  <p className="font-['Cormorant_Garamond',serif] text-xs text-stone-600 leading-relaxed mt-1 line-clamp-3">
+                  <p className="font-['Cormorant_Garamond',serif] text-xs text-stone-600 leading-relaxed mt-1 line-clamp-5">
                     {item.description}
                   </p>
                 </div>

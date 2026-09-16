@@ -31,7 +31,7 @@ export function InvitationCard() {
       </div>
 
       {/* Content */}
-      <div className="p-6 sm:p-8 text-center relative z-10 -mt-6">
+      <div className="p-6 sm:p-6 text-center relative z-10 -mt-3">
         {/* Ornament */}
         <div className="flex items-center justify-center gap-2 mb-3">
           <div className="h-px w-10 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
