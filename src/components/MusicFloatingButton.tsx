@@ -8,58 +8,40 @@ interface FloatingNote {
   xOffset: number;
 }
 
-export function MusicFloatingButton() {
+interface MusicFloatingButtonProps {
+  playTrigger?: boolean;
+}
+
+export function MusicFloatingButton({ playTrigger = false }: MusicFloatingButtonProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [floatingNotes, setFloatingNotes] = useState<FloatingNote[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const manualStopRef = useRef(false);
 
-  // Tự động phát nhạc khi vào trang & xử lý chính sách Autoplay của trình duyệt
+  // Phát nhạc tự động khi người dùng bấm mở thiệp (playTrigger = true)
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    if (playTrigger && !manualStopRef.current) {
+      const audio = audioRef.current;
+      if (!audio) return;
 
-    audio.volume = 0.6;
-
-    // Cố gắng phát nhạc ngay khi load trang
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise
+      audio.volume = 0.6;
+      audio
+        .play()
         .then(() => {
           setIsPlaying(true);
         })
-        .catch(() => {
-          // Trình duyệt chặn autoplay chưa có tương tác -> Lắng nghe cử chỉ đầu tiên của người dùng
-          const handleFirstInteraction = () => {
-            if (manualStopRef.current) return;
-            audio
-              .play()
-              .then(() => {
-                setIsPlaying(true);
-              })
-              .catch((e) => {
-                console.warn('Autoplay sau tương tác không thành công:', e);
-              });
-            removeInteractionListeners();
-          };
-
-          const removeInteractionListeners = () => {
-            window.removeEventListener('click', handleFirstInteraction);
-            window.removeEventListener('touchstart', handleFirstInteraction);
-            window.removeEventListener('scroll', handleFirstInteraction);
-            window.removeEventListener('keydown', handleFirstInteraction);
-          };
-
-          window.addEventListener('click', handleFirstInteraction, { once: true });
-          window.addEventListener('touchstart', handleFirstInteraction, { once: true });
-          window.addEventListener('scroll', handleFirstInteraction, { once: true });
-          window.addEventListener('keydown', handleFirstInteraction, { once: true });
+        .catch((e) => {
+          console.warn('Không thể tự động phát nhạc sau khi mở thiệp:', e);
         });
     }
+  }, [playTrigger]);
 
+  // Cleanup khi unmount
+  useEffect(() => {
+    const audio = audioRef.current;
     return () => {
-      audio.pause();
+      audio?.pause();
     };
   }, []);
 

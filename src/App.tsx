@@ -10,6 +10,7 @@ import { GiftScene } from '@/scenes/GiftScene';
 
 function App() {
   const [scrollUnlocked, setScrollUnlocked] = useState(false);
+  const [hasOpenedCard, setHasOpenedCard] = useState(false);
 
   // Khóa cuộn trang cho đến khi người dùng lật xem mặt sau thiệp cưới
   useEffect(() => {
@@ -33,7 +34,10 @@ function App() {
       <DreamyMeadowAtmosphere />
 
       {/* Scene 1: Envelope & 3D Flip Card */}
-      <MailboxScene onFlip={handleCardFlipped} />
+      <MailboxScene 
+        onOpen={() => setHasOpenedCard(true)} 
+        onFlip={handleCardFlipped} 
+      />
 
       {/* Remaining sections — visible but scroll locked until envelope opens */}
       <LetterScene onContinue={() => {
@@ -64,7 +68,7 @@ function App() {
       <GiftScene />
 
       {/* Floating Music Button */}
-      <MusicFloatingButton />
+      <MusicFloatingButton playTrigger={hasOpenedCard} />
     </div>
   );
 }

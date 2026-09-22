@@ -65,10 +65,12 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
     });
     setParticles(newParticles);
 
+    // Gọi onOpen ngay trong context cử chỉ chạm của người dùng để trình duyệt cấp quyền phát âm thanh
+    onOpen?.();
+
     // Thiệp cưới trượt vươn lên tiền cảnh trung tâm êm ái
     setTimeout(() => {
       setCardEmerged(true);
-      onOpen?.();
     }, 250);
   };
 
@@ -517,7 +519,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
           >
-            <span>Khám phá câu chuyện tình yêu</span>
+            <span>Xem thiệp mời & Chi tiết tiệc cưới</span>
             <motion.div
               animate={{ scale: [1, 1.25, 1, 1.15, 1] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
@@ -527,7 +529,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
           </motion.button>
           
           <p className="text-[11px] text-amber-800/70 font-['Cormorant_Garamond',serif] animate-pulse">
-            Cuộn xuống để xem câu chuyện &amp; gửi lời chúc
+            Cuộn xuống để tiếp tục
           </p>
         </motion.div>
       </div>
