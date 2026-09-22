@@ -70,7 +70,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             1. TIÊU ĐỀ: "CHÚNG MÌNH LÀ"
            ======================================================== */}
         <motion.div
-          className="text-center mb-12 sm:mb-16 max-w-4xl"
+          className="text-center mb-12 sm:mb-16 max-w-4xl px-4"
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -89,40 +89,112 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
 
 
         {/* ========================================================
-            2. KHUNG ẢNH CÔ DÂU & CHÚ RỂ (NẰM NGANG HÀNG TRÊN WEB - TỈ LỆ 900x1200)
+            2. KHUNG ẢNH CÔ DÂU & CHÚ RỂ
+            - Mobile: Ảnh bỏ khung, cô dâu sát lề trái + text phải, chú rể sát lề phải + text trái
+            - Desktop (md+): Giữ nguyên khung ảnh hoàng gia nằm ngang hàng
            ======================================================== */}
-        <div className="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 sm:px-6 mb-16 sm:mb-24 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-start justify-items-center">
+
+        {/* === MOBILE LAYOUT (< md) === */}
+        <div className="w-full md:hidden mb-16 flex flex-col gap-10">
           
-          {/* 2.1 KHUNG ẢNH CÔ DÂU (ANIMATION ZOOM TO & LỆCH LÊN) */}
+          {/* Cô dâu: ảnh sát trái, tên đè trên ảnh */}
           <motion.div
-            className="w-full max-w-[380px] sm:max-w-[440px] md:max-w-[470px] lg:max-w-[500px] p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF5EC] to-[#F5ECE0] border-2 border-[#D4AF37]/70 shadow-[0_20px_50px_-15px_rgba(90,55,20,0.22),0_0_20px_rgba(212,175,55,0.15)] relative group"
+            className="w-full pr-10"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {/* Khung viền hoàng gia */}
+            <div className="relative p-2.5 rounded-xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF5EC] to-[#F5ECE0] border-2 border-[#D4AF37]/60 shadow-[4px_6px_16px_rgba(90,55,20,0.10)]">
+              {/* Viền chỉ vàng kép bên trong */}
+              <div className="absolute inset-1.5 rounded-lg border border-[#D4AF37]/35 pointer-events-none" />
+              {/* Họa tiết góc mạ vàng */}
+              <div className="absolute top-1.5 left-1.5 text-[#B8860B]/60 text-[8px] select-none pointer-events-none">✦</div>
+              <div className="absolute top-1.5 right-1.5 text-[#B8860B]/60 text-[8px] select-none pointer-events-none">✦</div>
+              <div className="absolute bottom-1.5 left-1.5 text-[#B8860B]/60 text-[8px] select-none pointer-events-none">✦</div>
+              <div className="absolute bottom-1.5 right-1.5 text-[#B8860B]/60 text-[8px] select-none pointer-events-none">✦</div>
+
+              <div className="aspect-[3/4] overflow-hidden rounded-md rounded-l-sm relative">
+                <img
+                  src="/images/bride.jpg"
+                  alt="Cô dâu"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 z-10 text-white select-none">
+                  <p className="font-['Alex_Brush',cursive] text-2xl text-rose-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    Cô dâu
+                  </p>
+                  <h3 className="font-['Cinzel',serif] text-lg font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
+                    {BRIDE.fullName}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Chú rể: ảnh sát phải, tên đè trên ảnh */}
+          <motion.div
+            className="w-full pl-10"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          >
+            {/* Khung viền hoàng gia */}
+            <div className="relative p-2.5 rounded-xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF5EC] to-[#F5ECE0] border-2 border-[#D4AF37]/60 shadow-[-4px_6px_16px_rgba(90,55,20,0.10)]">
+              {/* Viền chỉ vàng kép bên trong */}
+              <div className="absolute inset-1.5 rounded-lg border border-[#D4AF37]/35 pointer-events-none" />
+              {/* Họa tiết góc mạ vàng */}
+              <div className="absolute top-1.5 left-1.5 text-[#B8860B]/60 text-[8px] select-none pointer-events-none">✦</div>
+              <div className="absolute top-1.5 right-1.5 text-[#B8860B]/60 text-[8px] select-none pointer-events-none">✦</div>
+              <div className="absolute bottom-1.5 left-1.5 text-[#B8860B]/60 text-[8px] select-none pointer-events-none">✦</div>
+              <div className="absolute bottom-1.5 right-1.5 text-[#B8860B]/60 text-[8px] select-none pointer-events-none">✦</div>
+
+              <div className="aspect-[3/4] overflow-hidden rounded-md rounded-r-sm relative">
+                <img
+                  src="/images/groom.jpg"
+                  alt="Chú rể"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 right-4 z-10 text-white select-none text-right">
+                  <p className="font-['Alex_Brush',cursive] text-2xl text-amber-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    Chú rể
+                  </p>
+                  <h3 className="font-['Cinzel',serif] text-lg font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
+                    {GROOM.fullName}
+                  </h3>
+                </div>              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* === DESKTOP LAYOUT (md+) — Khung ảnh hoàng gia nằm ngang hàng === */}
+        <div className="hidden md:grid w-full max-w-5xl lg:max-w-6xl mx-auto px-2 sm:px-6 mb-16 sm:mb-24 grid-cols-2 gap-10 lg:gap-14 items-start justify-items-center">
+          
+          {/* 2.1 KHUNG ẢNH CÔ DÂU */}
+          <motion.div
+            className="w-full max-w-[470px] lg:max-w-[500px] p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF5EC] to-[#F5ECE0] border-2 border-[#D4AF37]/70 shadow-[0_20px_50px_-15px_rgba(90,55,20,0.22),0_0_20px_rgba(212,175,55,0.15)] relative group"
             initial={{ opacity: 0, scale: 0.88, y: 60 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Viền chỉ vàng kép nghệ thuật chạy quanh khung */}
             <div className="absolute inset-1.5 sm:inset-2 rounded-lg sm:rounded-xl border border-[#D4AF37]/45 pointer-events-none" />
-
-            {/* 4 Họa tiết góc khung mạ vàng hoàng gia */}
             <div className="absolute top-2 left-2 text-[#B8860B]/70 text-[9px] sm:text-[11px] select-none pointer-events-none">✦</div>
             <div className="absolute top-2 right-2 text-[#B8860B]/70 text-[9px] sm:text-[11px] select-none pointer-events-none">✦</div>
             <div className="absolute bottom-2 left-2 text-[#B8860B]/70 text-[9px] sm:text-[11px] select-none pointer-events-none">✦</div>
             <div className="absolute bottom-2 right-2 text-[#B8860B]/70 text-[9px] sm:text-[11px] select-none pointer-events-none">✦</div>
 
-            {/* Khung chứa ảnh tỉ lệ chuẩn 900x1200 (aspect 3/4) */}
             <div className="w-full aspect-[3/4] rounded-md sm:rounded-lg overflow-hidden relative shadow-[inset_0_2px_10px_rgba(0,0,0,0.25)] bg-stone-200 border border-amber-900/10">
-              {/* Ảnh cô dâu toàn khung sắc nét */}
               <img
                 src="/images/bride.jpg"
                 alt="Cô dâu"
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
-
-              {/* Lớp phủ gradient chuyển sắc tối nhẹ ở góc dưới để tôn chữ */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
-
-              {/* Text thông tin cô dâu ở góc dưới bên trái */}
               <motion.div 
                 className="absolute bottom-5 sm:bottom-7 left-5 sm:left-7 z-10 text-white select-none"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -143,36 +215,27 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             </div>
           </motion.div>
 
-          {/* 2.2 KHUNG ẢNH CHÚ RỂ (ANIMATION ZOOM TO & LỆCH LÊN - ĐẶT THẤP HƠN TRÊN WEB) */}
+          {/* 2.2 KHUNG ẢNH CHÚ RỂ */}
           <motion.div
-            className="w-full max-w-[380px] sm:max-w-[440px] md:max-w-[470px] lg:max-w-[500px] md:mt-10 lg:mt-14 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF5EC] to-[#F5ECE0] border-2 border-[#D4AF37]/70 shadow-[0_20px_50px_-15px_rgba(90,55,20,0.22),0_0_20px_rgba(212,175,55,0.15)] relative group"
+            className="w-full max-w-[470px] lg:max-w-[500px] md:mt-10 lg:mt-14 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF5EC] to-[#F5ECE0] border-2 border-[#D4AF37]/70 shadow-[0_20px_50px_-15px_rgba(90,55,20,0.22),0_0_20px_rgba(212,175,55,0.15)] relative group"
             initial={{ opacity: 0, scale: 0.88, y: 60 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           >
-            {/* Viền chỉ vàng kép nghệ thuật chạy quanh khung */}
             <div className="absolute inset-1.5 sm:inset-2 rounded-lg sm:rounded-xl border border-[#D4AF37]/45 pointer-events-none" />
-
-            {/* 4 Họa tiết góc khung mạ vàng hoàng gia */}
             <div className="absolute top-2 left-2 text-[#B8860B]/70 text-[9px] sm:text-[11px] select-none pointer-events-none">✦</div>
             <div className="absolute top-2 right-2 text-[#B8860B]/70 text-[9px] sm:text-[11px] select-none pointer-events-none">✦</div>
             <div className="absolute bottom-2 left-2 text-[#B8860B]/70 text-[9px] sm:text-[11px] select-none pointer-events-none">✦</div>
             <div className="absolute bottom-2 right-2 text-[#B8860B]/70 text-[9px] sm:text-[11px] select-none pointer-events-none">✦</div>
 
-            {/* Khung chứa ảnh tỉ lệ chuẩn 900x1200 (aspect 3/4) */}
             <div className="w-full aspect-[3/4] rounded-md sm:rounded-lg overflow-hidden relative shadow-[inset_0_2px_10px_rgba(0,0,0,0.25)] bg-stone-200 border border-amber-900/10">
-              {/* Ảnh chú rể toàn khung sắc nét */}
               <img
                 src="/images/groom.jpg"
                 alt="Chú rể"
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
-
-              {/* Lớp phủ gradient chuyển sắc tối nhẹ ở góc dưới để tôn chữ */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
-
-              {/* Text thông tin chú rể ở góc dưới bên trái */}
               <motion.div 
                 className="absolute bottom-5 sm:bottom-7 left-5 sm:left-7 z-10 text-white select-none"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -192,7 +255,6 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
               </motion.div>
             </div>
           </motion.div>
-
         </div>
 
 
@@ -200,7 +262,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             TRÂN TRỌNG KÍNH MỜI (LẤY TỪ PARAMS name="")
            ======================================================== */}
         <motion.div
-          className="w-full max-w-lg sm:max-w-xl mx-auto mb-2 sm:mb-18 px-3 sm:px-6"
+          className="w-full max-w-lg sm:max-w-xl mx-auto mb-2 sm:mb-18 sm:px-6"
           initial={{ opacity: 0, scale: 0.88, y: 45 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
@@ -293,7 +355,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             3. PHẦN LỊCH CƯỚI THÁNG 10/2026 (ANIMATION ZOOM TO & LỆCH LÊN)
            ======================================================== */}
         <motion.div
-          className="w-full max-w-md sm:max-w-lg mx-auto mb-16 mt-8 sm:mb-20 px-2 sm:px-6 flex flex-col items-center text-center"
+          className="w-full max-w-md sm:max-w-lg mx-auto mb-16 mt-8 sm:mb-20 sm:px-6 flex flex-col items-center text-center"
           initial={{ opacity: 0, scale: 0.88, y: 55 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
@@ -430,7 +492,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             4. THÔNG TIN NHÀ TRAI & NHÀ GÁI (GIAO DIỆN TO RÕ TRÊN WEB)
            ======================================================== */}
         <motion.div
-          className="w-full max-w-4xl lg:max-w-5xl mb-16 sm:mb-24 flex flex-col items-center px-2 sm:px-4"
+          className="w-full max-w-4xl lg:max-w-5xl mb-16 sm:mb-24 flex flex-col items-center "
           initial={{ opacity: 0, scale: 0.88, y: 55 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
@@ -587,7 +649,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             5. NÚT PHONG CÁCH GAME TIẾP TỤC VÀO GAME PIXEL (CHỈ DESKTOP)
            ======================================================== */}
         <motion.div
-          className="hidden md:flex mt-6 sm:mt-8 z-10 flex-col items-center"
+          className="hidden md:flex mt-6 sm:mt-8 z-10 flex-col items-center px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
