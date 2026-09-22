@@ -187,7 +187,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <p className="text-[11px] sm:text-xs tracking-[0.3em] uppercase text-amber-800/80 font-medium mb-2 font-['Montserrat',sans-serif]">
-          Wedding Invitation
+          Ngày Chung Đôi
         </p>
         <h1 className="font-['Great_Vibes',cursive] text-3xl sm:text-5xl text-[#6d4c2a] drop-shadow-sm">
            {GROOM.firstName}  &amp;  {BRIDE.firstName}
@@ -378,14 +378,14 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
                   {/* Phần trên: Huy hiệu Save The Date */}
                   <div className="pt-2">
                     <span className="px-3.5 py-1 rounded-full bg-black/35 backdrop-blur-md text-[9px] sm:text-[10px] tracking-[0.3em] uppercase text-amber-100 font-semibold border border-amber-300/50 shadow-md">
-                      Save The Date
+                      Ngày Chung Đôi
                     </span>
                   </div>
 
                   {/* Phần giữa: Tiêu đề WEDDING INVITATION & Tên cặp đôi */}
                   <div className="flex flex-col items-center my-auto">
                     <p className="font-['Montserrat',sans-serif] text-xs sm:text-sm uppercase tracking-[0.35em] text-amber-100 font-semibold drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
-                      Wedding Invitation
+                      Thiệp Báo Hỷ
                     </p>
                     
                     <div className="flex items-center justify-center gap-4 my-4">

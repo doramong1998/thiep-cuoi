@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { MILESTONES } from '@/data/wedding';
 
 export function MobileJourney() {
@@ -47,11 +47,10 @@ export function MobileJourney() {
         {/* Tiêu đề trên cùng */}
         <div className="text-center mb-6 flex flex-col items-center">
           <div className="flex items-center gap-2 mb-1">
-            <div className="h-px w-6 bg-gradient-to-r from-transparent to-[#9A6B2F]" />
-            <span className="text-[#8B2635] text-xs sm:text-sm font-bold tracking-[0.25em] uppercase font-['Cinzel',serif]">
-              CHỌN MỘT DẤU MỐC
-            </span>
-            <div className="h-px w-6 bg-gradient-to-l from-transparent to-[#9A6B2F]" />
+         
+             <h2 className="font-['Alex_Brush',cursive] text-4xl sm:text-6xl text-amber-950 drop-shadow-sm font-normal">
+          Hành Trình Yêu Thương
+        </h2>
           </div>
           <div className="h-0.5 w-10 bg-[#B8860B]/50 rounded-full mt-0.5" />
         </div>
@@ -72,15 +71,8 @@ export function MobileJourney() {
 
           {/* Thẻ chính hiển thị ảnh */}
           <div className="relative rounded-2xl bg-white p-3 sm:p-3.5 border border-[#E5D7C3] shadow-[0_15px_35px_rgba(100,60,30,0.12)] overflow-hidden mt-2" >
-            {/* Tag Chương ở góc trên bên trái */}
-            <div className="absolute top-0 left-4 z-20">
-              <div className="px-3 py-0.5 bg-[#6E1C24] text-white text-[10px] font-bold tracking-widest font-['Cinzel',serif] rounded-b-md shadow-md uppercase">
-                {activeMilestone.chapter}
-              </div>
-            </div>
-
             {/* Khung ảnh chính */}
-            <div className="relative aspect-[3/3.8] rounded-xl overflow-hidden bg-gradient-to-br from-[#FAF0E6] via-[#FDF5E6] to-[#F5E6D3] border border-[#E8DAC8] shadow-inner mt-3.5">
+            <div className="relative aspect-[3/3.8] rounded-xl overflow-hidden bg-gradient-to-br from-[#FAF0E6] via-[#FDF5E6] to-[#F5E6D3] border border-[#E8DAC8] shadow-inner">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeMilestone.id}
@@ -219,16 +211,7 @@ export function MobileJourney() {
                         isActive ? 'text-[#8B2635]' : 'text-[#8B2635]/80'
                       }`}
                     >
-                      {item.year}
-                    </span>
-                    <span
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full font-['Cinzel',serif] ${
-                        isActive
-                          ? 'bg-[#6E1C24] text-white'
-                          : 'bg-[#FAF0E6] text-[#78350F] border border-[#E8DAC8]'
-                      }`}
-                    >
-                      {item.chapter}
+                      {item.date}
                     </span>
                   </div>
 
@@ -247,13 +230,7 @@ export function MobileJourney() {
                   </p>
                 </div>
 
-                {/* Dấu chỉ thị đang xem */}
-                {isActive && (
-                  <div className="mt-2.5 pt-1.5 border-t border-rose-100 flex items-center gap-1 text-[11px] font-semibold text-[#8B2635] font-['Cormorant_Garamond',serif]">
-                    <Sparkles className="w-3 h-3 text-[#8B2635]" />
-                    <span>Đang xem dấu mốc này</span>
-                  </div>
-                )}
+               
               </div>
             );
           })}

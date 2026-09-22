@@ -29,10 +29,10 @@ export function GalleryScene() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <h2 className="font-['Alex_Brush',cursive] text-4xl sm:text-6xl text-amber-950 drop-shadow-sm font-normal">
-          Album Ảnh Cưới Của Chúng Mình
+          Dấu Ấn Hạnh Phúc
         </h2>
         <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-base text-amber-800/80 mt-1">
-          Những khoảnh khắc ngọt ngào được lưu giữ
+        Những khoảnh khắc yêu thương được lưu giữ mãi.
         </p>
         <div className="flex items-center justify-center gap-2 mt-3">
           <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />

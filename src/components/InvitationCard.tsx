@@ -25,7 +25,7 @@ export function InvitationCard() {
         
         <div className="absolute top-4 left-0 right-0 text-center">
           <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm text-[10px] tracking-[0.25em] uppercase text-amber-200 font-semibold border border-amber-300/30">
-            Wedding Invitation
+            Thiệp Báo Hỉ
           </span>
         </div>
       </div>

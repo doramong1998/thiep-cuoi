@@ -32,6 +32,7 @@ import {
 } from './sprites';
 import { lerpColor, clamp } from '@/lib/utils';
 import type { Milestone } from '@/types';
+import { getLucidePath2D } from './lucidePaths';
 
 // Season color configurations
 const SEASON_CONFIGS = {
@@ -285,7 +286,7 @@ export class PixelEngine {
   private drawBirds(): void {
     // 4-phase wing flap animation cycle (Cánh nâng -> Lượn -> Đập xuống -> Lượn)
     const frames = [BIRD_FRAME1, BIRD_FRAME2, BIRD_FRAME3, BIRD_FRAME2];
-    
+
     for (let i = 0; i < 3; i++) {
       const animSpeed = 4; // Tốc độ vỗ cánh tự nhiên
       const frameIndex = Math.floor(this.time * animSpeed + i * 1.3) % 4;
@@ -295,7 +296,7 @@ export class PixelEngine {
       const bx = ((i * 380 + this.time * 50) % (this.width + 140)) - 70;
       const flapLift = frameIndex === 0 ? -2.5 : frameIndex === 2 ? 2.5 : 0;
       const by = 35 + i * 28 + Math.sin(this.time * 1.6 + i * 2) * 8 + flapLift;
-      
+
       const birdScale = this.scale * (0.8 + (i % 2) * 0.2);
       drawSprite(this.ctx, currentFrame, BIRD_PALETTE, bx, by, birdScale);
     }
@@ -512,14 +513,36 @@ export class PixelEngine {
       const sy = roadY - SIGN_SPRITE.length * signScale - 5;
       drawSprite(this.ctx, SIGN_SPRITE, SIGN_PALETTE, screenX, sy, signScale);
 
-      // Milestone icon on sign
-      this.ctx.font = `${this.scale * 4}px serif`;
-      this.ctx.textAlign = 'center';
-      this.ctx.fillText(
-        m.icon,
-        screenX + (SIGN_SPRITE[0].length * signScale) / 2,
-        sy + signScale * 3.5,
-      );
+      // Milestone icon on sign: Sử dụng Lucide vector icon sắc nét, đồng bộ trên mọi thiết bị
+      const lucidePaths = getLucidePath2D(m.icon);
+      const centerX = screenX + (SIGN_SPRITE[0].length * signScale) / 2;
+      const centerY = sy + signScale * 3.8;
+
+      if (lucidePaths && lucidePaths.length > 0) {
+        const iconSize = signScale * 5.2;
+        const s = iconSize / 24;
+
+        this.ctx.save();
+        this.ctx.translate(centerX, centerY);
+        this.ctx.scale(s, s);
+        this.ctx.translate(-12, -12);
+
+        this.ctx.strokeStyle = '#5C3A1E'; // Màu nâu gỗ vintage hòa cùng biển báo
+        this.ctx.lineWidth = 2.4;
+        this.ctx.lineCap = 'round';
+        this.ctx.lineJoin = 'round';
+
+        for (const path of lucidePaths) {
+          this.ctx.stroke(path);
+        }
+
+        this.ctx.restore();
+      } else {
+        // Fallback về emoji nếu không tìm thấy Lucide path
+        this.ctx.font = `${this.scale * 4}px serif`;
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText(m.icon, centerX, sy + signScale * 3.5);
+      }
     }
   }
 
@@ -575,7 +598,7 @@ export class PixelEngine {
 
   private drawWeddingVenue(): void {
     // Only draw when near the end
-    if (this.progress < 0.90) return;
+    if (this.progress < 0.9) return;
 
     const baseOffset = this.progress * this.ROAD_LENGTH;
     const worldX = 0.96 * this.ROAD_LENGTH;
@@ -687,14 +710,14 @@ export class PixelEngine {
       this.ctx.font = `bold ${this.scale * 6}px "Playfair Display", Georgia, serif`;
       this.ctx.textAlign = 'center';
       this.ctx.fillText(
-        'Hành Trình Tình Yêu Của Chúng Mình',
+        'Hành trình từ yêu thương đến trọn đời',
         this.width / 2,
         this.height * 0.18,
       );
       this.ctx.font = `${this.scale * 3}px "Cormorant Garamond", Georgia, serif`;
       this.ctx.fillStyle = '#8B5E2B';
       this.ctx.fillText(
-        'Cùng nhìn lại những dấu mốc của chúng mình...',
+        'Cùng nhìn lại những khoảnh khắc đáng nhớ...',
         this.width / 2,
         this.height * 0.24,
       );

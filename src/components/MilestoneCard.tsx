@@ -27,12 +27,8 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               {/* Date badge */}
-              <div className="absolute bottom-2 left-3 px-2 py-0.5 bg-amber-900/80 text-amber-50 text-[10px] font-mono rounded">
+              <div className="absolute bottom-2 left-3 px-2.5 py-1 bg-amber-900/80 backdrop-blur-xs text-amber-50 text-[10px] font-mono rounded">
                 {milestone.date}
-              </div>
-              {/* Chapter badge */}
-              <div className="absolute top-2 right-3 px-2 py-0.5 bg-white/90 text-amber-900 text-[10px] font-bold font-mono rounded">
-                {milestone.chapter}
               </div>
             </div>
 

@@ -59,7 +59,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
     };
   }, [propGuestName]);
   return (
-    <section id="letter-scene" className="min-h-[130vh] flex flex-col items-center justify-start relative overflow-hidden px-4 pt-20 pb-40 sm:pt-28 sm:pb-52 bg-transparent select-none">
+    <section id="letter-scene" className="min-h-[130vh] flex flex-col items-center justify-start relative overflow-hidden px-4 pt-20 pb-10 md:pb-20 lg:pb-40 sm:pt-28 sm:pb-52 bg-transparent select-none">
       
       {/* Vầng sáng vàng dịu lan tỏa phía sau */}
       <div className="absolute w-[600px] h-[600px] rounded-full bg-amber-200/20 blur-3xl pointer-events-none -z-10" />
@@ -70,14 +70,14 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             1. TIÊU ĐỀ: "CHÚNG MÌNH LÀ"
            ======================================================== */}
         <motion.div
-          className="text-center mb-12 sm:mb-16 max-w-3xl"
+          className="text-center mb-12 sm:mb-16 max-w-4xl"
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="font-['Alex_Brush',cursive] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm">
-            Hai Đứa Mình
+          Có một ngày thật đặc biệt đang đến...
           </h2>
           
           <div className="flex items-center justify-center gap-3 mt-2">
@@ -235,7 +235,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
 
             {/* Lời chúc & lời mời tham dự */}
             <p className="font-['Cormorant_Garamond',serif] text-sm sm:text-base text-amber-900/85 max-w-md mx-auto mb-4 leading-relaxed">
-              Tới tham dự lễ thành hôn và chung vui cùng gia đình chúng mình vào
+              Tới tham dự và chung vui cùng gia đình vào 
             </p>
                  <div className="mb-6 sm:mb-8 flex flex-col items-center">
             <h3 className="font-['Playfair_Display',serif] text-2xl sm:text-3xl font-bold text-amber-950 tracking-wider">
@@ -293,7 +293,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             3. PHẦN LỊCH CƯỚI THÁNG 10/2026 (ANIMATION ZOOM TO & LỆCH LÊN)
            ======================================================== */}
         <motion.div
-          className="w-full max-w-md sm:max-w-lg mx-auto mb-16 sm:mb-20 px-2 sm:px-6 flex flex-col items-center text-center"
+          className="w-full max-w-md sm:max-w-lg mx-auto mb-16 mt-8 sm:mb-20 px-2 sm:px-6 flex flex-col items-center text-center"
           initial={{ opacity: 0, scale: 0.88, y: 55 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
@@ -439,7 +439,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
           {/* Tiêu đề phân đoạn gia đình */}
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="font-['Great_Vibes',cursive] text-4xl sm:text-5xl lg:text-6xl text-amber-950 mb-2 drop-shadow-sm">
-              Gia Đình Của Chúng Mình
+              Hai Bên Gia Đình
             </h3>
             <div className="flex items-center justify-center gap-3 mt-1">
               <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
@@ -609,7 +609,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
 
             {/* Dòng chữ chính */}
             <div className="flex items-center gap-2 text-white font-medium text-xs sm:text-[13px] tracking-wide pt-0.5">
-              <span>Cùng nhìn lại hành trình với tụi mình nha</span>
+              <span>Nhìn lại một hành trình mang tên yêu thương</span>
             </div>
           </button>
         </motion.div>
