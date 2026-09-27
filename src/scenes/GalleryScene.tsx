@@ -55,8 +55,13 @@ export function GalleryScene() {
             transition={{ duration: 0.65, delay: (i % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => open(i)}
           >
-            <div className={`w-full h-full bg-gradient-to-br ${img.bgGradient} transition-transform duration-500 group-hover:scale-110 flex items-center justify-center`}>
-              <span className="text-3xl opacity-20">📷</span>
+            <div className={`w-full h-full bg-gradient-to-br ${img.bgGradient} transition-transform duration-500 group-hover:scale-110`}>
+              <img
+                src={img.src}
+                alt={`Ảnh cưới ${i + 1}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           </motion.button>
         ))}
@@ -81,7 +86,7 @@ export function GalleryScene() {
 
             <motion.div
               key={selectedIndex}
-              className="max-w-3xl w-full mx-4 aspect-[4/3] rounded-xl overflow-hidden"
+              className="max-w-[90vw] max-h-[85vh] mx-4 rounded-xl overflow-hidden"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -92,9 +97,11 @@ export function GalleryScene() {
                 if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
               }}
             >
-              <div className={`w-full h-full bg-gradient-to-br ${GALLERY_IMAGES[selectedIndex].bgGradient} flex items-center justify-center`}>
-                <span className="text-6xl opacity-30">📷</span>
-              </div>
+              <img
+                src={GALLERY_IMAGES[selectedIndex].src}
+                alt={`Ảnh cưới ${selectedIndex + 1}`}
+                className="max-w-full max-h-[85vh] object-contain rounded-xl"
+              />
             </motion.div>
 
             <p className="absolute bottom-4 text-white/50 font-mono text-xs">

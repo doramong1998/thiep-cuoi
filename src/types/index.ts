@@ -53,6 +53,7 @@ export interface BankAccount {
 // Gallery image
 export interface GalleryImage {
   id: string;
+  src: string;
   aspectClass: string;
   bgGradient: string;
 }

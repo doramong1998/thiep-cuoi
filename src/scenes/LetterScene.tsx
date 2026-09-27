@@ -70,7 +70,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
             1. TIÊU ĐỀ: "CHÚNG MÌNH LÀ"
            ======================================================== */}
         <motion.div
-          className="text-center mb-12 sm:mb-16 max-w-4xl px-4"
+          className="text-center mb-12 sm:mb-16 max-w-5xl px-4"
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -208,9 +208,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
                 <h3 className="font-['Cinzel',serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {BRIDE.fullName}
                 </h3>
-                <p className="font-['Cormorant_Garamond',serif] text-sm sm:text-base font-semibold tracking-widest text-white/95 mt-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                  {BRIDE.birthDate || '20.08.2001'}
-                </p>
+              
               </motion.div>
             </div>
           </motion.div>
@@ -249,9 +247,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
                 <h3 className="font-['Cinzel',serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {GROOM.fullName}
                 </h3>
-                <p className="font-['Cormorant_Garamond',serif] text-sm sm:text-base font-semibold tracking-widest text-white/95 mt-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                  {GROOM.birthDate || '06.05.1998'}
-                </p>
+               
               </motion.div>
             </div>
           </motion.div>

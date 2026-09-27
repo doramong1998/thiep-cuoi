@@ -375,12 +375,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
 
                 {/* Nội dung trên nền ảnh */}
                 <div className="absolute inset-0 flex flex-col items-center justify-between p-6 sm:p-8 text-center z-20 select-none">
-                  {/* Phần trên: Huy hiệu Save The Date */}
-                  <div className="pt-2">
-                    <span className="px-3.5 py-1 rounded-full bg-black/35 backdrop-blur-md text-[9px] sm:text-[10px] tracking-[0.3em] uppercase text-amber-100 font-semibold border border-amber-300/50 shadow-md">
-                      Ngày Chung Đôi
-                    </span>
-                  </div>
+  
 
                   {/* Phần giữa: Tiêu đề WEDDING INVITATION & Tên cặp đôi */}
                   <div className="flex flex-col items-center my-auto">
@@ -434,9 +429,9 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
                 {/* Phần banner ảnh kỷ niệm phía trên */}
                 <div className="relative h-60 sm:h-68 overflow-hidden shrink-0">
                   <img
-                    src="/images/couple.jpg"
+                    src="/images/couple-2.jpg"
                     alt="Ảnh kỷ niệm Nghĩa & Huy"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#fffdf9] via-black/15 to-transparent" />
                 </div>

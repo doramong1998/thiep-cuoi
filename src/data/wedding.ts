@@ -24,7 +24,7 @@ export const GROOM_FAMILY = {
   mother: 'Nguyễn Thị Xuân Mai',
   groom: 'Trần Quang Huy',
   rank: 'Trưởng Nam',
-  address: 'Số 12 Ngõ 155 Đường 32, Xã Vật Lại, TP. Hà Nội',
+  address: 'Số 12 Ngõ 155 Đường 32, Xã Vật Lại, TP.Hà Nội',
   phone: '0978727524',
   mapUrl: 'https://maps.app.goo.gl/z2aQin6N1gAjdFbU9',
 };
@@ -35,7 +35,7 @@ export const BRIDE_FAMILY = {
   mother: 'Nguyễn Thị Yến',
   bride: 'Vũ Thị Nghĩa',
   rank: 'Ái Nữ',
-  address: 'Thôn Tân Thể, xã Ngọc Thiện, Bắc Ninh',
+  address: 'Thôn Tân Thể, xã Ngọc Thiện, TP.Bắc Ninh',
   phone: '0981384115',
   mapUrl: 'https://maps.app.goo.gl/3jSpHTNjVX5Rv4je6',
 };
@@ -44,7 +44,7 @@ export const WEDDING_INFO = {
   date: '25.10.2026',
   time: '15:30',
   venue: 'Tư gia nhà trai',
-  address: 'Đường 32, Xã Vật Lại, TP. Hà Nội',
+  address: 'ngã ba Châu Hùm, Đồng Bảng, xã Vật Lại, TP.Hà Nội',
   mapUrl: 'https://maps.app.goo.gl/pTBEyKMNEPoEXAsM7',
 };
 
@@ -234,26 +234,137 @@ export const BANK_ACCOUNTS: BankAccount[] = [
   },
 ];
 
-export const GALLERY_IMAGES: GalleryImage[] = Array.from(
-  { length: 12 },
-  (_, i) => ({
-    id: `gallery-${i + 1}`,
-    aspectClass: [
-      'aspect-[3/4]',
-      'aspect-square',
-      'aspect-[4/3]',
-      'aspect-[3/4]',
-      'aspect-square',
-    ][i % 5],
-    bgGradient: [
-      'from-rose-200 to-amber-100',
-      'from-amber-100 to-pink-100',
-      'from-sky-100 to-rose-100',
-      'from-pink-100 to-amber-50',
-      'from-amber-50 to-rose-200',
-    ][i % 5],
-  }),
-);
+export const GALLERY_IMAGES: GalleryImage[] = [
+  // --- Hong Kong series ---
+  {
+    id: 'gallery-1',
+    src: '/images/album/hongkong1.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-rose-200 to-amber-100',
+  },
+  {
+    id: 'gallery-2',
+    src: '/images/album/hongkong2.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-amber-100 to-pink-100',
+  },
+  {
+    id: 'gallery-3',
+    src: '/images/album/hongkong3.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-sky-100 to-rose-100',
+  },
+  {
+    id: 'gallery-4',
+    src: '/images/album/hongkong4.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-pink-100 to-amber-50',
+  },
+  {
+    id: 'gallery-5',
+    src: '/images/album/hongkong5.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-amber-50 to-rose-200',
+  },
+  // --- Áo dài series ---
+  {
+    id: 'gallery-6',
+    src: '/images/album/aodai1.jpg',
+    aspectClass: 'aspect-[4/3]', // ngang
+    bgGradient: 'from-rose-200 to-amber-100',
+  },
+  {
+    id: 'gallery-7',
+    src: '/images/album/aodai2.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-amber-100 to-pink-100',
+  },
+  {
+    id: 'gallery-8',
+    src: '/images/album/aodai3.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-sky-100 to-rose-100',
+  },
+  {
+    id: 'gallery-9',
+    src: '/images/album/aodai4.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-pink-100 to-amber-50',
+  },
+  {
+    id: 'gallery-10',
+    src: '/images/album/aodai5.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-amber-50 to-rose-200',
+  },
+  {
+    id: 'gallery-11',
+    src: '/images/album/aodai6.jpg',
+    aspectClass: 'aspect-[4/3]', // ngang
+    bgGradient: 'from-rose-200 to-amber-100',
+  },
+  {
+    id: 'gallery-12',
+    src: '/images/album/aodai7.jpg',
+    aspectClass: 'aspect-[4/3]', // ngang
+    bgGradient: 'from-amber-100 to-pink-100',
+  },
+  {
+    id: 'gallery-13',
+    src: '/images/album/aodai8.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-sky-100 to-rose-100',
+  },
+  {
+    id: 'gallery-14',
+    src: '/images/album/aodai9.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-pink-100 to-amber-50',
+  },
+  {
+    id: 'gallery-15',
+    src: '/images/album/aodai10.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-amber-50 to-rose-200',
+  },
+  // --- Studio series ---
+  {
+    id: 'gallery-16',
+    src: '/images/album/stu1.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-rose-200 to-amber-100',
+  },
+  {
+    id: 'gallery-17',
+    src: '/images/album/stu2.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-amber-100 to-pink-100',
+  },
+  {
+    id: 'gallery-18',
+    src: '/images/album/stu3.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-sky-100 to-rose-100',
+  },
+  {
+    id: 'gallery-19',
+    src: '/images/album/stu4.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-pink-100 to-amber-50',
+  },
+  {
+    id: 'gallery-20',
+    src: '/images/album/stu5.jpg',
+    aspectClass: 'aspect-[4/3]', // ngang
+    bgGradient: 'from-amber-50 to-rose-200',
+  },
+  {
+    id: 'gallery-21',
+    src: '/images/album/stu6.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-rose-200 to-amber-100',
+  },
+];
 
 export const SOCIAL = {
   facebook: 'https://facebook.com',
