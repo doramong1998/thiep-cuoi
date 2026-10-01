@@ -14,12 +14,12 @@ function getGuestNameFromUrl(): string {
   try {
     const searchParams = new URLSearchParams(window.location.search);
     const param = searchParams.get('name');
-    if (param) return param.trim();
+    if (param) return decodeURIComponent(param).trim();
 
     if (window.location.hash.includes('?')) {
       const hashQuery = window.location.hash.split('?')[1];
       const hashParam = new URLSearchParams(hashQuery).get('name');
-      if (hashParam) return hashParam.trim();
+      if (hashParam) return decodeURIComponent(hashParam).trim();
     }
   } catch {
     // Trình duyệt không hỗ trợ hoặc parse lỗi
