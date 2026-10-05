@@ -6,6 +6,7 @@ import { BRIDE, GROOM } from '@/data/wedding';
 interface MailboxSceneProps {
   onOpen?: () => void;
   onFlip?: () => void;
+  isGuestRoute?: boolean;
 }
 
 // Cấu trúc dữ liệu cho hạt bụi vàng phát sáng khi con dấu sáp bung mở
@@ -18,7 +19,7 @@ interface SparkleParticle {
   delay: number;
 }
 
-export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
+export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps) {
   // Trạng thái phong bì đã được chạm mở hay chưa
   const [isOpen, setIsOpen] = useState(false);
   // Trạng thái thiệp cưới đã vươn lên hoàn toàn ở vị trí tiền cảnh
@@ -40,6 +41,7 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
         setShowFlipHint(true);
       }, 3000);
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowFlipHint(false);
     }
     return () => clearTimeout(timer);
@@ -446,12 +448,20 @@ export function MailboxScene({ onOpen, onFlip }: MailboxSceneProps) {
                   </div>
 
                   {/* Đoạn thông điệp từ cặp đôi */}
-                  <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-[17px] text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
-                    “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
-                    {' '}Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh.<br className="hidden sm:inline" />
-                    {' '}Cuộc sống quý giá không chỉ ở đích đến, mà còn ở những khoảnh khắc chia sẻ cùng nhau.<br className="hidden sm:inline" />
-                    {' '}Vì vậy, chúng mình mong được bạn chung vui trong ngày hạnh phúc này.”
-                  </p>
+                  {isGuestRoute ? (
+                    <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-[17px] text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
+                      Trong hành trình cuộc sống, những khoảnh khắc hạnh phúc sẽ trở nên ý nghĩa hơn khi được sẻ chia cùng những người thân yêu.<br className="hidden sm:inline" />
+                      {' '}Gia đình chúng tôi trân trọng kính mời Quý vị đến tham dự và chung vui trong ngày thành hôn của hai cháu.<br className="hidden sm:inline" />
+                      {' '}Sự hiện diện và lời chúc phúc của Quý vị là niềm vui, niềm hạnh phúc lớn lao đối với gia đình chúng tôi.
+                    </p>
+                  ) : (
+                    <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-[17px] text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
+                      “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
+                      {' '}Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh.<br className="hidden sm:inline" />
+                      {' '}Cuộc sống quý giá không chỉ ở đích đến, mà còn ở những khoảnh khắc chia sẻ cùng nhau.<br className="hidden sm:inline" />
+                      {' '}Vì vậy, chúng mình mong được bạn chung vui trong ngày hạnh phúc này.”
+                    </p>
+                  )}
 
                   {/* Trái tim hồng cách điệu ở đáy */}
                   <div className="flex items-center justify-center gap-2 mt-4 sm:mt-5">

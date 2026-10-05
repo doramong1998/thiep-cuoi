@@ -6,6 +6,7 @@ import { BRIDE, GROOM, BRIDE_FAMILY, GROOM_FAMILY, WEDDING_INFO } from '@/data/w
 interface LetterSceneProps {
   onContinue: () => void;
   guestName?: string;
+  isGuestRoute?: boolean;
 }
 
 // Lấy tham số tên khách mời từ URL param ?name=... (hoặc qua hash param)
@@ -37,14 +38,16 @@ const OCTOBER_2026_GRID = [
   [26, 27, 28, 29, 30, 31, null],
 ];
 
-export function LetterScene({ onContinue, guestName: propGuestName }: LetterSceneProps) {
+export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute }: LetterSceneProps) {
   const [guestName, setGuestName] = useState<string>(() => propGuestName || getGuestNameFromUrl());
 
   useEffect(() => {
     if (propGuestName) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setGuestName(propGuestName);
       return;
     }
+     
     setGuestName(getGuestNameFromUrl());
 
     const handleUrlChange = () => {
@@ -293,7 +296,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
 
             {/* Lời chúc & lời mời tham dự */}
             <p className="font-['Cormorant_Garamond',serif] text-sm sm:text-base text-amber-900/85 max-w-md mx-auto mb-4 leading-relaxed">
-              Tới tham dự và chung vui cùng gia đình vào 
+              Tới tham dự và chung vui cùng gia đình {isGuestRoute ? 'chúng tôi ' : ''}vào 
             </p>
                  <div className="mb-6 sm:mb-8 flex flex-col items-center">
             <h3 className="font-['Playfair_Display',serif] text-2xl sm:text-3xl font-bold text-amber-950 tracking-wider">
@@ -311,7 +314,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
                     return <div key={`empty-${wIdx}-${dIdx}`} className="h-10 sm:h-12" />;
                   }
 
-                  const isWeddingDay = day === 25;
+                  const isWeddingDay = day === 24 || day === 25;
 
                   return (
                     <div
@@ -319,7 +322,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
                       className="h-10 sm:h-12 flex items-center justify-center relative"
                     >
                       {isWeddingDay ? (
-                        /* Ngày cưới 25: Icon Trái tim cách điệu đỏ hồng ngọt ngào */
+                        /* Ngày cưới: Icon Trái tim cách điệu đỏ hồng ngọt ngào */
                         <motion.div
                           className="relative w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center cursor-pointer"
                           animate={{ scale: [1, 1.12, 1] }}
@@ -328,7 +331,7 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
                           <Heart className="w-full h-full text-rose-500 fill-rose-500 drop-shadow-[0_3px_10px_rgba(244,63,94,0.45)]" />
                           
                           <span className="absolute z-10 font-['Playfair_Display',serif] text-xs sm:text-sm font-bold text-white drop-shadow-sm pt-0.5">
-                            25
+                            {day}
                           </span>
                         </motion.div>
                       ) : (
@@ -644,33 +647,35 @@ export function LetterScene({ onContinue, guestName: propGuestName }: LetterScen
         {/* ========================================================
             5. NÚT PHONG CÁCH GAME TIẾP TỤC VÀO GAME PIXEL (CHỈ DESKTOP)
            ======================================================== */}
-        <motion.div
-          className="hidden md:flex mt-6 sm:mt-8 z-10 flex-col items-center px-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          <button
-            onClick={onContinue}
-            className="group relative px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl bg-gradient-to-b from-[#e5b76c] via-[#d49f50] to-[#bd8235] text-white font-['Montserrat',sans-serif] text-xs sm:text-sm font-semibold border-2 border-amber-200/90 shadow-[0_5px_0_#9a6320,0_12px_24px_rgba(154,99,32,0.22)] hover:shadow-[0_3px_0_#9a6320,0_8px_16px_rgba(154,99,32,0.18)] hover:translate-y-[2px] active:shadow-[0_0px_0_#9a6320] active:translate-y-[5px] transition-all duration-150 flex flex-col items-center gap-1.5 cursor-pointer overflow-hidden select-none"
+        {!isGuestRoute && (
+          <motion.div
+            className="hidden md:flex mt-6 sm:mt-8 z-10 flex-col items-center px-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
           >
-            {/* Lớp ánh sáng phản chiếu bóng kính */}
-            <div className="absolute inset-x-0 top-0 h-1/2 bg-white/20 rounded-t-xl pointer-events-none" />
+            <button
+              onClick={onContinue}
+              className="group relative px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl bg-gradient-to-b from-[#e5b76c] via-[#d49f50] to-[#bd8235] text-white font-['Montserrat',sans-serif] text-xs sm:text-sm font-semibold border-2 border-amber-200/90 shadow-[0_5px_0_#9a6320,0_12px_24px_rgba(154,99,32,0.22)] hover:shadow-[0_3px_0_#9a6320,0_8px_16px_rgba(154,99,32,0.18)] hover:translate-y-[2px] active:shadow-[0_0px_0_#9a6320] active:translate-y-[5px] transition-all duration-150 flex flex-col items-center gap-1.5 cursor-pointer overflow-hidden select-none"
+            >
+              {/* Lớp ánh sáng phản chiếu bóng kính */}
+              <div className="absolute inset-x-0 top-0 h-1/2 bg-white/20 rounded-t-xl pointer-events-none" />
 
-            {/* Tag phong cách Game Pixel 8-bit */}
-            <div className="flex items-center gap-2 font-['Press_Start_2P',monospace] text-[9px] sm:text-[10px] text-amber-100 tracking-wider">
-              <Gamepad2 className="w-3.5 h-3.5 text-amber-200 animate-bounce" />
-              <span>[ PRESS TO START ]</span>
-              <span className="text-rose-300">♥</span>
-            </div>
+              {/* Tag phong cách Game Pixel 8-bit */}
+              <div className="flex items-center gap-2 font-['Press_Start_2P',monospace] text-[9px] sm:text-[10px] text-amber-100 tracking-wider">
+                <Gamepad2 className="w-3.5 h-3.5 text-amber-200 animate-bounce" />
+                <span>[ PRESS TO START ]</span>
+                <span className="text-rose-300">♥</span>
+              </div>
 
-            {/* Dòng chữ chính */}
-            <div className="flex items-center gap-2 text-white font-medium text-xs sm:text-[13px] tracking-wide pt-0.5">
-              <span>Nhìn lại một hành trình mang tên yêu thương</span>
-            </div>
-          </button>
-        </motion.div>
+              {/* Dòng chữ chính */}
+              <div className="flex items-center gap-2 text-white font-medium text-xs sm:text-[13px] tracking-wide pt-0.5">
+                <span>Nhìn lại một hành trình mang tên yêu thương</span>
+              </div>
+            </button>
+          </motion.div>
+        )}
 
       </div>
     </section>

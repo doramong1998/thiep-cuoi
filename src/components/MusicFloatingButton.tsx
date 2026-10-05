@@ -48,6 +48,7 @@ export function MusicFloatingButton({ playTrigger = false }: MusicFloatingButton
   // Hiệu ứng nốt nhạc bay lên khi đang quay đĩa CD phát nhạc
   useEffect(() => {
     if (!isPlaying) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFloatingNotes([]);
       return;
     }

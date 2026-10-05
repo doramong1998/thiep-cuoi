@@ -94,7 +94,10 @@ export function GalleryScene() {
               onTouchStart={(e) => setTouchStart(e.touches[0].clientX)}
               onTouchEnd={(e) => {
                 const diff = touchStart - e.changedTouches[0].clientX;
-                if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+                if (Math.abs(diff) > 50) {
+                  if (diff > 0) next();
+                  else prev();
+                }
               }}
             >
               <img

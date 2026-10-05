@@ -8,7 +8,11 @@ import { JourneyScene } from '@/scenes/JourneyScene';
 import { GalleryScene } from '@/scenes/GalleryScene';
 import { GiftScene } from '@/scenes/GiftScene';
 
-function App() {
+interface AppProps {
+  isGuestRoute?: boolean;
+}
+
+function App({ isGuestRoute = false }: AppProps) {
   const [scrollUnlocked, setScrollUnlocked] = useState(false);
   const [hasOpenedCard, setHasOpenedCard] = useState(false);
 
@@ -35,19 +39,23 @@ function App() {
 
       {/* Scene 1: Envelope & 3D Flip Card */}
       <MailboxScene 
+        isGuestRoute={isGuestRoute}
         onOpen={() => setHasOpenedCard(true)} 
         onFlip={handleCardFlipped} 
       />
 
       {/* Remaining sections — visible but scroll locked until envelope opens */}
-      <LetterScene onContinue={() => {
-        document.getElementById('journey-scene')?.scrollIntoView({ behavior: 'smooth' });
+      <LetterScene isGuestRoute={isGuestRoute} onContinue={() => {
+        const nextScene = isGuestRoute ? 'gallery-scene' : 'journey-scene';
+        document.getElementById(nextScene)?.scrollIntoView({ behavior: 'smooth' });
       }} />
 
       {/* Scene: Side-scrolling Love Story Journey (Game Pixel) */}
-      <div id="journey-scene">
-        <JourneyScene />
-      </div>
+      {!isGuestRoute && (
+        <div id="journey-scene">
+          <JourneyScene />
+        </div>
+      )}
 
       {/* Scene: Photo Gallery (Album ảnh cưới đặt sau game pixel) */}
       <div id="gallery-scene">
