@@ -29,20 +29,6 @@ export function CountdownScene() {
         </div>
 
         <CountdownDisplay />
-
-        <motion.div
-          className="mt-8 flex flex-col items-center gap-2"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-100/70 border border-amber-300/60 text-amber-900 font-['Cinzel',serif] text-xs sm:text-sm tracking-wider font-semibold">
-            <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
-            <span>Chủ Nhật · 25 Tháng 10, 2026</span>
-            <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   );

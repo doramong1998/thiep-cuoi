@@ -59,7 +59,7 @@ export function MobileJourney() {
             1. KHUNG ẢNH DẤU MỐC NGHỆ THUẬT (PHOTO CARD)
            ======================================================== */}
         <motion.div 
-          className="w-full max-w-[320px] sm:max-w-[350px] mb-6 relative"
+          className="w-full max-w-[350px] sm:max-w-[400px] mb-6 relative"
           initial={{ opacity: 0, scale: 0.88, y: 50 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
@@ -72,7 +72,7 @@ export function MobileJourney() {
           {/* Thẻ chính hiển thị ảnh */}
           <div className="relative rounded-2xl bg-white p-3 sm:p-3.5 border border-[#E5D7C3] shadow-[0_15px_35px_rgba(100,60,30,0.12)] overflow-hidden mt-2" >
             {/* Khung ảnh chính */}
-            <div className="relative aspect-[3/3.8] rounded-xl overflow-hidden bg-gradient-to-br from-[#FAF0E6] via-[#FDF5E6] to-[#F5E6D3] border border-[#E8DAC8] shadow-inner">
+            <div className="relative aspect-[9/16] rounded-xl overflow-hidden bg-gradient-to-br from-[#FAF0E6] via-[#FDF5E6] to-[#F5E6D3] border border-[#E8DAC8] shadow-inner">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeMilestone.id}
@@ -225,7 +225,7 @@ export function MobileJourney() {
                   </h3>
 
                   {/* Mô tả ngắn */}
-                  <p className="font-['Cormorant_Garamond',serif] text-xs text-stone-600 leading-relaxed mt-1 line-clamp-5">
+                  <p className="font-['Cormorant_Garamond',serif] text-xs text-stone-600 leading-relaxed mt-1">
                     {item.description}
                   </p>
                 </div>

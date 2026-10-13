@@ -124,7 +124,6 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   alt="Cô dâu"
                   className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 z-10 text-white select-none">
                   <p className="font-['Alex_Brush',cursive] text-2xl text-rose-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                     Cô dâu
@@ -161,7 +160,6 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   alt="Chú rể"
                   className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 right-4 z-10 text-white select-none text-right">
                   <p className="font-['Alex_Brush',cursive] text-2xl text-amber-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                     Chú rể
@@ -197,7 +195,6 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                 alt="Cô dâu"
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
               <motion.div 
                 className="absolute bottom-5 sm:bottom-7 left-5 sm:left-7 z-10 text-white select-none"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -236,7 +233,6 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                 alt="Chú rể"
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
               <motion.div 
                 className="absolute bottom-5 sm:bottom-7 left-5 sm:left-7 z-10 text-white select-none"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}

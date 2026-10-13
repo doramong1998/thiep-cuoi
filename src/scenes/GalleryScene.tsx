@@ -31,9 +31,9 @@ export function GalleryScene() {
         <h2 className="font-['Alex_Brush',cursive] text-4xl sm:text-6xl text-amber-950 drop-shadow-sm font-normal">
           Dấu Ấn Hạnh Phúc
         </h2>
-        <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-base text-amber-800/80 mt-1">
+        {/* <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-base text-amber-950 mt-1">
         Những khoảnh khắc yêu thương được lưu giữ mãi.
-        </p>
+        </p> */}
         <div className="flex items-center justify-center gap-2 mt-3">
           <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
           <span className="text-amber-500 text-xs">✦ ✦ ✦</span>
