@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { CountdownDisplay } from '@/components/CountdownDisplay';
-import { Heart } from 'lucide-react';
 
 export function CountdownScene() {
   return (
