@@ -12,7 +12,7 @@ export function MobileJourney() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev < MILESTONES.length - 1 ? prev + 1 : 0));
-    }, 6000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, [activeIndex]);

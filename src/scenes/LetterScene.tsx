@@ -128,7 +128,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   <p className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl text-rose-300 mb-0.5 font-semibold tracking-wide">
                     Cô dâu
                   </p>
-                  <h3 className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
+                  <h3 className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
                     {BRIDE.fullName}
                   </h3>
                 </div>
@@ -164,7 +164,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   <p className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl text-amber-300 font-bold mb-0.5 tracking-wide">
                     Chú rể
                   </p>
-                  <h3 className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
+                  <h3 className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
                     {GROOM.fullName}
                   </h3>
                 </div>              </div>
@@ -494,10 +494,9 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
             <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
               Chương trình hôn lễ
             </h2>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 font-['ganhtype',sans-serif] text-xs sm:text-sm font-semibold tracking-wider mt-3 shadow-2xs">
-              <span>Chủ Nhật · 25 · 10 · 2026</span>
-              <span className="text-amber-500">✦</span>
-              <span className="text-amber-800/90">16 tháng 09 Âm lịch</span>
+            <div className=" items-center gap-2 px-4 py-1.5 rounded-2xl bg-amber-100/90 border border-amber-300/80 text-amber-900 font-['ganhtype',sans-serif] text-xs sm:text-sm font-semibold tracking-wider mt-3 shadow-2xs">
+              <div className='text-sm mb-1'>Chủ Nhật · 25 · 10 · 2026</div>
+              <div className="text-amber-800/70">16 tháng 09 năm Bính Ngọ</div>
             </div>
             <div className="flex items-center justify-center gap-2 mt-3">
               <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
