@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Heart, RotateCw } from 'lucide-react';
+import { Sparkles, Heart } from 'lucide-react';
 import { BRIDE, GROOM } from '@/data/wedding';
 
 interface MailboxSceneProps {
@@ -76,18 +76,6 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
     }, 250);
   };
 
-  // Hàm cuộn mượt màn hình xuống phần nội dung tiếp theo
-  const handleScrollDown = () => {
-    const nextSection = document.getElementById('letter-scene') || document.getElementById('countdown-scene');
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth',
-      });
-    }
-  };
 
   // Xử lý khi nhấn vào thiệp:
   // - Nếu chưa mở: Mở phong bì
