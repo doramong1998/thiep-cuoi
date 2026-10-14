@@ -44,7 +44,7 @@ export function GiftScene() {
           </h3>
 
           {/* Ngày cưới */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 font-['1FTV-Carlytte',sans-serif] text-sm sm:text-base tracking-[0.1em] font-bold mb-5 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 font-['1FTV-Carlytte',sans-serif] text-lg sm:text-xl tracking-[0.1em] font-bold mb-5 shadow-sm">
             <span>25 · 10 · 2026</span>
           </div>
 
