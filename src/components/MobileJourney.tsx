@@ -32,7 +32,7 @@ export function MobileJourney() {
         <div className="text-center mb-6 flex flex-col items-center">
           <div className="flex items-center gap-2 mb-1">
          
-             <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
+             <h2 className="font-['ganhtype',sans-serif] text-3xl sm:text-5xl text-amber-950 drop-shadow-sm font-normal">
           Hành Trình Gắn Bó
         </h2>
           </div>
@@ -100,11 +100,11 @@ export function MobileJourney() {
 
               {/* Dòng chú thích dưới ảnh: Năm ✦ Tiêu đề */}
               <div className="pt-2.5 pb-0.5 px-1 flex items-center justify-start gap-1.5 text-[#5C3A1E]">
-                <span className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-4xl font-bold text-[#8B2635]">
+                <span className="font-['ganhtype',sans-serif] text-xl sm:text-2xl font-bold text-[#8B2635]">
                   {activeMilestone.year}
                 </span>
                 <span className="text-[#8B2635] text-xs">✦</span>
-                <span className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-4xl font-bold text-[#8B2635] truncate">
+                <span className="font-['ganhtype',sans-serif] text-xl sm:text-2xl font-bold text-[#8B2635] truncate">
                   {activeMilestone.title}
                 </span>
               </div>
@@ -135,7 +135,7 @@ export function MobileJourney() {
             </div>
 
             {/* Số trang 03 / 04 */}
-            <div className="font-['1FTV-Carlytte',sans-serif] text-2xl font-bold text-[#6E1C24] tracking-wider mr-2">
+            <div className="font-['ganhtype',sans-serif] text-lg font-bold text-[#6E1C24] tracking-wider mr-2">
               {String(activeIndex + 1).padStart(2, '0')} / {String(MILESTONES.length).padStart(2, '0')}
             </div>
 

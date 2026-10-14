@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GALLERY_IMAGES } from '@/data/wedding';
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Icon, X } from 'lucide-react'
 
 export function GalleryScene() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -28,7 +29,7 @@ export function GalleryScene() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
+        <h2 className="font-['ganhtype',sans-serif] text-3xl sm:text-5xl text-amber-950 drop-shadow-sm font-normal">
           Dấu Ấn Hạnh Phúc
         </h2>
         {/* <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-base text-amber-950 mt-1">
@@ -80,9 +81,13 @@ export function GalleryScene() {
             tabIndex={0}
             role="dialog"
           >
-            <button className="absolute top-4 right-4 w-10 h-10 text-white/80 hover:text-white text-2xl cursor-pointer z-10" onClick={close}>✕</button>
-            <button className="absolute left-4 w-10 h-10 text-white/80 hover:text-white text-2xl cursor-pointer z-10" onClick={(e) => { e.stopPropagation(); prev(); }}>‹</button>
-            <button className="absolute right-4 w-10 h-10 text-white/80 hover:text-white text-2xl cursor-pointer z-10" onClick={(e) => { e.stopPropagation(); next(); }}>›</button>
+            <button className="absolute top-4 right-4 text-white/80 hover:text-white  cursor-pointer z-10" onClick={close}><X /></button>
+            <button className="absolute left-5 text-white/80 hover:text-white  cursor-pointer z-10" onClick={(e) => { e.stopPropagation(); prev(); }}>
+              <ChevronLeft size={32} />
+            </button>
+            <button className="absolute right-5 text-white/80 hover:text-white  cursor-pointer z-10" onClick={(e) => { e.stopPropagation(); next(); }}>
+              <ChevronRight size={32} />
+            </button>
 
             <motion.div
               key={selectedIndex}

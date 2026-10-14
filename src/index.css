@@ -1,6 +1,21 @@
 @import 'tailwindcss';
 
-/* ===== Custom Fonts from /font/ ===== */
+@font-face {
+  font-family: 'Arizonia-Regular';
+  src: url('/font/Arizonia-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arizonia';
+  src: url('/font/Arizonia-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: '1FTV-Carlytte';
   src: url('/font/1FTV-Carlytte.ttf') format('truetype');
@@ -162,16 +177,20 @@
 }
 
 @theme {
-  --font-content: '1FTV-Carlytte', cursive, sans-serif;
+  --font-content: 'ganhtype', 'ganh-type', 'Ganh', sans-serif;
   --font-couple: 'SVN-Clodia', cursive;
-  --font-title: '1FTV-Carlytte', cursive, sans-serif;
-  --font-name: '1FTV-Carlytte', cursive, sans-serif;
+  --font-title: 'ganhtype', 'ganh-type', 'Ganh', sans-serif;
+  --font-name: 'ganhtype', 'ganh-type', 'Ganh', sans-serif;
   --font-button: 'Panton-Regular', sans-serif;
   --font-ganh: 'ganh-type', 'Ganh', sans-serif;
   --font-jacklane: 'jacklane', 'Jacklane', cursive, sans-serif;
+  --font-arizonia: 'Arizonia-Regular', 'Arizonia', cursive, sans-serif;
 }
 
 /* Helper utility classes for convenience */
+.font-arizonia {
+  font-family: 'Arizonia-Regular', 'Arizonia', cursive, sans-serif;
+}
 .font-ganh {
   font-family: 'ganh-type', 'Ganh', sans-serif;
 }
@@ -209,7 +228,7 @@
   }
 
   body {
-    font-family: '1FTV-Carlytte', 'Cormorant Garamond', Georgia, serif;
+    font-family: 'ganhtype', 'ganh-type', 'Ganh', sans-serif;
     color: #5B3A1A;
     background-color: #FFF8F0;
     overflow-x: hidden;
@@ -257,7 +276,7 @@
     background: rgba(255, 248, 240, 0.8);
     border: 2px solid #E8D4B0;
     border-radius: 0.5rem;
-    font-family: '1FTV-Carlytte', cursive, sans-serif;
+    font-family: 'ganhtype', 'ganh-type', 'Ganh', sans-serif;
     font-size: 1rem;
     color: #5B3A1A;
     transition: all 0.2s;

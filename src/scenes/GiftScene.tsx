@@ -44,12 +44,12 @@ export function GiftScene() {
           </h3>
 
           {/* Ngày cưới */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 font-['1FTV-Carlytte',sans-serif] text-lg sm:text-xl tracking-[0.1em] font-bold mb-5 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 font-['ganhtype',sans-serif] text-lg sm:text-xl tracking-[0.1em] font-bold mb-5 shadow-sm">
             <span>25 · 10 · 2026</span>
           </div>
 
           {/* Lời cảm ơn chân thành */}
-          <p className="font-['1FTV-Carlytte',sans-serif] italic text-xl sm:text-3xl text-amber-900/90 mb-6 leading-relaxed max-w-lg px-2">
+          <p className="font-['ganhtype',sans-serif] italic text-lg sm:text-3xl text-amber-900/90 mb-6 leading-relaxed max-w-lg px-2">
             “Cảm ơn bạn đã luôn yêu thương, đồng hành và là một phần tuyệt vời nhất trong ngày hạnh phúc của chúng mình!”
           </p>
 

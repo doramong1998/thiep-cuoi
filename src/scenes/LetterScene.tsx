@@ -79,7 +79,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
+          <h2 className="font-['ganhtype',sans-serif] text-3xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
           Có một ngày thật đặc biệt đang đến...
           </h2>
           
@@ -128,7 +128,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   <p className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl text-rose-300 mb-0.5 font-semibold tracking-wide">
                     Cô dâu
                   </p>
-                  <h3 className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
+                  <h3 className="font-['ganhtype',sans-serif] text-2xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
                     {BRIDE.fullName}
                   </h3>
                 </div>
@@ -164,7 +164,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   <p className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl text-amber-300 font-bold mb-0.5 tracking-wide">
                     Chú rể
                   </p>
-                  <h3 className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
+                  <h3 className="font-['ganhtype',sans-serif] text-2xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
                     {GROOM.fullName}
                   </h3>
                 </div>              </div>
@@ -202,10 +202,10 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: 0.25, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-3xl lg:text-4xl text-rose-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide">
+                <p className="font-['ganhtype',sans-serif] text-2xl sm:text-3xl lg:text-4xl text-rose-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide">
                   Cô dâu
                 </p>
-                <h3 className="font-['1FTV-Carlytte',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
+                <h3 className="font-['ganhtype',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {BRIDE.fullName}
                 </h3>
               
@@ -240,10 +240,10 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: 0.35, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-3xl lg:text-4xl text-amber-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide">
+                <p className="font-['ganhtype',sans-serif] text-2xl sm:text-3xl lg:text-4xl text-amber-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide">
                   Chú rể
                 </p>
-                <h3 className="font-['1FTV-Carlytte',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
+                <h3 className="font-['ganhtype',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {GROOM.fullName}
                 </h3>
                
@@ -274,12 +274,12 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
             <div className="absolute bottom-2.5 right-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
           
             {/* Dòng chữ: Trân trọng kính mời */}
-            <p className="font-['1FTV-Carlytte',sans-serif] italic text-3xl sm:text-3xl text-amber-900/90 font-semibold tracking-wide mb-6">
+            <p className="font-['ganhtype',sans-serif] italic text-lg sm:text-2xl text-amber-900/90 tracking-wide mb-6">
               Trân trọng kính mời
             </p>
 
             {/* Tên khách mời (lấy từ URL param ?name=...) */}
-            <h3 className="font-['SVN-Clodia',cursive] text-4xl sm:text-5xl lg:text-6xl text-amber-950 my-4 drop-shadow-xs px-2 break-words">
+            <h3 className="font-['jacklane',sans-serif] text-3xl sm:text-3xl text-amber-950 my-4 drop-shadow-xs px-2 break-words">
               {guestName || 'Quý khách'}
             </h3>
 
@@ -291,11 +291,11 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
             </div>
 
             {/* Lời chúc & lời mời tham dự */}
-            <p className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-xl font-semibold text-amber-900/85 max-w-md mx-auto mb-4 leading-relaxed">
+            <p className="font-['ganhtype',sans-serif] text-lg sm:text-xl text-amber-900/85 max-w-md mx-auto mb-4 leading-relaxed">
               Tới tham dự và chung vui cùng gia đình {isGuestRoute ? 'chúng tôi ' : ''}vào 
             </p>
                  <div className="mb-6 sm:mb-8 flex flex-col items-center">
-            <h3 className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-4xl font-bold text-amber-950 tracking-wider">
+            <h3 className="font-['ganhtype',sans-serif] text-2xl sm:text-4xl font-bold text-amber-950 tracking-wider">
               Tháng 10 · 2026
             </h3>
             <div className="h-0.5 w-32 bg-amber-400/70 mt-2 rounded-full" />
@@ -315,7 +315,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   return (
                     <div
                       key={`day-${day}`}
-                      className="h-10 sm:h-12 flex items-center justify-center relative"
+                      className="h-6 sm:h-12 flex items-center justify-center relative"
                     >
                       {isWeddingDay ? (
                         /* Ngày cưới: Icon Trái tim cách điệu đỏ hồng ngọt ngào */
@@ -326,13 +326,13 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                         >
                           <Heart className="w-full h-full text-rose-500 fill-rose-500 drop-shadow-[0_3px_10px_rgba(244,63,94,0.45)]" />
                           
-                          <span className="absolute z-10 font-['1FTV-Carlytte',sans-serif] text-xl sm:text-sm font-bold text-white drop-shadow-sm pt-0.5">
+                          <span className="absolute z-10 font-['ganhtype',sans-serif] text-xs sm:text-sm font-bold text-white drop-shadow-sm pt-0.5">
                             {day}
                           </span>
                         </motion.div>
                       ) : (
                         /* Ngày thường: Số đen thanh lịch trên nền thoáng */
-                        <span className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-lg font-medium text-neutral-800/90">
+                        <span className="font-['ganhtype',sans-serif] text-sm sm:text-lg font-medium text-neutral-800/90">
                           {day}
                         </span>
                       )}
@@ -349,10 +349,10 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
         {/* ========================================================
             3. THƯ MỜI THAM DỰ (TIỆC CƯỚI NHÀ TRAI & NHÀ GÁI)
            ======================================================== */}
-        <section className="w-full max-w-md md:max-w-4xl mt-10 mx-auto sm:px-6 mb-16 sm:mb-24">
+        <section className="w-full max-w-md md:max-w-4xl mt-32 mx-auto sm:px-6 mb-32 sm:mb-24">
           {/* Tiêu đề phân đoạn: Thư mời tham dự */}
           <div className="text-center mb-8 sm:mb-10 flex flex-col items-center">
-            <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
+            <h2 className="font-['ganhtype',sans-serif] text-3xl sm:text-5xl text-amber-950 drop-shadow-sm font-normal">
               Thư mời tham dự
             </h2>
             <div className="flex items-center justify-center gap-2 mt-2">
@@ -491,7 +491,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
            ======================================================== */}
         <section className="w-full max-w-md md:max-w-3xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20">
           <div className="text-center mb-8 sm:mb-10 flex flex-col items-center">
-            <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
+            <h2 className="font-['ganhtype',sans-serif] text-3xl sm:text-5xl text-amber-950 drop-shadow-sm font-normal">
               Chương trình hôn lễ
             </h2>
             <div className=" items-center gap-2 px-4 py-1.5 rounded-2xl bg-amber-100/90 border border-amber-300/80 text-amber-900 font-['ganhtype',sans-serif] text-xs sm:text-sm font-semibold tracking-wider mt-3 shadow-2xs">

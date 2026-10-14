@@ -27,17 +27,17 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               {/* Date badge */}
-              <div className="absolute bottom-2 left-3 px-2.5 py-1 bg-amber-900/80 backdrop-blur-xs text-amber-50 text-xs font-['1FTV-Carlytte',sans-serif] rounded">
+              <div className="absolute bottom-2 left-3 px-2.5 py-1 bg-amber-900/80 backdrop-blur-xs text-amber-50 text-xs font-['ganhtype',sans-serif] rounded">
                 {milestone.date}
               </div>
             </div>
 
             {/* Content */}
             <div className="p-4 sm:p-5">
-              <h3 className="font-['1FTV-Carlytte',sans-serif] text-xl sm:text-2xl font-bold text-amber-900 mb-2">
+              <h3 className="font-['ganhtype',sans-serif] text-xl sm:text-2xl font-bold text-amber-900 mb-2">
                 {milestone.title}
               </h3>
-              <p className="font-['1FTV-Carlytte',sans-serif] text-sm sm:text-base text-amber-800/80 leading-relaxed">
+              <p className="font-['ganhtype',sans-serif] text-sm sm:text-base text-amber-800/80 leading-relaxed">
                 {milestone.description}
               </p>
             </div>

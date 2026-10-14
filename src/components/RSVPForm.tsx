@@ -51,15 +51,15 @@ export function RSVPForm() {
             <Heart className="w-8 h-8 fill-rose-500 animate-pulse" />
           </div>
           
-          <h3 className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-4xl text-amber-950 mb-2 font-bold">
+          <h3 className="font-['ganhtype',sans-serif] text-3xl sm:text-4xl text-amber-950 mb-2 font-bold">
             Cảm Ơn Bạn Rất Nhiều!
           </h3>
           
-          <p className="font-['1FTV-Carlytte',sans-serif] italic text-base sm:text-lg text-amber-900/90 max-w-sm leading-relaxed mb-4">
+          <p className="font-['ganhtype',sans-serif] italic text-base sm:text-lg text-amber-900/90 max-w-sm leading-relaxed mb-4">
             Lời chúc và thông tin xác nhận của bạn đã được gửi đến cô dâu & chú rể.
           </p>
 
-          <div className="px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-sm font-['1FTV-Carlytte',sans-serif]">
+          <div className="px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-sm font-['ganhtype',sans-serif]">
             Hẹn gặp bạn tại ngày vui của chúng mình nhé! ❤️
           </div>
         </motion.div>
@@ -79,7 +79,7 @@ export function RSVPForm() {
                 setName(e.target.value);
                 setErrors((prev) => ({ ...prev, name: '' }));
               }}
-              className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white/80 border border-amber-300/70 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-300/20 text-base text-neutral-800 placeholder:text-neutral-400 outline-none transition-all shadow-sm font-['1FTV-Carlytte',sans-serif]"
+              className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white/80 border border-amber-300/70 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-300/20 text-base text-neutral-800 placeholder:text-neutral-400 outline-none transition-all shadow-sm font-['ganhtype',sans-serif]"
               placeholder="VD: Nguyễn Văn A"
             />
           </Field>
@@ -92,7 +92,7 @@ export function RSVPForm() {
                 setPhone(e.target.value);
                 setErrors((prev) => ({ ...prev, phone: '' }));
               }}
-              className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white/80 border border-amber-300/70 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-300/20 text-base text-neutral-800 placeholder:text-neutral-400 outline-none transition-all shadow-sm font-['1FTV-Carlytte',sans-serif]"
+              className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white/80 border border-amber-300/70 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-300/20 text-base text-neutral-800 placeholder:text-neutral-400 outline-none transition-all shadow-sm font-['ganhtype',sans-serif]"
               type="tel"
               placeholder="0912 345 678"
             />
@@ -103,7 +103,7 @@ export function RSVPForm() {
             <select
               value={guests}
               onChange={(e) => setGuests(e.target.value)}
-              className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white/80 border border-amber-300/70 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-300/20 text-base text-neutral-800 outline-none transition-all shadow-sm font-['1FTV-Carlytte',sans-serif] cursor-pointer"
+              className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white/80 border border-amber-300/70 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-300/20 text-base text-neutral-800 outline-none transition-all shadow-sm font-['ganhtype',sans-serif] cursor-pointer"
             >
               <option value="1">Đi 1 mình</option>
               <option value="2">Đi 2 người</option>
@@ -117,7 +117,7 @@ export function RSVPForm() {
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white/80 border border-amber-300/70 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-300/20 text-base text-neutral-800 placeholder:text-neutral-400 outline-none transition-all shadow-sm font-['1FTV-Carlytte',sans-serif] min-h-[90px] resize-none"
+              className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-white/80 border border-amber-300/70 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-300/20 text-base text-neutral-800 placeholder:text-neutral-400 outline-none transition-all shadow-sm font-['ganhtype',sans-serif] min-h-[90px] resize-none"
               placeholder="Gửi lời chúc phúc yêu thương đến hai bạn..."
             />
           </Field>
@@ -149,13 +149,13 @@ function Field({
 }) {
   return (
     <div>
-      <label className="flex items-center gap-1.5 mb-1.5 text-xs sm:text-sm font-semibold text-amber-900 font-['1FTV-Carlytte',sans-serif]">
+      <label className="flex items-center gap-1.5 mb-1.5 text-xs sm:text-sm font-semibold text-amber-900 font-['ganhtype',sans-serif]">
         {icon}
         <span>{label}</span>
       </label>
       {children}
       {error && (
-        <p className="mt-1 text-xs sm:text-sm text-rose-500 font-['1FTV-Carlytte',sans-serif] font-medium pl-1">
+        <p className="mt-1 text-xs sm:text-sm text-rose-500 font-['ganhtype',sans-serif] font-medium pl-1">
           {error}
         </p>
       )}

@@ -437,13 +437,13 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
 
                   {/* Đoạn thông điệp từ cặp đôi */}
                   {isGuestRoute ? (
-                    <p className="font-['1FTV-Carlytte',sans-serif] italic text-lg sm:text-lg text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
+                    <p className="font-['ganhtype',sans-serif] italic text-sm sm:text-sm text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
                       Trong hành trình cuộc sống, những khoảnh khắc hạnh phúc sẽ trở nên ý nghĩa hơn khi được sẻ chia cùng những người thân yêu.<br className="hidden sm:inline" />
                       {' '}Gia đình chúng tôi trân trọng kính mời Quý vị đến tham dự và chung vui trong ngày thành hôn của hai cháu.<br className="hidden sm:inline" />
                       {' '}Sự hiện diện và lời chúc phúc của Quý vị là niềm vui, niềm hạnh phúc lớn lao đối với gia đình chúng tôi.
                     </p>
                   ) : (
-                    <p className="font-['1FTV-Carlytte',sans-serif] italic text-lg sm:text-lg text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
+                    <p className="font-['ganhtype',sans-serif] italic text-sm sm:text-sm text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
                       “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
                       {' '}Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh.<br className="hidden sm:inline" />
                       {' '}Cuộc sống quý giá không chỉ ở đích đến, mà còn ở những khoảnh khắc chia sẻ cùng nhau.<br className="hidden sm:inline" />
@@ -506,7 +506,7 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
           }`}
         >
           
-          <p className="text-3xl text-amber-800/70 font-['1FTV-Carlytte',sans-serif] animate-pulse">
+          <p className="text-base text-amber-800/70 font-['ganhtype',sans-serif] animate-pulse">
             Cuộn xuống để tiếp tục
           </p>
         </motion.div>

@@ -3,7 +3,7 @@ import { CountdownDisplay } from '@/components/CountdownDisplay';
 
 export function CountdownScene() {
   return (
-    <section className="min-h-[60vh] flex flex-col items-center justify-center bg-gradient-to-b from-amber-50/20 via-rose-50/15 to-amber-50/25 relative overflow-hidden px-4 py-16 sm:py-20">
+    <section className="min-h-[40vh] flex flex-col items-center justify-center bg-gradient-to-b from-amber-50/20 via-rose-50/15 to-amber-50/25 relative overflow-hidden px-4 py-16 sm:py-20">
       {/* Decorative dots */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: `radial-gradient(circle, #D4AF37 1px, transparent 1px)`,
@@ -17,7 +17,7 @@ export function CountdownScene() {
         transition={{ duration: 0.6 }}
         className="text-center z-10 max-w-xl mx-auto flex flex-col items-center"
       >
-        <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 mb-3 drop-shadow-sm font-normal">
+        <h2 className="font-['ganhtype',sans-serif] text-3xl sm:text-5xl text-amber-950 mb-3 drop-shadow-sm font-normal">
           Cùng đếm ngược nha
         </h2>
 

@@ -41,7 +41,7 @@ export function InvitationCard() {
 
 
         {/* Lời mời chân thành từ cặp đôi */}
-      <p className="text-sm sm:text-base text-amber-900/90 font-['1FTV-Carlytte',sans-serif] italic leading-relaxed max-w-sm mx-auto mb-3 px-2">
+      <p className="text-sm sm:text-base text-amber-900/90 font-['ganhtype',sans-serif] italic leading-relaxed max-w-sm mx-auto mb-3 px-2">
   “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
   {' '}Và niềm vui ấy sẽ trọn vẹn hơn khi có bạn cùng sẻ chia.<br className="hidden sm:inline" />
   {' '}Bởi hạnh phúc không chỉ nằm ở những ngày phía trước,<br className="hidden sm:inline" />
@@ -69,28 +69,28 @@ export function InvitationCard() {
           <div className="inline-flex items-center gap-3 px-5 py-2 bg-gradient-to-r from-amber-50 via-amber-100/60 to-amber-50 rounded-full border border-amber-300/60 shadow-sm">
             <div className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-amber-800" />
-              <span className="font-['1FTV-Carlytte',sans-serif] text-xs sm:text-sm font-semibold text-amber-800">
+              <span className="font-['ganhtype',sans-serif] text-xs sm:text-sm font-semibold text-amber-800">
                 Chủ Nhật
               </span>
             </div>
             <div className="w-px h-4 bg-amber-300" />
-            <span className="font-['1FTV-Carlytte',sans-serif] text-base sm:text-lg font-bold text-amber-950">
+            <span className="font-['ganhtype',sans-serif] text-base sm:text-lg font-bold text-amber-950">
               {WEDDING_INFO.date}
             </span>
             <div className="w-px h-4 bg-amber-300" />
             <div className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-amber-800" />
-              <span className="font-['1FTV-Carlytte',sans-serif] text-xs sm:text-sm font-semibold text-amber-800">
+              <span className="font-['ganhtype',sans-serif] text-xs sm:text-sm font-semibold text-amber-800">
                 {WEDDING_INFO.time}
               </span>
             </div>
           </div>
 
-          <p className="font-['1FTV-Carlytte',sans-serif] text-sm text-amber-900 font-medium pt-1 flex items-center justify-center gap-1.5">
+          <p className="font-['ganhtype',sans-serif] text-sm text-amber-900 font-medium pt-1 flex items-center justify-center gap-1.5">
             <MapPin className="w-3.5 h-3.5 text-amber-700 shrink-0" />
             <span>{WEDDING_INFO.venue}</span>
           </p>
-          <p className="font-['1FTV-Carlytte',sans-serif] text-xs sm:text-sm text-amber-700/80">
+          <p className="font-['ganhtype',sans-serif] text-xs sm:text-sm text-amber-700/80">
             {WEDDING_INFO.address}
           </p>
         </div>
