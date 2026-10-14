@@ -40,11 +40,11 @@ export function GiftCard() {
             <span className="text-[10px] font-mono">Mã QR</span>
           </div>
 
-          <p className="font-mono text-xs text-amber-600">{account.bank}</p>
-          <p className="font-['Playfair_Display',serif] text-sm font-bold text-amber-900 mt-1">
+          <p className="font-['1FTV-Carlytte',sans-serif] text-sm text-amber-600">{account.bank}</p>
+          <p className="font-['1FTV-Carlytte',sans-serif] text-lg font-bold text-amber-900 mt-1">
             {account.accountName}
           </p>
-          <p className="font-mono text-lg font-bold text-amber-800 tracking-wider mt-1 mb-3">
+          <p className="font-['1FTV-Carlytte',sans-serif] text-lg font-bold text-amber-800 tracking-wider mt-1 mb-3">
             {account.accountNumber}
           </p>
 

@@ -222,7 +222,7 @@ export function MusicFloatingButton({ playTrigger = false }: MusicFloatingButton
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 10, scale: 0.9 }}
               transition={{ duration: 0.15 }}
-              className="hidden sm:block absolute right-full mr-3 px-3.5 py-1.5 rounded-full bg-[#2C1A0E]/90 border border-[#D4AF37]/40 backdrop-blur-sm text-[#FDE68A] text-xs font-serif tracking-wide shadow-xl whitespace-nowrap pointer-events-none"
+              className="hidden sm:block absolute right-full mr-3 px-3.5 py-1.5 rounded-full bg-[#2C1A0E]/90 border border-[#D4AF37]/40 backdrop-blur-sm text-[#FDE68A] text-xs font-['Panton-Regular',sans-serif] tracking-wide shadow-xl whitespace-nowrap pointer-events-none"
             >
               {isPlaying ? 'Tắt nhạc' : 'Bật nhạc'}
             </motion.div>

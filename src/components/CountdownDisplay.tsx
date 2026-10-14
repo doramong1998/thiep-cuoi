@@ -7,7 +7,7 @@ export function CountdownDisplay() {
   if (isExpired) {
     return (
       <div className="text-center">
-        <p className="font-['Playfair_Display',serif] text-2xl sm:text-4xl text-amber-800 italic">
+        <p className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-4xl text-amber-800 italic">
           Today is our wedding day
         </p>
         <span className="text-4xl inline-block mt-2 animate-bounce">❤️</span>
@@ -27,11 +27,11 @@ export function CountdownDisplay() {
       {units.map(({ value, label }) => (
         <div key={label} className="text-center">
           <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-white/90 border border-amber-300/80 rounded-2xl shadow-[0_8px_20px_-5px_rgba(140,90,40,0.12)]">
-            <span className="font-['Playfair_Display',serif] text-2xl sm:text-3xl font-bold text-amber-950">
+            <span className="font-['1FTV-Carlytte',sans-serif] text-4xl sm:text-5xl font-bold text-amber-950">
               {String(value).padStart(2, '0')}
             </span>
           </div>
-          <span className="block mt-2 text-xs font-['Montserrat',sans-serif] font-medium text-amber-800 tracking-wider">
+          <span className="block mt-2 text-xl sm:text-sm font-['1FTV-Carlytte',sans-serif] font-medium text-amber-800 tracking-wider">
             {label}
           </span>
         </div>

@@ -17,7 +17,7 @@ export function CountdownScene() {
         transition={{ duration: 0.6 }}
         className="text-center z-10 max-w-xl mx-auto flex flex-col items-center"
       >
-        <h2 className="font-['Alex_Brush',cursive] text-4xl sm:text-6xl text-amber-950 mb-3 drop-shadow-sm font-normal">
+        <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 mb-3 drop-shadow-sm font-normal">
           Cùng đếm ngược nha
         </h2>
 

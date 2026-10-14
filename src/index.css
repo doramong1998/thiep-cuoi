@@ -1,6 +1,204 @@
 @import 'tailwindcss';
 
-/* ===== Google Fonts loaded via index.html ===== */
+/* ===== Custom Fonts from /font/ ===== */
+@font-face {
+  font-family: '1FTV-Carlytte';
+  src: url('/font/1FTV-Carlytte.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SVN-Clodia';
+  src: url('/font/SVN-Clodia.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MTD-Portrait-Script-Bounce';
+  src: url('/font/MTD-Portrait-Script-Bounce.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hoa_Sen_Typeface';
+  src: url('/font/Hoa_Sen_Typeface.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MadamGheaPersonalUse-Regular';
+  src: url('/font/MadamGheaPersonalUse-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KattyDiona';
+  src: url('/font/KattyDiona.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BelindaAvenue-Regular';
+  src: url('/font/BelindaAvenue-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ganh-type';
+  src: url('/font/ganh-type-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ganh-type';
+  src: url('/font/ganh-type-regularitalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ganh-type';
+  src: url('/font/ganh-type-thin.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ganh-type';
+  src: url('/font/ganh-type-thinitalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ganh';
+  src: url('/font/ganh-type-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ganhtype';
+  src: url('/font/ganh-type-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ganh-type-regular';
+  src: url('/font/ganh-type-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'jacklane';
+  src: url('/font/JacklaneRegular-JDPK.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jacklane';
+  src: url('/font/JacklaneRegular-JDPK.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JacklaneRegular-JDPK';
+  src: url('/font/JacklaneRegular-JDPK.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton-Regular';
+  src: url('/font/Panton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton-Bold';
+  src: url('/font/Panton-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton-Black';
+  src: url('/font/Panton-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-content: '1FTV-Carlytte', cursive, sans-serif;
+  --font-couple: 'SVN-Clodia', cursive;
+  --font-title: '1FTV-Carlytte', cursive, sans-serif;
+  --font-name: '1FTV-Carlytte', cursive, sans-serif;
+  --font-button: 'Panton-Regular', sans-serif;
+  --font-ganh: 'ganh-type', 'Ganh', sans-serif;
+  --font-jacklane: 'jacklane', 'Jacklane', cursive, sans-serif;
+}
+
+/* Helper utility classes for convenience */
+.font-ganh {
+  font-family: 'ganh-type', 'Ganh', sans-serif;
+}
+.font-jacklane {
+  font-family: 'jacklane', 'Jacklane', cursive, sans-serif;
+}
+.font-panton {
+  font-family: 'Panton-Regular', sans-serif;
+}
+.font-carlytte {
+  font-family: '1FTV-Carlytte', cursive, sans-serif;
+}
+.font-clodia {
+  font-family: 'SVN-Clodia', cursive;
+}
+.font-portrait {
+  font-family: 'MTD-Portrait-Script-Bounce', cursive;
+}
+.font-hoasen {
+  font-family: 'Hoa_Sen_Typeface', serif, sans-serif;
+}
+.font-madam {
+  font-family: 'MadamGheaPersonalUse-Regular', sans-serif;
+}
+.font-katty {
+  font-family: 'KattyDiona', serif, cursive;
+}
 
 /* ===== Base Styles ===== */
 @layer base {
@@ -11,7 +209,7 @@
   }
 
   body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: '1FTV-Carlytte', 'Cormorant Garamond', Georgia, serif;
     color: #5B3A1A;
     background-color: #FFF8F0;
     overflow-x: hidden;
@@ -21,6 +219,10 @@
   ::selection {
     background-color: #FFD1DC;
     color: #5B3A1A;
+  }
+
+  button, input[type="button"], input[type="submit"] {
+    font-family: 'Panton-Regular', sans-serif;
   }
 
   /* Pixel-perfect canvas rendering */
@@ -55,7 +257,7 @@
     background: rgba(255, 248, 240, 0.8);
     border: 2px solid #E8D4B0;
     border-radius: 0.5rem;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: '1FTV-Carlytte', cursive, sans-serif;
     font-size: 1rem;
     color: #5B3A1A;
     transition: all 0.2s;

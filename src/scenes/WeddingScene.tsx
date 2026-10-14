@@ -122,7 +122,7 @@ export function WeddingScene() {
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
       >
-        <p className="font-['Great_Vibes',cursive] text-3xl sm:text-5xl text-amber-800">
+        <p className="font-['SVN-Clodia',cursive] text-4xl sm:text-6xl text-amber-800">
           And finally, our forever begins
         </p>
         <span className="text-3xl inline-block mt-3 animate-bounce">❤️</span>

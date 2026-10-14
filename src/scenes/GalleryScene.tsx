@@ -28,7 +28,7 @@ export function GalleryScene() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h2 className="font-['Alex_Brush',cursive] text-4xl sm:text-6xl text-amber-950 drop-shadow-sm font-normal">
+        <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
           Dấu Ấn Hạnh Phúc
         </h2>
         {/* <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-base text-amber-950 mt-1">

@@ -188,10 +188,10 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
         }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p className="text-[11px] sm:text-xs tracking-[0.3em] uppercase text-amber-800/80 font-medium mb-2 font-['Montserrat',sans-serif]">
+        <p className="text-xs sm:text-sm tracking-[0.25em] uppercase text-amber-800/80 font-medium mb-8 font-['ganhtype',sans-serif]">
           Ngày Chung Đôi
         </p>
-        <h1 className="font-['Great_Vibes',cursive] text-3xl sm:text-5xl text-[#6d4c2a] drop-shadow-sm">
+        <h1 className="font-['SVN-Clodia',cursive] text-5xl sm:text-6xl text-[#6d4c2a] drop-shadow-sm">
            {GROOM.firstName}  &amp;  {BRIDE.firstName}
         </h1>
         <div className="flex items-center justify-center gap-2 mt-2">
@@ -381,7 +381,7 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
 
                   {/* Phần giữa: Tiêu đề WEDDING INVITATION & Tên cặp đôi */}
                   <div className="flex flex-col items-center my-auto">
-                    <p className="font-['Montserrat',sans-serif] text-xs sm:text-sm uppercase tracking-[0.35em] text-amber-100 font-semibold drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
+                    <p className="font-['jacklane',sans-serif] text-sm sm:text-base uppercase tracking-[0.25em] text-amber-100 font-semibold drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
                       Thiệp Báo Hỷ
                     </p>
                     
@@ -391,7 +391,7 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
                       <div className="h-px w-8 bg-amber-300/80 drop-shadow" />
                     </div>
 
-                    <h2 className="font-['Great_Vibes',cursive] text-3xl sm:text-4xl text-amber-50 drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)]">
+                    <h2 className="font-['SVN-Clodia',cursive] text-4xl sm:text-5xl text-amber-50 drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)]">
                       {GROOM.firstName}  &amp;  {BRIDE.firstName}
                     </h2>
                   </div>
@@ -449,13 +449,13 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
 
                   {/* Đoạn thông điệp từ cặp đôi */}
                   {isGuestRoute ? (
-                    <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-[17px] text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
+                    <p className="font-['1FTV-Carlytte',sans-serif] italic text-lg sm:text-lg text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
                       Trong hành trình cuộc sống, những khoảnh khắc hạnh phúc sẽ trở nên ý nghĩa hơn khi được sẻ chia cùng những người thân yêu.<br className="hidden sm:inline" />
                       {' '}Gia đình chúng tôi trân trọng kính mời Quý vị đến tham dự và chung vui trong ngày thành hôn của hai cháu.<br className="hidden sm:inline" />
                       {' '}Sự hiện diện và lời chúc phúc của Quý vị là niềm vui, niềm hạnh phúc lớn lao đối với gia đình chúng tôi.
                     </p>
                   ) : (
-                    <p className="font-['Cormorant_Garamond',serif] italic text-sm sm:text-[17px] text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
+                    <p className="font-['1FTV-Carlytte',sans-serif] italic text-lg sm:text-lg text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
                       “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
                       {' '}Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh.<br className="hidden sm:inline" />
                       {' '}Cuộc sống quý giá không chỉ ở đích đến, mà còn ở những khoảnh khắc chia sẻ cùng nhau.<br className="hidden sm:inline" />
@@ -488,10 +488,9 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
                   <motion.div
                     animate={{ y: [0, -4, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-                    className="px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-amber-300/60 shadow-xl shadow-amber-950/40 flex items-center gap-2 text-amber-200 text-[11px] sm:text-xs font-['Playfair_Display',serif] whitespace-nowrap"
+                    className="px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-amber-300/60 shadow-xl shadow-amber-950/40 flex items-center gap-2 text-amber-200 text-xs sm:text-sm font-['ganhtype',sans-serif] whitespace-nowrap"
                   >
-                    <RotateCw className="w-3.5 h-3.5 text-amber-300 animate-spin-slow" />
-                    <span>Chạm vào thiệp ✦</span>
+                    <span>✦ Chạm vào thiệp</span>
                   </motion.div>
                 </motion.div>
               )}
@@ -518,22 +517,8 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
             isOpen && isFlipped ? 'pointer-events-auto' : 'pointer-events-none select-none'
           }`}
         >
-          <motion.button
-            onClick={handleScrollDown}
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#dfad5b] via-[#cd9542] to-[#b87c2f] hover:brightness-105 text-white font-['Playfair_Display',serif] text-xs sm:text-sm font-medium shadow-md hover:shadow-lg shadow-amber-700/15 transition-all duration-300 flex items-center gap-2 cursor-pointer border border-amber-200/70"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            <span>Xem thiệp mời & Chi tiết tiệc cưới</span>
-            <motion.div
-              animate={{ scale: [1, 1.25, 1, 1.15, 1] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <Heart className="w-4 h-4 text-rose-300 fill-rose-400" />
-            </motion.div>
-          </motion.button>
           
-          <p className="text-[11px] text-amber-800/70 font-['Cormorant_Garamond',serif] animate-pulse">
+          <p className="text-3xl text-amber-800/70 font-['1FTV-Carlytte',sans-serif] animate-pulse">
             Cuộn xuống để tiếp tục
           </p>
         </motion.div>

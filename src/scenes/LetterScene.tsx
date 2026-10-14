@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, MapPin, ExternalLink, Sparkles, Gamepad2, Clock } from 'lucide-react';
-import { BRIDE, GROOM, BRIDE_FAMILY, GROOM_FAMILY, WEDDING_INFO } from '@/data/wedding';
+import { Heart, Gamepad2, MapPin, ExternalLink, Clock } from 'lucide-react';
+import { BRIDE, GROOM, INVITATION_INFO, BRIDE_FAMILY, WEDDING_INFO } from '@/data/wedding';
 
 interface LetterSceneProps {
   onContinue: () => void;
@@ -79,7 +79,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-['Alex_Brush',cursive] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm">
+          <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
           Có một ngày thật đặc biệt đang đến...
           </h2>
           
@@ -124,11 +124,11 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   alt="Cô dâu"
                   className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute bottom-4 left-4 z-10 text-white select-none">
-                  <p className="font-['Alex_Brush',cursive] text-2xl text-rose-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                <div className="absolute bottom-0 px-4 py-4 left-0 w-full z-10 text-white select-none px-3.5 py-2 bg-gradient-to-b from-white/0 via-black/20 to-black/40  shadow-[0_6px_18px_rgba(0,0,0,0.00)]">
+                  <p className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl text-rose-300 mb-0.5 font-semibold tracking-wide">
                     Cô dâu
                   </p>
-                  <h3 className="font-['Cinzel',serif] text-lg font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
+                  <h3 className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
                     {BRIDE.fullName}
                   </h3>
                 </div>
@@ -160,11 +160,11 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                   alt="Chú rể"
                   className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute bottom-4 right-4 z-10 text-white select-none text-right">
-                  <p className="font-['Alex_Brush',cursive] text-2xl text-amber-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                <div className="absolute bottom-0 px-4 py-4 left-0 w-full z-10 text-white select-none text-right bg-gradient-to-b from-white/0 via-black/20 to-black/40  shadow-[0_6px_18px_rgba(0,0,0,0.00)]">
+                  <p className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl text-amber-300 font-bold mb-0.5 tracking-wide">
                     Chú rể
                   </p>
-                  <h3 className="font-['Cinzel',serif] text-lg font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
+                  <h3 className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-snug">
                     {GROOM.fullName}
                   </h3>
                 </div>              </div>
@@ -196,16 +196,16 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
               <motion.div 
-                className="absolute bottom-5 sm:bottom-7 left-5 sm:left-7 z-10 text-white select-none"
+                className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-10 text-white select-none px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gradient-to-b from-white/0 via-black/20 to-black/40 backdrop-blur-sm border border-white/10 shadow-[0_8px_22px_rgba(0,0,0,0.4)]"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: 0.25, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="font-['Alex_Brush',cursive] text-3xl sm:text-4xl lg:text-5xl text-rose-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                <p className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-3xl lg:text-4xl text-rose-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide">
                   Cô dâu
                 </p>
-                <h3 className="font-['Cinzel',serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
+                <h3 className="font-['1FTV-Carlytte',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {BRIDE.fullName}
                 </h3>
               
@@ -234,16 +234,16 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
               <motion.div 
-                className="absolute bottom-5 sm:bottom-7 left-5 sm:left-7 z-10 text-white select-none"
+                className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-10 text-white select-none px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gradient-to-b from-black/25 via-black/40 to-black/60 backdrop-blur-sm border border-white/10 shadow-[0_8px_22px_rgba(0,0,0,0.4)]"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: 0.35, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="font-['Alex_Brush',cursive] text-3xl sm:text-4xl lg:text-5xl text-amber-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                <p className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-3xl lg:text-4xl text-amber-200 mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] tracking-wide">
                   Chú rể
                 </p>
-                <h3 className="font-['Cinzel',serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
+                <h3 className="font-['1FTV-Carlytte',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {GROOM.fullName}
                 </h3>
                
@@ -274,12 +274,12 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
             <div className="absolute bottom-2.5 right-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
           
             {/* Dòng chữ: Trân trọng kính mời */}
-            <p className="font-['Cormorant_Garamond',serif] italic text-lg sm:text-2xl text-amber-900/90 font-semibold tracking-wide">
+            <p className="font-['1FTV-Carlytte',sans-serif] italic text-3xl sm:text-3xl text-amber-900/90 font-semibold tracking-wide mb-6">
               Trân trọng kính mời
             </p>
 
             {/* Tên khách mời (lấy từ URL param ?name=...) */}
-            <h3 className="font-['Alex_Brush',cursive] text-3xl sm:text-4xl lg:text-5xl text-amber-950 my-2 drop-shadow-xs px-2 break-words">
+            <h3 className="font-['SVN-Clodia',cursive] text-4xl sm:text-5xl lg:text-6xl text-amber-950 my-4 drop-shadow-xs px-2 break-words">
               {guestName || 'Quý khách'}
             </h3>
 
@@ -291,11 +291,11 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
             </div>
 
             {/* Lời chúc & lời mời tham dự */}
-            <p className="font-['Cormorant_Garamond',serif] text-sm sm:text-base text-amber-900/85 max-w-md mx-auto mb-4 leading-relaxed">
+            <p className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-xl font-semibold text-amber-900/85 max-w-md mx-auto mb-4 leading-relaxed">
               Tới tham dự và chung vui cùng gia đình {isGuestRoute ? 'chúng tôi ' : ''}vào 
             </p>
                  <div className="mb-6 sm:mb-8 flex flex-col items-center">
-            <h3 className="font-['Playfair_Display',serif] text-2xl sm:text-3xl font-bold text-amber-950 tracking-wider">
+            <h3 className="font-['1FTV-Carlytte',sans-serif] text-3xl sm:text-4xl font-bold text-amber-950 tracking-wider">
               Tháng 10 · 2026
             </h3>
             <div className="h-0.5 w-32 bg-amber-400/70 mt-2 rounded-full" />
@@ -326,13 +326,13 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
                         >
                           <Heart className="w-full h-full text-rose-500 fill-rose-500 drop-shadow-[0_3px_10px_rgba(244,63,94,0.45)]" />
                           
-                          <span className="absolute z-10 font-['Playfair_Display',serif] text-xs sm:text-sm font-bold text-white drop-shadow-sm pt-0.5">
+                          <span className="absolute z-10 font-['1FTV-Carlytte',sans-serif] text-xl sm:text-sm font-bold text-white drop-shadow-sm pt-0.5">
                             {day}
                           </span>
                         </motion.div>
                       ) : (
                         /* Ngày thường: Số đen thanh lịch trên nền thoáng */
-                        <span className="font-['Playfair_Display',serif] text-base sm:text-lg font-medium text-neutral-800/90">
+                        <span className="font-['1FTV-Carlytte',sans-serif] text-2xl sm:text-lg font-medium text-neutral-800/90">
                           {day}
                         </span>
                       )}
@@ -347,297 +347,259 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
 
 
         {/* ========================================================
-            3. PHẦN LỊCH CƯỚI THÁNG 10/2026 (ANIMATION ZOOM TO & LỆCH LÊN)
+            3. THƯ MỜI THAM DỰ (TIỆC CƯỚI NHÀ TRAI & NHÀ GÁI)
            ======================================================== */}
-        <motion.div
-          className="w-full max-w-md sm:max-w-lg mx-auto mb-16 mt-8 sm:mb-20 sm:px-6 flex flex-col items-center text-center"
-          initial={{ opacity: 0, scale: 0.88, y: 55 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {/* Tiêu đề Tháng và Năm */}
-     
-
-          {/* ========================================================
-              TIMELINE TRỤC THỜI GIAN NGÀY CƯỚI (25.10.2026)
-             ======================================================== */}
-          <div className="w-full flex flex-col items-center">
-            {/* Header Lịch Trình */}
-            <div className="flex flex-col items-center text-center mb-8">
-              <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gradient-to-r from-amber-100/90 via-rose-50/90 to-amber-100/90 border border-amber-300/70 text-amber-900 text-xs font-bold tracking-[0.2em] uppercase font-['Cinzel',serif] shadow-xs mb-2">
-                <Clock className="w-3.5 h-3.5 text-amber-600" />
-                <span>Lịch Trình Hôn Lễ</span>
-              </div>
-              <p className="font-['Cormorant_Garamond',serif] italic text-xs sm:text-sm text-amber-900/80">
-                Chủ Nhật, ngày 25 tháng 10 năm 2026
-              </p>
-            </div>
-
-            {/* Trục đường thời gian (Timeline Track with Milestones) */}
-            <div className="relative w-full pl-6 sm:pl-8 text-left">
-              {/* MỐC 1: 10:00 - LỄ VU QUY (NHÀ GÁI) (ANIMATION ZOOM TO & LỆCH LÊN) */}
-              <motion.div 
-                className="relative mb-8 group"
-                initial={{ opacity: 0, scale: 0.9, y: 35 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              >
-                {/* Đường timeline nối từ tâm Mốc 1 xuống chạm tâm Mốc 2 */}
-                <div className="absolute -left-[7px] sm:-left-[9px] top-5 -bottom-14 w-0.5 bg-gradient-to-b from-rose-400 via-amber-400 to-amber-500 rounded-full pointer-events-none z-0" />
-
-                {/* Nút mốc thời gian (Milestone Node 1) */}
-                <div className="absolute -left-[24px] sm:-left-[28px] top-1.5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#FFF5F7] to-[#FED7AA] border-2 border-rose-400 flex items-center justify-center shadow-[0_0_12px_rgba(244,63,94,0.3)] z-10">
-                  <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
-                  <span className="absolute -inset-1 rounded-full bg-rose-400/20 animate-ping pointer-events-none" />
-                </div>
-
-                {/* Thẻ nội dung mốc 1 */}
-                <div className="ml-4 sm:ml-5 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#FFFDF9]/95 via-[#FAF6EE]/90 to-[#FFF7ED]/95 border border-amber-300/70 shadow-[0_10px_25px_-5px_rgba(90,60,30,0.12)] relative transition-all group-hover:border-amber-400/90 group-hover:shadow-[0_12px_30px_-5px_rgba(90,60,30,0.18)]">
-                  {/* Viền đôi mỏng */}
-                  <div className="absolute inset-1.5 rounded-xl border border-amber-200/45 pointer-events-none" />
-
-                  {/* Header: Giờ & Tên Lễ */}
-                  <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-rose-100/80 border border-rose-300/70 text-rose-700 font-['Cinzel',serif] text-xs sm:text-sm font-bold shadow-2xs">
-                        10:00
-                      </span>
-                      <span className="text-[11px] font-semibold text-rose-600/90 font-['Cormorant_Garamond',serif] uppercase tracking-wider">
-                        Buổi Sáng
-                      </span>
-                    </div>
-
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-rose-700/85 px-2 py-0.5 rounded-md bg-rose-50/80 border border-rose-200/60 font-['Cinzel',serif]">
-                      Nhà Gái
-                    </span>
-                  </div>
-
-                  <h4 className="font-['Cinzel',serif] text-base sm:text-lg font-bold text-amber-950 tracking-wide uppercase">
-                    Lễ Vu Quy
-                  </h4>
-
-                  <p className="text-xs sm:text-sm text-amber-900 font-semibold font-['Playfair_Display',serif] mt-0.5">
-                    Tư gia Nhà Gái
-                  </p>
-
-                  <p className="text-[11px] sm:text-xs text-amber-800/80 font-['Cormorant_Garamond',serif] leading-relaxed mt-1 flex items-start gap-1">
-                    <MapPin className="w-3 h-3 text-rose-500 shrink-0 mt-0.5" />
-                    <span>{BRIDE_FAMILY.address}</span>
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* MỐC 2: 15:30 - LỄ THÀNH HÔN (NHÀ TRAI) (ANIMATION ZOOM TO & LỆCH LÊN) */}
-              <motion.div 
-                className="relative group"
-                initial={{ opacity: 0, scale: 0.9, y: 35 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              >
-                {/* Nút mốc thời gian (Milestone Node) */}
-                <div className="absolute -left-[24px] sm:-left-[28px] top-1.5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#FFFBEB] to-[#FEF3C7] border-2 border-amber-500 flex items-center justify-center shadow-[0_0_12px_rgba(217,119,6,0.3)] z-10">
-                  <Sparkles className="w-4 h-4 text-amber-600" />
-                  <span className="absolute -inset-1 rounded-full bg-amber-400/20 animate-pulse pointer-events-none" />
-                </div>
-
-                {/* Thẻ nội dung mốc 2 */}
-                <div className="ml-4 sm:ml-5 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#FFFDF9]/95 via-[#FAF6EE]/90 to-[#FFF7ED]/95 border border-amber-300/70 shadow-[0_10px_25px_-5px_rgba(90,60,30,0.12)] relative transition-all group-hover:border-amber-400/90 group-hover:shadow-[0_12px_30px_-5px_rgba(90,60,30,0.18)]">
-                  {/* Viền đôi mỏng */}
-                  <div className="absolute inset-1.5 rounded-xl border border-amber-200/45 pointer-events-none" />
-
-                  {/* Header: Giờ & Tên Lễ */}
-                  <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-amber-100/80 border border-amber-300/70 text-amber-800 font-['Cinzel',serif] text-xs sm:text-sm font-bold shadow-2xs">
-                        15:30
-                      </span>
-                      <span className="text-[11px] font-semibold text-amber-700/90 font-['Cormorant_Garamond',serif] uppercase tracking-wider">
-                        Buổi Chiều
-                      </span>
-                    </div>
-
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800/85 px-2 py-0.5 rounded-md bg-amber-50/80 border border-amber-200/60 font-['Cinzel',serif]">
-                      Nhà Trai
-                    </span>
-                  </div>
-
-                  <h4 className="font-['Cinzel',serif] text-base sm:text-lg font-bold text-amber-950 tracking-wide uppercase">
-                    Lễ Thành Hôn
-                  </h4>
-
-                  <p className="text-xs sm:text-sm text-amber-900 font-semibold font-['Playfair_Display',serif] mt-0.5">
-                    Nhà hàng Phượng Ớt
-                  </p>
-
-                  <p className="text-[11px] sm:text-xs text-amber-800/80 font-['Cormorant_Garamond',serif] leading-relaxed mt-1 flex items-start gap-1">
-                    <MapPin className="w-3 h-3 text-amber-600 shrink-0 mt-0.5" />
-                    <span>{WEDDING_INFO.address}</span>
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-
-
-        {/* ========================================================
-            4. THÔNG TIN NHÀ TRAI & NHÀ GÁI (GIAO DIỆN TO RÕ TRÊN WEB)
-           ======================================================== */}
-        <motion.div
-          className="w-full max-w-4xl lg:max-w-5xl mb-16 sm:mb-24 flex flex-col items-center "
-          initial={{ opacity: 0, scale: 0.88, y: 55 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {/* Tiêu đề phân đoạn gia đình */}
-          <div className="text-center mb-8 sm:mb-12">
-            <h3 className="font-['Great_Vibes',cursive] text-4xl sm:text-5xl lg:text-6xl text-amber-950 mb-2 drop-shadow-sm">
-              Hai Bên Gia Đình
-            </h3>
-            <div className="flex items-center justify-center gap-3 mt-1">
+        <section className="w-full max-w-md md:max-w-4xl mt-10 mx-auto sm:px-6 mb-16 sm:mb-24">
+          {/* Tiêu đề phân đoạn: Thư mời tham dự */}
+          <div className="text-center mb-8 sm:mb-10 flex flex-col items-center">
+            <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
+              Thư mời tham dự
+            </h2>
+            <div className="flex items-center justify-center gap-2 mt-2">
               <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
               <span className="text-amber-500 text-xs">✦ ✦ ✦</span>
               <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 w-full">
-            
-            {/* THẺ NHÀ TRAI (ANIMATION ZOOM TO & LỆCH LÊN - KÍCH THƯỚC TO NỔI BẬT) */}
-            <motion.div 
-              className="relative rounded-2xl sm:rounded-3xl bg-[#fffdf9]/95 p-6 sm:p-8 lg:p-10 border-2 border-amber-300/70 shadow-[0_16px_36px_-10px_rgba(90,60,30,0.14),0_0_20px_rgba(212,175,55,0.1)] flex flex-col justify-between text-center group"
-              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+            {/* THẺ TIỆC CƯỚI NHÀ TRAI */}
+            <motion.div
+              className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#FFFDF9]/95 via-[#FAF6EE]/90 to-[#FFF7ED]/95 p-6 sm:p-8 border-2 border-amber-300/70 shadow-[0_16px_36px_-10px_rgba(90,60,30,0.12),0_0_20px_rgba(212,175,55,0.1)] text-center flex flex-col justify-between group"
+              initial={{ opacity: 0, scale: 0.92, y: 35 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Viền đôi mỏng hoàng gia */}
-              <div className="absolute inset-2 sm:inset-3 rounded-xl sm:rounded-2xl border border-amber-200/50 pointer-events-none" />
-              
+              <div className="absolute inset-2 sm:inset-2.5 rounded-xl sm:rounded-2xl border border-amber-200/50 pointer-events-none" />
+
               {/* 4 Họa tiết góc mạ vàng hoàng gia */}
               <div className="absolute top-2.5 left-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
               <div className="absolute top-2.5 right-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
               <div className="absolute bottom-2.5 left-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
               <div className="absolute bottom-2.5 right-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
 
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-1 sm:px-5 sm:py-1.5 rounded-full bg-amber-100/80 border border-amber-300/60 text-amber-900 text-xs sm:text-sm font-bold tracking-[0.2em] uppercase font-['Cinzel',serif] mb-5 shadow-xs">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                  <span>{GROOM_FAMILY.title}</span>
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-amber-100/80 border border-amber-300/60 text-amber-900 text-xs sm:text-sm font-bold tracking-[0.16em] uppercase font-['ganhtype',sans-serif] mb-4">
+                  <span>{INVITATION_INFO.groom.title}</span>
                 </div>
 
-                <div className="space-y-1.5 mb-5 font-['Playfair_Display',serif]">
-                  <p className="text-sm sm:text-base lg:text-lg text-amber-950 font-medium">
-                    <span className="text-amber-800/80 text-xs sm:text-sm font-['Cinzel',serif] uppercase font-semibold mr-1.5">Ông:</span>
-                    <span className="font-bold text-amber-950">{GROOM_FAMILY.father}</span>
-                  </p>
-                  <p className="text-sm sm:text-base lg:text-lg text-amber-950 font-medium">
-                    <span className="text-amber-800/80 text-xs sm:text-sm font-['Cinzel',serif] uppercase font-semibold mr-1.5">Bà:</span>
-                    <span className="font-bold text-amber-950">{GROOM_FAMILY.mother}</span>
-                  </p>
-                </div>
-
-                <div className="h-px w-16 bg-amber-300/70 mx-auto my-4" />
-
-                <p className="text-xs sm:text-sm text-amber-800 tracking-[0.2em] font-bold font-['Cinzel',serif] uppercase mb-1">
-                  Chú Rể
+                <p className="font-['ganhtype',sans-serif] text-base sm:text-lg text-amber-900/90 font-semibold mb-3 sm:mb-3">
+                  {INVITATION_INFO.groom.time}
                 </p>
-                <h4 className="font-['Alex_Brush',cursive] text-4xl sm:text-5xl lg:text-6xl text-amber-950 mb-4 drop-shadow-xs">
-                  {GROOM.fullName}
-                </h4>
+
+                <div className="my-1 sm:my-2">
+                  <p className="font-['ganhtype',sans-serif] text-3xl sm:text-4xl lg:text-5xl font-bold text-[#8B2635] tracking-[0.08em] drop-shadow-xs">
+                    {INVITATION_INFO.groom.date}
+                  </p>
+                </div>
+
+                <p className="text-sm sm:text-base text-amber-800/80 font-['ganhtype',sans-serif] italic mb-5 sm:mb-6">
+                  {INVITATION_INFO.groom.lunarDate}
+                </p>
+
+                <h5 className="font-['ganhtype',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-[0.08em] text-amber-950 mb-2">
+                  {INVITATION_INFO.groom.venue}
+                </h5>
+
+                <p className="text-sm sm:text-base text-amber-900/85 max-w-xs sm:max-w-sm mx-auto leading-relaxed mb-6 font-['ganhtype',sans-serif] font-medium">
+                  {INVITATION_INFO.groom.address}
+                </p>
               </div>
 
-              {/* Địa chỉ & Link Google Maps */}
-              <div className="pt-4 border-t border-amber-200/60 flex flex-col items-center gap-3">
-                <p className="text-xs sm:text-sm lg:text-base text-amber-900/90 font-['Cormorant_Garamond',serif] leading-relaxed max-w-sm">
-                  {GROOM_FAMILY.address}
-                </p>
-
+              <div className="relative z-10">
                 <a
-                  href={GROOM_FAMILY.mapUrl}
+                  href={INVITATION_INFO.groom.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-amber-100/90 hover:bg-amber-200 text-amber-950 text-xs sm:text-sm font-semibold border border-amber-300/70 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-[#8B2635] hover:bg-[#701C27] text-amber-50 font-semibold font-['ganhtype',sans-serif] text-sm sm:text-base px-6 sm:px-7 py-2.5 rounded-full shadow-md shadow-[#8B2635]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer tracking-wide"
                 >
-                  <MapPin className="w-3.5 h-3.5 text-rose-500" />
-                  <span>Xem trên Google Maps</span>
-                  <ExternalLink className="w-3 h-3 text-amber-700 opacity-80" />
+                  <MapPin className="w-3.5 h-3.5 text-rose-300" />
+                  <span>Xem chỉ đường</span>
+                  <ExternalLink className="w-3 h-3 text-rose-300/80" />
                 </a>
               </div>
             </motion.div>
 
-
-            {/* THẺ NHÀ GÁI (ANIMATION ZOOM TO & LỆCH LÊN - KÍCH THƯỚC TO NỔI BẬT) */}
-            <motion.div 
-              className="relative rounded-2xl sm:rounded-3xl bg-[#fffdf9]/95 p-6 sm:p-8 lg:p-10 border-2 border-amber-300/70 shadow-[0_16px_36px_-10px_rgba(90,60,30,0.14),0_0_20px_rgba(212,175,55,0.1)] flex flex-col justify-between text-center group"
-              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            {/* THẺ TIỆC CƯỚI NHÀ GÁI */}
+            <motion.div
+              className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#FFFDF9]/95 via-[#FAF6EE]/90 to-[#FFF7ED]/95 p-6 sm:p-8 border-2 border-amber-300/70 shadow-[0_16px_36px_-10px_rgba(90,60,30,0.12),0_0_20px_rgba(212,175,55,0.1)] text-center flex flex-col justify-between group"
+              initial={{ opacity: 0, scale: 0.92, y: 35 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.75, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Viền đôi mỏng hoàng gia */}
-              <div className="absolute inset-2 sm:inset-3 rounded-xl sm:rounded-2xl border border-amber-200/50 pointer-events-none" />
-              
+              <div className="absolute inset-2 sm:inset-2.5 rounded-xl sm:rounded-2xl border border-amber-200/50 pointer-events-none" />
+
               {/* 4 Họa tiết góc mạ vàng hoàng gia */}
               <div className="absolute top-2.5 left-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
               <div className="absolute top-2.5 right-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
               <div className="absolute bottom-2.5 left-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
               <div className="absolute bottom-2.5 right-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
 
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-1 sm:px-5 sm:py-1.5 rounded-full bg-amber-100/80 border border-amber-300/60 text-amber-900 text-xs sm:text-sm font-bold tracking-[0.2em] uppercase font-['Cinzel',serif] mb-5 shadow-xs">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                  <span>{BRIDE_FAMILY.title}</span>
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-amber-100/80 border border-amber-300/60 text-amber-900 text-xs sm:text-sm font-bold tracking-[0.16em] uppercase font-['ganhtype',sans-serif] mb-3 shadow-2xs">
+                  <span>{INVITATION_INFO.bride.title}</span>
                 </div>
 
-                <div className="space-y-1.5 mb-5 font-['Playfair_Display',serif]">
-                  <p className="text-sm sm:text-base lg:text-lg text-amber-950 font-medium">
-                    <span className="text-amber-800/80 text-xs sm:text-sm font-['Cinzel',serif] uppercase font-semibold mr-1.5">Ông:</span>
-                    <span className="font-bold text-amber-950">{BRIDE_FAMILY.father}</span>
-                  </p>
-                  <p className="text-sm sm:text-base lg:text-lg text-amber-950 font-medium">
-                    <span className="text-amber-800/80 text-xs sm:text-sm font-['Cinzel',serif] uppercase font-semibold mr-1.5">Bà:</span>
-                    <span className="font-bold text-amber-950">{BRIDE_FAMILY.mother}</span>
-                  </p>
-                </div>
-
-                <div className="h-px w-16 bg-amber-300/70 mx-auto my-4" />
-
-                <p className="text-xs sm:text-sm text-amber-800 tracking-[0.2em] font-bold font-['Cinzel',serif] uppercase mb-1">
-                  Cô Dâu
+                <p className="font-['ganhtype',sans-serif] text-base sm:text-lg text-amber-900/90 font-semibold mb-3 sm:mb-3">
+                  {INVITATION_INFO.bride.time}
                 </p>
-                <h4 className="font-['Alex_Brush',cursive] text-4xl sm:text-5xl lg:text-6xl text-amber-950 mb-4 drop-shadow-xs">
-                  {BRIDE.fullName}
-                </h4>
+
+                <div className="my-1 sm:my-2">
+                  <p className="font-['ganhtype',sans-serif] text-3xl sm:text-4xl lg:text-5xl font-bold text-[#8B2635] tracking-[0.08em] drop-shadow-xs">
+                    {INVITATION_INFO.bride.date}
+                  </p>
+                </div>
+
+                <p className="text-sm sm:text-base text-amber-800/80 font-['ganhtype',sans-serif] italic mb-5 sm:mb-6">
+                  {INVITATION_INFO.bride.lunarDate}
+                </p>
+
+                <h5 className="font-['ganhtype',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-[0.08em] text-amber-950 mb-2">
+                  {INVITATION_INFO.bride.venue}
+                </h5>
+
+                <p className="text-sm sm:text-base text-amber-900/85 max-w-xs sm:max-w-sm mx-auto leading-relaxed mb-1 font-['ganhtype',sans-serif] font-medium">
+                  {INVITATION_INFO.bride.address}
+                </p>
+                 <p className="text-sm sm:text-base text-amber-900/85 max-w-xs sm:max-w-sm mx-auto leading-relaxed mb-6 font-['ganhtype',sans-serif] font-medium">
+                  (Đ/c cũ: thôn Tân Thể, Việt Ngọc, Tân Yên, Bắc Giang)
+                </p>
               </div>
 
-              {/* Địa chỉ & Link Google Maps */}
-              <div className="pt-4 border-t border-amber-200/60 flex flex-col items-center gap-3">
-                <p className="text-xs sm:text-sm lg:text-base text-amber-900/90 font-['Cormorant_Garamond',serif] leading-relaxed max-w-sm">
-                  {BRIDE_FAMILY.address}
-                </p>
-
+              <div className="relative z-10">
                 <a
-                  href={BRIDE_FAMILY.mapUrl}
+                  href={INVITATION_INFO.bride.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-amber-100/90 hover:bg-amber-200 text-amber-950 text-xs sm:text-sm font-semibold border border-amber-300/70 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-[#8B2635] hover:bg-[#701C27] text-amber-50 font-semibold font-['ganhtype',sans-serif] text-sm sm:text-base px-6 sm:px-7 py-2.5 rounded-full shadow-md shadow-[#8B2635]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer tracking-wide"
                 >
-                  <MapPin className="w-3.5 h-3.5 text-rose-500" />
-                  <span>Xem trên Google Maps</span>
-                  <ExternalLink className="w-3 h-3 text-amber-700 opacity-80" />
+                  <MapPin className="w-3.5 h-3.5 text-rose-300" />
+                  <span>Xem chỉ đường</span>
+                  <ExternalLink className="w-3 h-3 text-rose-300/80" />
                 </a>
               </div>
             </motion.div>
-
           </div>
-        </motion.div>
+        </section>
+
+        {/* ========================================================
+            4. TIMELINE CHƯƠNG TRÌNH HÔN LỄ (NGÀY 25/10/2026)
+           ======================================================== */}
+        <section className="w-full max-w-md md:max-w-3xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20">
+          <div className="text-center mb-8 sm:mb-10 flex flex-col items-center">
+            <h2 className="font-['1FTV-Carlytte',sans-serif] text-5xl sm:text-7xl text-amber-950 drop-shadow-sm font-normal">
+              Chương trình hôn lễ
+            </h2>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 font-['ganhtype',sans-serif] text-xs sm:text-sm font-semibold tracking-wider mt-3 shadow-2xs">
+              <span>Chủ Nhật · 25 · 10 · 2026</span>
+              <span className="text-amber-500">✦</span>
+              <span className="text-amber-800/90">16 tháng 09 Âm lịch</span>
+            </div>
+            <div className="flex items-center justify-center gap-2 mt-3">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+              <span className="text-amber-500 text-xs">✦ ✦ ✦</span>
+              <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+            </div>
+          </div>
+
+          <div className="relative">
+            {/* Đường trục timeline vàng kim giữa các mốc */}
+            <div className="hidden sm:block absolute left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-amber-300 via-amber-400 to-amber-300 border-l border-dashed border-amber-500/50 pointer-events-none" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8 items-stretch">
+              {/* MỐC 1: LỄ VU QUY 10h00 */}
+              <motion.div
+                className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#FFFDF9]/95 via-[#FAF6EE]/90 to-[#FFF7ED]/95 p-5 sm:p-6 border-2 border-amber-300/70 shadow-[0_12px_30px_-8px_rgba(90,60,30,0.1)] text-center flex flex-col justify-between"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="absolute inset-2 rounded-xl sm:rounded-2xl border border-amber-200/50 pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-100/80 border border-rose-300/60 text-[#8B2635] text-xs sm:text-sm font-bold tracking-wider uppercase font-['ganhtype',sans-serif] mb-3">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>10:00 · Sáng</span>
+                  </div>
+
+                  <h3 className="font-['ganhtype',sans-serif] text-2xl sm:text-3xl font-bold text-[#8B2635] uppercase tracking-wider mb-2">
+                    Lễ Vu Quy
+                  </h3>
+
+                  <p className="font-['ganhtype',sans-serif] text-sm sm:text-base font-semibold text-amber-950 mb-1">
+                    Tại Tư gia Nhà gái
+                  </p>
+
+                  <p className="font-['ganhtype',sans-serif] text-xs sm:text-sm text-amber-900/80 leading-relaxed mb-1">
+                    {BRIDE_FAMILY.address}
+                  </p>
+                   <p className="font-['ganhtype',sans-serif] text-xs sm:text-sm text-amber-900/80 leading-relaxed mb-4">
+                    (Thôn Tân Thể, Việt Ngọc, Tân Yên, Bắc Giang)
+                  </p>
+                </div>
+
+                <div className="relative z-10 pt-1">
+                  <a
+                    href={BRIDE_FAMILY.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-[#8B2635] hover:bg-[#701C27] text-amber-50 font-semibold font-['ganhtype',sans-serif] text-xs sm:text-sm px-5 py-2 rounded-full shadow-md shadow-[#8B2635]/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  >
+                    <MapPin className="w-3 h-3 text-rose-300" />
+                    <span>Xem chỉ đường</span>
+                    <ExternalLink className="w-3 h-3 text-rose-300/80" />
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* MỐC 2: LỄ THÀNH HÔN 15h30 */}
+              <motion.div
+                className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#FFFDF9]/95 via-[#FAF6EE]/90 to-[#FFF7ED]/95 p-5 sm:p-6 border-2 border-amber-300/70 shadow-[0_12px_30px_-8px_rgba(90,60,30,0.1)] text-center flex flex-col justify-between"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+              >
+                <div className="absolute inset-2 rounded-xl sm:rounded-2xl border border-amber-200/50 pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100/90 border border-amber-300/60 text-amber-950 text-xs sm:text-sm font-bold tracking-wider uppercase font-['ganhtype',sans-serif] mb-3">
+                    <Clock className="w-3.5 h-3.5 text-amber-700" />
+                    <span>15:30 · Chiều</span>
+                  </div>
+
+                  <h3 className="font-['ganhtype',sans-serif] text-2xl sm:text-3xl font-bold text-[#8B2635] uppercase tracking-wider mb-2">
+                    Lễ Thành Hôn
+                  </h3>
+
+                  <p className="font-['ganhtype',sans-serif] text-sm sm:text-base font-semibold text-amber-950 mb-1">
+                    Tại Nhà Hàng Phượng Ớt
+                  </p>
+
+                  <p className="font-['ganhtype',sans-serif] text-xs sm:text-sm text-amber-900/80 leading-relaxed mb-4">
+                    {WEDDING_INFO.address}
+                  </p>
+                </div>
+
+                <div className="relative z-10 pt-1">
+                  <a
+                    href={WEDDING_INFO.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-[#8B2635] hover:bg-[#701C27] text-amber-50 font-semibold font-['ganhtype',sans-serif] text-xs sm:text-sm px-5 py-2 rounded-full shadow-md shadow-[#8B2635]/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  >
+                    <MapPin className="w-3 h-3 text-rose-300" />
+                    <span>Xem chỉ đường</span>
+                    <ExternalLink className="w-3 h-3 text-rose-300/80" />
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
 
         {/* ========================================================
@@ -653,7 +615,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
           >
             <button
               onClick={onContinue}
-              className="group relative px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl bg-gradient-to-b from-[#e5b76c] via-[#d49f50] to-[#bd8235] text-white font-['Montserrat',sans-serif] text-xs sm:text-sm font-semibold border-2 border-amber-200/90 shadow-[0_5px_0_#9a6320,0_12px_24px_rgba(154,99,32,0.22)] hover:shadow-[0_3px_0_#9a6320,0_8px_16px_rgba(154,99,32,0.18)] hover:translate-y-[2px] active:shadow-[0_0px_0_#9a6320] active:translate-y-[5px] transition-all duration-150 flex flex-col items-center gap-1.5 cursor-pointer overflow-hidden select-none"
+              className="group relative px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl bg-gradient-to-b from-[#e5b76c] via-[#d49f50] to-[#bd8235] text-white font-['Panton-Regular',sans-serif] text-sm sm:text-base font-semibold border-2 border-amber-200/90 shadow-[0_5px_0_#9a6320,0_12px_24px_rgba(154,99,32,0.22)] hover:shadow-[0_3px_0_#9a6320,0_8px_16px_rgba(154,99,32,0.18)] hover:translate-y-[2px] active:shadow-[0_0px_0_#9a6320] active:translate-y-[5px] transition-all duration-150 flex flex-col items-center gap-1.5 cursor-pointer overflow-hidden select-none"
             >
               {/* Lớp ánh sáng phản chiếu bóng kính */}
               <div className="absolute inset-x-0 top-0 h-1/2 bg-white/20 rounded-t-xl pointer-events-none" />
@@ -666,7 +628,7 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
               </div>
 
               {/* Dòng chữ chính */}
-              <div className="flex items-center gap-2 text-white font-medium text-xs sm:text-[13px] tracking-wide pt-0.5">
+              <div className="flex items-center gap-2 text-white font-['Panton-Regular',sans-serif] font-medium text-xs sm:text-[13px] tracking-wide pt-0.5">
                 <span>Nhìn lại một hành trình mang tên yêu thương</span>
               </div>
             </button>

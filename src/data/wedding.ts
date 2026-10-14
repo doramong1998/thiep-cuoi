@@ -35,7 +35,7 @@ export const BRIDE_FAMILY = {
   mother: 'Nguyễn Thị Yến',
   bride: 'Vũ Thị Nghĩa',
   rank: 'Ái Nữ',
-  address: 'Thôn Tân Thể, xã Ngọc Thiện, TP.Bắc Ninh',
+  address: 'Thôn Trung Tiến, xã Ngọc Thiện, TP.Bắc Ninh',
   phone: '0981384115',
   mapUrl: 'https://maps.app.goo.gl/3jSpHTNjVX5Rv4je6',
 };
@@ -44,14 +44,35 @@ export const WEDDING_INFO = {
   date: '25.10.2026',
   time: '15:30',
   venue: 'Tư gia nhà trai',
-  address: 'ngã ba Châu Hùm, Đồng Bảng, xã Vật Lại, TP.Hà Nội',
+  address: 'Thôn Đồng Bảng, xã Vật Lại, TP.Hà Nội',
   mapUrl: 'https://maps.app.goo.gl/pTBEyKMNEPoEXAsM7',
+};
+
+export const INVITATION_INFO = {
+  groom: {
+    title: 'TIỆC CƯỚI NHÀ TRAI',
+    time: 'Thứ bảy - 15:30',
+    date: '24 . 10 . 2026',
+    lunarDate: 'Tức Ngày 15 tháng 09 năm Bính Ngọ',
+    venue: 'TẠI NHÀ HÀNG PHƯỢNG ỚT',
+    address: 'Thôn Đồng Bảng, xã Vật Lại, TP.Hà Nội',
+    mapUrl: 'https://maps.app.goo.gl/pTBEyKMNEPoEXAsM7',
+  },
+  bride: {
+    title: 'TIỆC CƯỚI NHÀ GÁI',
+    time: 'Thứ bảy - 16:00',
+    date: '24 . 10 . 2026',
+    lunarDate: 'Tức Ngày 15 tháng 09 năm Bính Ngọ',
+    venue: 'TẠI TƯ GIA NHÀ GÁI',
+    address: BRIDE_FAMILY.address,
+    mapUrl: BRIDE_FAMILY.mapUrl,
+  },
 };
 
 export const MILESTONES: Milestone[] = [
   {
     id: 'ba-vi-picnic',
-    title: 'Cái Nắm Tay Đầu Tiên',
+    title: 'Ba Vì',
     date: '2024',
     description:
       'Một buổi picnic giản dị ở Ba Vì, giữa gió trời và cỏ xanh. Ngập ngừng một chút, rồi bàn tay tìm thấy nhau. Hành trình của chúng mình bắt đầu từ đó.',
@@ -65,7 +86,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'cao-bang',
-    title: 'Chuyến Đi Xa Đầu Tiên',
+    title: 'Cao Bằng',
     date: '2024',
     description:
       'Ngày 2/9, lá cờ đỏ sao vàng trên mũ bảo hiểm theo chúng mình suốt cung đường. Những con đường đèo quanh co, thác Bản Giốc nước tung trắng xoá, suối Lênin êm đềm trôi, đồi cỏ xanh mướt trải dài tít tắp. Lần đầu đi xa cùng nhau và hành trình thật đẹp khi có em phía sau.',
@@ -79,7 +100,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'hoa-binh',
-    title: 'Trốn thoát khỏi khói bụi thành phố',
+    title: 'Hoà Bình',
     date: '2024',
     description:
       'Không khí trong lành, tiếng suối róc rách, tiếng chim hót líu lo. Một chuyến đi healing giữa thiên nhiên, chỉ có em và anh và những giây phút bình yên.',
@@ -93,7 +114,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'da-lat',
-    title: 'Có Một Đà Lạt Của Riêng Chúng Mình',
+    title: 'Đà Lạt',
     date: '2024',
     description:
       'Cái se lạnh, ly cà phê nóng, chiều lượn hồ Xuân Hương, đêm dạo chợ đêm. Đồi cỏ hồng, đoàn tàu chầm chậm lướt qua. Đà Lạt dạy mình rằng bên nhau thì nơi nào cũng nên thơ.',
@@ -107,7 +128,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'bac-giang',
-    title: 'Ra Mắt Bố Mẹ',
+    title: 'Bắc Giang',
     date: '2025',
     description:
       'Một chuyến về Bắc Giang với chút hồi hộp, một buổi cà phê chill chill và những nụ cười được đón nhận. Từ đây, chúng mình không chỉ là của nhau mà còn là một phần của hai gia đình.',
@@ -121,7 +142,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'tam-dao',
-    title: 'Tam Đảo Cùng Hội Bạn Đại Học',
+    title: 'Tam Đảo',
     date: '2025',
     description:
       'Ăn uống, cà phê, BBQ và những ván ma sói thâu đêm. Em hòa vào hội bạn của anh như đã quen từ lâu, và cả nhóm cười không ngớt.',
@@ -135,7 +156,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'soc-son',
-    title: 'Sóc Sơn Cùng Hội Bạn Thân',
+    title: 'Sóc Sơn',
     date: '2025',
     description:
       'Đến lượt anh bước vào thế giới bạn bè của em. Một villa đầy tiếng cười, thịt nướng thơm lừng và những buổi chèo SUP lênh đênh. Được bạn bè em quý mến, anh thấy mình thật may mắn.',
@@ -149,7 +170,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'da-nang',
-    title: 'Chiếc Khóa Minh Chứng Cho Lời Hứa Về Tình Yêu',
+    title: 'Đà Nẵng',
     date: '2025',
     description:
       'Một chuyến đi ngắn nhưng đầy ắp kỷ niệm. Chúng mình cùng nhau đi dọc con phố, ngắm cầu Rồng, thưởng thức những món đặc sản Đà Nẵng và khóa lại chiếc móc khóa tình yêu trên cầu Tình Yêu. Tất cả những khoảnh khắc ấy sẽ mãi là dấu ấn khó phai trong trái tim chúng mình.',
@@ -163,7 +184,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'hoi-an',
-    title: 'Hội An - Vẻ Đẹp Bất Định',
+    title: 'Hội An',
     date: '2025',
     description:
       'Chẳng có trong lịch trình, nhưng Hội An đẹp quá nên chúng mình ở lại thêm một ngày. Một chiếc bánh mỳ chia đôi, một đĩa cơm gà ú nụ đủ lấp đi chiếc bụng đói sau một ngày lang thang. Về đêm, ngồi trên thuyền, thả hoa đăng trôi nhẹ theo dòng sông, đem theo những mong ước của chúng mình. Đôi khi những quyết định bất ngờ lại là điều tuyệt vời nhất.',
@@ -177,7 +198,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'ly-son',
-    title: 'Nắng Gió Lý Sơn',
+    title: 'Lý Sơn',
     date: '2025',
     description:
       'Cát trắng, nắng vàng, biển xanh. Chúng mình cùng nhau ngắm bình minh trên đỉnh núi Thới Lới, nhặt vỏ ốc và đi săn đêm cùng lũ trẻ trên đảo. Một Lý Sơn hoang sơ và đẹp đến mức chỉ muốn ở lại mãi.',
@@ -191,7 +212,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'ha-long',
-    title: 'Hạ Long Mưa Nhẹ Và Pháo Hoa',
+    title: 'Hạ Long',
     date: '2025',
     description:
       'Trời hơi mưa, nhịp chân cũng chậm lại. Nhưng chúng mình vẫn đứng cạnh nhau ngắm pháo hoa trên vịnh. Một chuyến đi chill và dịu dàng.',
@@ -219,7 +240,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'sapa',
-    title: 'Em Nói Muốn Đi Sa Pa',
+    title: 'Sa Pa',
     date: '2025',
     description:
       'Một chuyến đi giữa thời tiết mưa lất phất, hai trái tim ấm áp bên nhau, chẳng còn ai thấy lạnh. Chỉ vì em muốn đi, nên mình đi: qua phố núi mờ sương, hoa anh đào hồng rực một góc trời, bản Cát Cát lặng lẽ bên dòng suối, đèo Ô Quy Hồ hùng vĩ. Hóa ra mùa đông đẹp nhất là mùa đông có nhau.',
@@ -233,7 +254,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'nha-trang',
-    title: 'Nha Trang ',
+    title: 'Nha Trang',
     date: '2026',
     description:
       'Trên chiếc cano phóng ra đảo giữa mưa gió, hai đứa ướt sũng mà vẫn cười. Cùng lặn ngắm san hô, cùng hét thật to trên những trò cảm giác mạnh ở VinWonders, cùng chạy ra biển như hai đứa trẻ. Có em bên cạnh, mưa gió cũng thành kỷ niệm.',
@@ -247,7 +268,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'ta-xua',
-    title: 'Giữa Đất Trời, Em Nói Đồng Ý',
+    title: 'Tà Xùa',
     date: '2026',
     description:
       'Giữa núi rừng bao la và gió trời Tà Xùa, anh nắm tay em và hỏi câu anh đã giữ trong lòng từ lâu. Em mỉm cười, nói đồng ý. Khoảnh khắc ấy, đất trời như lặng đi để chứng kiến, và hành trình của chúng mình sang một trang mới.',

@@ -124,7 +124,7 @@ export function GenLinkPage() {
               id="generate-btn"
               type="submit"
               disabled={!lineCount}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9925E] px-6 py-2.5 text-lg font-semibold text-white shadow-lg transition hover:scale-[1.03] hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9925E] px-6 py-2.5 text-lg font-semibold text-white shadow-lg transition hover:scale-[1.03] hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 font-['Panton-Regular',sans-serif]"
             >
               <Sparkles className="h-5 w-5" />
               Gen link
@@ -140,7 +140,7 @@ export function GenLinkPage() {
                 id="copy-all-btn"
                 type="button"
                 onClick={() => copy(links.map((l) => `${l.name}: ${l.url}`).join('\n'), 'all')}
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF8F0] px-4 py-1.5 text-sm font-semibold text-[#8B6B4A] ring-1 ring-[#E8D4B0] transition hover:bg-[#FDEFE6]"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF8F0] px-4 py-1.5 text-sm font-semibold text-[#8B6B4A] ring-1 ring-[#E8D4B0] transition hover:bg-[#FDEFE6] font-['Panton-Regular',sans-serif]"
               >
                 {copiedIndex === 'all' ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
                 Copy tất cả

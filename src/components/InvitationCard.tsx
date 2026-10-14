@@ -24,7 +24,7 @@ export function InvitationCard() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#fffdf9] via-black/20 to-black/30" />
         
         <div className="absolute top-4 left-0 right-0 text-center">
-          <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm text-[10px] tracking-[0.25em] uppercase text-amber-200 font-semibold border border-amber-300/30">
+          <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm text-xs tracking-[0.2em] uppercase text-amber-200 font-semibold border border-amber-300/30 font-['ganhtype',sans-serif]">
             Thiệp Báo Hỉ
           </span>
         </div>
@@ -41,7 +41,7 @@ export function InvitationCard() {
 
 
         {/* Lời mời chân thành từ cặp đôi */}
-      <p className="text-xs sm:text-[13px] text-amber-900/90 font-['Cormorant_Garamond',serif] italic leading-relaxed max-w-sm mx-auto mb-3 px-2">
+      <p className="text-sm sm:text-base text-amber-900/90 font-['1FTV-Carlytte',sans-serif] italic leading-relaxed max-w-sm mx-auto mb-3 px-2">
   “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
   {' '}Và niềm vui ấy sẽ trọn vẹn hơn khi có bạn cùng sẻ chia.<br className="hidden sm:inline" />
   {' '}Bởi hạnh phúc không chỉ nằm ở những ngày phía trước,<br className="hidden sm:inline" />
@@ -52,7 +52,7 @@ export function InvitationCard() {
 
 
         {/* Names */}
-        <h2 className="font-['Great_Vibes',cursive] text-3xl sm:text-4xl text-amber-950 mb-1 drop-shadow-sm">
+        <h2 className="font-['SVN-Clodia',cursive] text-3xl sm:text-4xl text-amber-950 mb-1 drop-shadow-sm">
           {BRIDE.fullName}
         </h2>
         <div className="my-1.5 flex items-center justify-center gap-3">
@@ -60,7 +60,7 @@ export function InvitationCard() {
           <Heart className="w-5 h-5 text-rose-500 fill-rose-500 inline-block" />
           <div className="h-px w-8 bg-amber-300" />
         </div>
-        <h2 className="font-['Great_Vibes',cursive] text-3xl sm:text-4xl text-amber-950 mb-4 drop-shadow-sm">
+        <h2 className="font-['SVN-Clodia',cursive] text-3xl sm:text-4xl text-amber-950 mb-4 drop-shadow-sm">
           {GROOM.fullName}
         </h2>
 
@@ -69,28 +69,28 @@ export function InvitationCard() {
           <div className="inline-flex items-center gap-3 px-5 py-2 bg-gradient-to-r from-amber-50 via-amber-100/60 to-amber-50 rounded-full border border-amber-300/60 shadow-sm">
             <div className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-amber-800" />
-              <span className="font-['Playfair_Display',serif] text-xs sm:text-sm font-semibold text-amber-800">
+              <span className="font-['1FTV-Carlytte',sans-serif] text-xs sm:text-sm font-semibold text-amber-800">
                 Chủ Nhật
               </span>
             </div>
             <div className="w-px h-4 bg-amber-300" />
-            <span className="font-['Playfair_Display',serif] text-base sm:text-lg font-bold text-amber-950">
+            <span className="font-['1FTV-Carlytte',sans-serif] text-base sm:text-lg font-bold text-amber-950">
               {WEDDING_INFO.date}
             </span>
             <div className="w-px h-4 bg-amber-300" />
             <div className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-amber-800" />
-              <span className="font-['Playfair_Display',serif] text-xs sm:text-sm font-semibold text-amber-800">
+              <span className="font-['1FTV-Carlytte',sans-serif] text-xs sm:text-sm font-semibold text-amber-800">
                 {WEDDING_INFO.time}
               </span>
             </div>
           </div>
 
-          <p className="font-['Playfair_Display',serif] text-sm text-amber-900 font-medium pt-1 flex items-center justify-center gap-1.5">
+          <p className="font-['1FTV-Carlytte',sans-serif] text-sm text-amber-900 font-medium pt-1 flex items-center justify-center gap-1.5">
             <MapPin className="w-3.5 h-3.5 text-amber-700 shrink-0" />
             <span>{WEDDING_INFO.venue}</span>
           </p>
-          <p className="font-['Cormorant_Garamond',serif] text-xs sm:text-sm text-amber-700/80">
+          <p className="font-['1FTV-Carlytte',sans-serif] text-xs sm:text-sm text-amber-700/80">
             {WEDDING_INFO.address}
           </p>
         </div>
