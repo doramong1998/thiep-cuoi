@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GALLERY_IMAGES } from '@/data/wedding';
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Icon, X } from 'lucide-react'
+import {  ChevronLeft, ChevronRight, Icon, X } from 'lucide-react'
 
 export function GalleryScene() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
