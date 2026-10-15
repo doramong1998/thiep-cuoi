@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { MILESTONES } from '@/data/wedding';
@@ -7,15 +7,6 @@ export function MobileJourney() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const activeMilestone = MILESTONES[activeIndex];
-
-  // Tự động chuyển ảnh tiếp theo sau mỗi 6 giây (tự reset thời gian 6s khi người dùng tự bấm chuyển)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev < MILESTONES.length - 1 ? prev + 1 : 0));
-    }, 10000);
-
-    return () => clearInterval(timer);
-  }, [activeIndex]);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev > 0 ? prev - 1 : MILESTONES.length - 1));

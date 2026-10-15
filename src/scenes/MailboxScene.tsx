@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Heart } from 'lucide-react';
 import { BRIDE, GROOM } from '@/data/wedding';
@@ -26,29 +26,13 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
   const [cardEmerged, setCardEmerged] = useState(false);
   // Trạng thái lật mặt 180 độ của thiệp cưới
   const [isFlipped, setIsFlipped] = useState(false);
-  // Trạng thái hiển thị tooltip gợi ý lật thiệp sau 3s mở thư
-  const [showFlipHint, setShowFlipHint] = useState(false);
   // Trạng thái di chuột qua phong bì
   const [isHovered, setIsHovered] = useState(false);
   // Danh sách các hạt bụi vàng kim tuyến bung tỏa
   const [particles, setParticles] = useState<SparkleParticle[]>([]);
 
-  // Tự động hiển thị tooltip gợi ý sau 3 giây mở thư nếu người dùng chưa lật thiệp
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    if (isOpen && !isFlipped) {
-      timer = setTimeout(() => {
-        setShowFlipHint(true);
-      }, 3000);
-    } else {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setShowFlipHint(false);
-    }
-    return () => clearTimeout(timer);
-  }, [isOpen, isFlipped]);
-
   // Hàm xử lý mở thiệp cưới
-  const handleOpen = () => {
+  const handleOpen = useCallback(() => {
     if (isOpen) return;
     setIsOpen(true);
 
@@ -74,7 +58,31 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
     setTimeout(() => {
       setCardEmerged(true);
     }, 250);
-  };
+  }, [isOpen, onOpen]);
+
+  const onFlipRef = useRef(onFlip);
+  useEffect(() => {
+    onFlipRef.current = onFlip;
+  }, [onFlip]);
+
+  // Tự động mở phong bì sau 1s nếu người dùng không bấm
+  useEffect(() => {
+    if (isOpen) return;
+    const timer = setTimeout(() => {
+      handleOpen();
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [isOpen, handleOpen]);
+
+  // Tự động lật thiệp sau 2s khi thiệp mở lên nếu người dùng chưa bấm lật
+  useEffect(() => {
+    if (!cardEmerged || isFlipped) return;
+    const timer = setTimeout(() => {
+      setIsFlipped(true);
+      onFlipRef.current?.();
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [cardEmerged, isFlipped]);
 
 
   // Xử lý khi nhấn vào thiệp:
@@ -176,12 +184,9 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
         }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p className="text-xs sm:text-sm tracking-[0.25em] uppercase text-amber-800/80 font-medium mb-8 font-['ganhtype',sans-serif]">
+        <p className="text-lg sm:text-lg tracking-[0.25em] uppercase text-amber-800/80 font-medium mb-8 font-['ganhtype',sans-serif]">
           Ngày Chung Đôi
         </p>
-        <h1 className="font-['SVN-Clodia',cursive] text-5xl sm:text-6xl text-[#6d4c2a] drop-shadow-sm">
-           {GROOM.firstName}  &amp;  {BRIDE.firstName}
-        </h1>
         <div className="flex items-center justify-center gap-2 mt-2">
           <div className="h-px w-10 bg-amber-300" />
           <Sparkles className="w-3.5 h-3.5 text-amber-500" />
@@ -443,7 +448,7 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
                       {' '}Sự hiện diện và lời chúc phúc của Quý vị là niềm vui, niềm hạnh phúc lớn lao đối với gia đình chúng tôi.
                     </p>
                   ) : (
-                    <p className="font-['ganhtype',sans-serif] italic text-sm sm:text-sm text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto px-1 drop-shadow-sm">
+                    <p className="font-['ganhtype',sans-serif] italic text-[13px] sm:text-sm text-amber-950/90 leading-relaxed max-w-[320px] sm:max-w-[360px] mx-auto drop-shadow-sm">
                       “Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br className="hidden sm:inline" />
                       {' '}Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh.<br className="hidden sm:inline" />
                       {' '}Cuộc sống quý giá không chỉ ở đích đến, mà còn ở những khoảnh khắc chia sẻ cùng nhau.<br className="hidden sm:inline" />
@@ -463,9 +468,9 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
 
             </motion.div>
 
-            {/* Tooltip gợi ý chạm lật thiệp sau 3s nếu chưa lật */}
+            {/* Tooltip gợi ý chạm lật thiệp khi mở thiệp và chưa lật */}
             <AnimatePresence>
-              {showFlipHint && !isFlipped && (
+              {isOpen && !isFlipped && (
                 <motion.div
                   initial={{ opacity: 0, y: 12, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}

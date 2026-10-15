@@ -19,7 +19,7 @@ export function MusicFloatingButton({ playTrigger = false }: MusicFloatingButton
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const manualStopRef = useRef(false);
 
-  // Phát nhạc tự động khi người dùng bấm mở thiệp (playTrigger = true)
+  // Phát nhạc tự động khi lật thiệp (playTrigger = true)
   useEffect(() => {
     if (playTrigger && !manualStopRef.current) {
       const audio = audioRef.current;
@@ -32,7 +32,24 @@ export function MusicFloatingButton({ playTrigger = false }: MusicFloatingButton
           setIsPlaying(true);
         })
         .catch((e) => {
-          console.warn('Không thể tự động phát nhạc sau khi mở thiệp:', e);
+          console.warn('Không thể tự động phát nhạc sau khi lật thiệp:', e);
+          const interactionEvents = ['click', 'pointerdown', 'touchstart', 'touchend', 'keydown'];
+          const handleFirstInteraction = () => {
+            if (!manualStopRef.current && audio.paused) {
+              audio
+                .play()
+                .then(() => setIsPlaying(true))
+                .catch(() => {});
+            }
+            interactionEvents.forEach((evt) => {
+              window.removeEventListener(evt, handleFirstInteraction);
+              document.removeEventListener(evt, handleFirstInteraction);
+            });
+          };
+          interactionEvents.forEach((evt) => {
+            window.addEventListener(evt, handleFirstInteraction, { once: true, passive: true });
+            document.addEventListener(evt, handleFirstInteraction, { once: true, passive: true });
+          });
         });
     }
   }, [playTrigger]);

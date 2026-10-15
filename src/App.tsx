@@ -15,6 +15,7 @@ interface AppProps {
 function App({ isGuestRoute = false }: AppProps) {
   const [scrollUnlocked, setScrollUnlocked] = useState(false);
   const [hasOpenedCard, setHasOpenedCard] = useState(false);
+  const [hasFlippedCard, setHasFlippedCard] = useState(false);
 
   // Khóa cuộn trang cho đến khi người dùng lật xem mặt sau thiệp cưới
   useEffect(() => {
@@ -30,7 +31,10 @@ function App({ isGuestRoute = false }: AppProps) {
 
   const handleCardFlipped = () => {
     setScrollUnlocked(true);
+    setHasFlippedCard(true);
   };
+
+  console.log("hasOpenedCard", hasOpenedCard)
 
   return (
     <div className="relative min-h-screen">
@@ -76,7 +80,7 @@ function App({ isGuestRoute = false }: AppProps) {
       <GiftScene />
 
       {/* Floating Music Button */}
-      <MusicFloatingButton playTrigger={hasOpenedCard} />
+      <MusicFloatingButton playTrigger={hasFlippedCard} />
     </div>
   );
 }

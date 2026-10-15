@@ -47,7 +47,7 @@ export function GalleryScene() {
         {GALLERY_IMAGES.map((img, i) => (
           <motion.button
             key={img.id}
-            className={`w-full ${img.aspectClass} rounded-lg overflow-hidden cursor-pointer group relative block mb-3 shadow-sm hover:shadow-xl transition-shadow duration-300`}
+            className={`w-full ${img.aspectClass} break-inside-avoid rounded-lg overflow-hidden cursor-pointer group relative block mb-3 shadow-sm hover:shadow-xl transition-shadow duration-300`}
             initial={{ opacity: 0, scale: 0.85, y: 45 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             whileHover={{ scale: 1.05, y: -6, rotate: i % 2 === 0 ? 1 : -1 }}

@@ -274,12 +274,12 @@ export function LetterScene({ onContinue, guestName: propGuestName, isGuestRoute
             <div className="absolute bottom-2.5 right-2.5 text-amber-600/70 text-[10px] sm:text-xs pointer-events-none select-none">✦</div>
           
             {/* Dòng chữ: Trân trọng kính mời */}
-            <p className="font-['ganhtype',sans-serif] italic text-lg sm:text-2xl text-amber-900/90 tracking-wide mb-6">
+            <p className="font-['ganhtype',sans-serif] italic text-lg sm:text-2xl text-amber-900/90 tracking-wide mb-2">
               Trân trọng kính mời
             </p>
 
             {/* Tên khách mời (lấy từ URL param ?name=...) */}
-            <h3 className="font-['jacklane',sans-serif] text-3xl sm:text-3xl text-amber-950 my-4 drop-shadow-xs px-2 break-words">
+            <h3 className="font-['ganhtype',sans-serif] text-2xl font-semibold sm:text-3xl text-amber-950 my-4 drop-shadow-xs px-2 break-words">
               {guestName || 'Quý khách'}
             </h3>
 

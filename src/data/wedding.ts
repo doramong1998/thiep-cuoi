@@ -338,15 +338,15 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   },
   {
     id: 'gallery-7',
-    src: '/images/album/aodai7.jpg',
-    aspectClass: 'aspect-[4/3]', // Ngang (3504x2336)
-    bgGradient: 'from-amber-100 to-pink-100',
-  },
-  {
-    id: 'gallery-8',
     src: '/images/album/aodai9.jpg',
     aspectClass: 'aspect-[3/4]', // Dọc (1536x2304)
     bgGradient: 'from-pink-100 to-amber-50',
+  },
+  {
+    id: 'gallery-8',
+    src: '/images/album/aodai7.jpg',
+    aspectClass: 'aspect-[4/3]', // Ngang (3504x2336)
+    bgGradient: 'from-amber-100 to-pink-100',
   },
   {
     id: 'gallery-9',
