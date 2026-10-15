@@ -42,29 +42,24 @@ export function GalleryScene() {
         </div>
       </motion.div>
 
-      {/* Masonry Grid (Animation Zoom To & Lệch Lên Khi Scroll + Hover To & Lệch Nhẹ, Không Viền) */}
+      {/* Masonry Grid (Hiển thị tỉ lệ ảnh tự nhiên, không ép kích thước, không animation) */}
       <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 max-w-5xl mx-auto">
         {GALLERY_IMAGES.map((img, i) => (
-          <motion.button
+          <button
             key={img.id}
-            className={`w-full ${img.aspectClass} break-inside-avoid rounded-lg overflow-hidden cursor-pointer group relative block mb-3 shadow-sm hover:shadow-xl transition-shadow duration-300`}
-            initial={{ opacity: 0, scale: 0.85, y: 45 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            whileHover={{ scale: 1.05, y: -6, rotate: i % 2 === 0 ? 1 : -1 }}
-            whileTap={{ scale: 0.98 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.65, delay: (i % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            type="button"
+            className="w-full break-inside-avoid rounded-lg overflow-hidden cursor-pointer group relative block mb-3 shadow-sm hover:shadow-lg transition-shadow duration-300"
             onClick={() => open(i)}
           >
-            <div className={`w-full h-full bg-gradient-to-br ${img.bgGradient} transition-transform duration-500 group-hover:scale-110`}>
+            <div className={`w-full bg-gradient-to-br ${img.bgGradient} overflow-hidden`}>
               <img
                 src={img.src}
                 alt={`Ảnh cưới ${i + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover block transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
-          </motion.button>
+          </button>
         ))}
       </div>
 

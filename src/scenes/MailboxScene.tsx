@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Heart } from 'lucide-react';
 import { BRIDE, GROOM } from '@/data/wedding';
@@ -9,98 +9,35 @@ interface MailboxSceneProps {
   isGuestRoute?: boolean;
 }
 
-// Cấu trúc dữ liệu cho hạt bụi vàng phát sáng khi con dấu sáp bung mở
-interface SparkleParticle {
-  id: number;
-  x: number;
-  y: number;
-  size: number;
-  color: string;
-  delay: number;
-}
-
-export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps) {
-  // Trạng thái phong bì đã được chạm mở hay chưa
-  const [isOpen, setIsOpen] = useState(false);
-  // Trạng thái thiệp cưới đã vươn lên hoàn toàn ở vị trí tiền cảnh
-  const [cardEmerged, setCardEmerged] = useState(false);
+export function MailboxScene({ onFlip, isGuestRoute }: MailboxSceneProps) {
   // Trạng thái lật mặt 180 độ của thiệp cưới
   const [isFlipped, setIsFlipped] = useState(false);
-  // Trạng thái di chuột qua phong bì
-  const [isHovered, setIsHovered] = useState(false);
-  // Danh sách các hạt bụi vàng kim tuyến bung tỏa
-  const [particles, setParticles] = useState<SparkleParticle[]>([]);
-
-  // Hàm xử lý mở thiệp cưới
-  const handleOpen = useCallback(() => {
-    if (isOpen) return;
-    setIsOpen(true);
-
-    // Tạo 22 hạt bụi vàng tỏa tròn 360 độ từ tâm con dấu sáp
-    const newParticles: SparkleParticle[] = Array.from({ length: 22 }, (_, i) => {
-      const angle = (i / 22) * 2 * Math.PI + (Math.random() - 0.5) * 0.35;
-      const distance = 45 + Math.random() * 85;
-      return {
-        id: i,
-        x: Math.cos(angle) * distance,
-        y: Math.sin(angle) * distance,
-        size: 3 + Math.random() * 5,
-        color: ['#D4AF37', '#F3E5AB', '#FFD700', '#FFF8DC', '#E6C280', '#FFB7C5'][i % 6],
-        delay: Math.random() * 0.1,
-      };
-    });
-    setParticles(newParticles);
-
-    // Gọi onOpen ngay trong context cử chỉ chạm của người dùng để trình duyệt cấp quyền phát âm thanh
-    onOpen?.();
-
-    // Thiệp cưới trượt vươn lên tiền cảnh trung tâm êm ái
-    setTimeout(() => {
-      setCardEmerged(true);
-    }, 250);
-  }, [isOpen, onOpen]);
 
   const onFlipRef = useRef(onFlip);
   useEffect(() => {
     onFlipRef.current = onFlip;
   }, [onFlip]);
 
-  // Tự động mở phong bì sau 1s nếu người dùng không bấm
+  // Tự động lật thiệp sau 2s nếu người dùng chưa bấm lật
   useEffect(() => {
-    if (isOpen) return;
-    const timer = setTimeout(() => {
-      handleOpen();
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [isOpen, handleOpen]);
-
-  // Tự động lật thiệp sau 2s khi thiệp mở lên nếu người dùng chưa bấm lật
-  useEffect(() => {
-    if (!cardEmerged || isFlipped) return;
+    if (isFlipped) return;
     const timer = setTimeout(() => {
       setIsFlipped(true);
       onFlipRef.current?.();
     }, 2000);
     return () => clearTimeout(timer);
-  }, [cardEmerged, isFlipped]);
+  }, [isFlipped]);
 
-
-  // Xử lý khi nhấn vào thiệp:
-  // - Nếu chưa mở: Mở phong bì
-  // - Nếu đã mở: Lật 180 độ giữa mặt bìa ảnh và mặt sau thông tin chi tiết
+  // Xử lý khi nhấn vào thiệp: Lật 180 độ giữa mặt bìa ảnh và mặt sau thông tin chi tiết
   const handleCardFlip = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
-    if (!isOpen) {
-      handleOpen();
-    } else {
-      setIsFlipped((prev) => {
-        const next = !prev;
-        if (next && onFlip) {
-          onFlip();
-        }
-        return next;
-      });
-    }
+    setIsFlipped((prev) => {
+      const next = !prev;
+      if (next && onFlip) {
+        onFlip();
+      }
+      return next;
+    });
   };
 
   return (
@@ -111,9 +48,7 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
       <div 
         className="absolute w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full pointer-events-none opacity-35 transition-opacity duration-1000"
         style={{
-          background: isOpen 
-            ? 'radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(255,215,0,0.06) 50%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(232,212,176,0.04) 50%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(255,215,0,0.06) 50%, transparent 70%)',
         }}
       />
 
@@ -154,7 +89,7 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
         </svg>
       </div>
 
-      {/* 4. Đốm sáng lơ lửng nhẹ nhàng — Giảm từ 10 xuống 5, dùng CSS animation */}
+      {/* 4. Đốm sáng lơ lửng nhẹ nhàng */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {Array.from({ length: 5 }, (_, i) => (
           <div
@@ -174,17 +109,14 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
         ))}
       </div>
 
-      {/* 5. Tiêu đề thiệp cưới ở trạng thái ban đầu */}
+      {/* 5. Tiêu đề thiệp cưới */}
       <motion.div
         className="relative z-10 text-center mb-6 sm:mb-8"
-        animate={{
-          opacity: isOpen ? 0 : 1,
-          y: isOpen ? -30 : 0,
-          scale: isOpen ? 0.9 : 1,
-        }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p className="text-lg sm:text-lg tracking-[0.25em] uppercase text-amber-800/80 font-medium mb-8 font-['ganhtype',sans-serif]">
+        <p className="text-lg sm:text-lg tracking-[0.25em] uppercase text-amber-800/80 font-medium mb-2 font-['ganhtype',sans-serif]">
           Ngày Chung Đôi
         </p>
         <div className="flex items-center justify-center gap-2 mt-2">
@@ -195,122 +127,26 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
       </motion.div>
 
       {/* ========================================================
-          6. SÂN KHẤU PHONG BÌ & THIỆP MỜI (ENVELOPE STAGE)
+          6. TẤM THIỆP CƯỚI 3D FLIP (HIỆN TRỰC TIẾP)
          ======================================================== */}
       <div
-        className="relative z-20 flex items-center justify-center min-h-[530px] sm:min-h-[620px]"
+        className="relative z-20 flex flex-col items-center justify-center"
         style={{ perspective: '1600px' }}
       >
         <div className="relative flex items-center justify-center">
           
-          {/* KHỐI 1: THÂN TÚI PHONG BÌ (Mặt lưng + Túi mặt trước) */}
           <motion.div
-            className="relative cursor-pointer"
-            initial={{ scale: 0.92, opacity: 0, y: 20 }}
-            animate={{
-              scale: cardEmerged ? 0.92 : 1,
-              opacity: 1,
-              y: cardEmerged ? 130 : (isOpen ? 35 : 0),
-            }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            onClick={handleOpen}
-            whileHover={!isOpen ? { y: -4 } : undefined}
-            whileTap={!isOpen ? { scale: 0.98 } : undefined}
-          >
-            {/* Ảnh phong bì mail.png thay thế SVG */}
-            <div className="relative w-[335px] h-[225px] sm:w-[450px] sm:h-[300px]">
-              
-              {/* 1.1 Ảnh phong bì mail.png */}
-              <img
-                src="/images/mail.png"
-                alt="Phong bì thiệp cưới"
-                className="absolute inset-0 w-full h-full object-contain rounded-2xl select-none pointer-events-none"
-                style={{
-                  zIndex: 10,
-                  filter: isHovered && !isOpen
-                    ? 'drop-shadow(0 30px 65px rgba(110, 75, 40, 0.3))'
-                    : 'drop-shadow(0 20px 50px rgba(110, 75, 40, 0.22))',
-                  transition: 'filter 0.4s ease',
-                  opacity: cardEmerged ? 0.75 : 1,
-                }}
-                draggable={false}
-              />
-
-              {/* 1.2 Lớp click bao phủ toàn bộ ảnh phong bì */}
-              <div 
-                className="absolute inset-0 cursor-pointer" 
-                style={{ zIndex: 30 }}
-                onClick={handleOpen}
-              />
-
-              {/* 1.3 Con dấu sáp niêm phong Ruby (Z-Index 45: Nằm giữa miệng túi khi đóng) */}
-      
-
-              {/* 1.4 Hiệu ứng nổ hạt bụi vàng kim tuyến khi phá vỡ niêm phong sáp */}
-              <AnimatePresence>
-                {isOpen &&
-                  particles.map((p) => (
-                    <motion.div
-                      key={p.id}
-                      className="absolute pointer-events-none"
-                      style={{
-                        left: '50%',
-                        top: '50%',
-                        zIndex: 60,
-                      }}
-                      initial={{ x: 0, y: 0, scale: 0, opacity: 1 }}
-                      animate={{
-                        x: p.x,
-                        y: p.y,
-                        scale: [0, 1.4, 0],
-                        opacity: [1, 1, 0],
-                      }}
-                      transition={{
-                        duration: 0.85,
-                        delay: p.delay,
-                        ease: [0.2, 0.8, 0.4, 1],
-                      }}
-                    >
-                      <svg width={p.size * 2} height={p.size * 2} viewBox="0 0 24 24">
-                        <path
-                          d="M12 0L14 9L23 12L14 15L12 24L10 15L1 12L10 9Z"
-                          fill={p.color}
-                        />
-                      </svg>
-                    </motion.div>
-                  ))}
-              </AnimatePresence>
-
-            </div>
-          </motion.div>
-
-
-          {/* KHỐI 2: TẤM THIỆP CƯỚI 3D FLIP (MẶT TRƯỚC: ẢNH BÌA | MẶT SAU: ẢNH VÀ LỜI CHIA SẺ Ý NGHĨA) */}
-          <motion.div
-            className="absolute left-1/2 -translate-x-1/2 pointer-events-auto cursor-pointer"
+            className="relative pointer-events-auto cursor-pointer"
             style={{
-              zIndex: cardEmerged ? 50 : 20,
               transformOrigin: 'bottom center',
               perspective: '1200px',
             }}
             onClick={handleCardFlip}
-            initial={{
-              y: 20,
-              scale: 0.92,
-              opacity: 0,
-            }}
-            animate={{
-              y: cardEmerged ? (window.innerWidth < 640 ? -95 : -120) : 20,
-              scale: cardEmerged ? 1 : 0.92,
-              opacity: cardEmerged ? 1 : (isOpen ? 1 : 0),
-            }}
-            transition={{
-              duration: 1.0,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            whileHover={cardEmerged ? { y: window.innerWidth < 640 ? -100 : -125 } : undefined}
+            initial={{ opacity: 0, scale: 0.9, y: 25 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             {/* Vỏ lật 3D 180 độ */}
             <motion.div
@@ -328,21 +164,17 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
                 ease: [0.34, 1.25, 0.64, 1],
               }}
             >
-              
               {/* ========================================================
-                  2.1 MẶT TRƯỚC: BÌA ẢNH CƯỚI NGHỆ THUẬT (FRONT FACE)
+                  MẶT TRƯỚC: BÌA ẢNH CƯỚI NGHỆ THUẬT (FRONT FACE)
                  ======================================================== */}
               <div
-                className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden border border-[#e8d7be]"
+                className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden bg-[#2c1d11] select-none"
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
-                  transform: 'rotateY(0deg)',
                   zIndex: isFlipped ? 0 : 2,
                   WebkitFontSmoothing: 'antialiased',
-                  boxShadow: cardEmerged
-                    ? '0 30px 70px -15px rgba(80, 50, 20, 0.4), 0 12px 25px -8px rgba(80, 50, 20, 0.25), 0 0 0 1px rgba(212,175,55,0.5)'
-                    : '0 8px 25px rgba(90, 65, 40, 0.18)',
+                  boxShadow: '0 25px 60px -15px rgba(80, 50, 20, 0.38), 0 10px 22px -8px rgba(80, 50, 20, 0.22), 0 0 0 1px rgba(212,175,55,0.45)',
                 }}
               >
                 {/* Ảnh cưới nền tràn khung */}
@@ -370,9 +202,8 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
 
                 {/* Nội dung trên nền ảnh */}
                 <div className="absolute inset-0 flex flex-col items-center justify-between p-6 sm:p-8 text-center z-20 select-none">
-  
 
-                  {/* Phần giữa: Tiêu đề WEDDING INVITATION & Tên cặp đôi */}
+                  {/* Phần giữa: Tiêu đề THIỆP BÁO HỶ & Tên cặp đôi */}
                   <div className="flex flex-col items-center my-auto">
                     <p className="font-['jacklane',sans-serif] text-sm sm:text-base uppercase tracking-[0.25em] text-amber-100 font-semibold drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
                       Thiệp Báo Hỷ
@@ -396,7 +227,7 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
               </div>
 
               {/* ========================================================
-                  2.2 MẶT SAU: ẢNH VÀ LỜI CHIA SẺ Ý NGHĨA (BACK FACE)
+                  MẶT SAU: ẢNH VÀ LỜI CHIA SẺ Ý NGHĨA (BACK FACE)
                  ======================================================== */}
               <div
                 className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden bg-[#fffdf9] border border-[#e8d7be] flex flex-col justify-between"
@@ -406,9 +237,7 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
                   WebkitBackfaceVisibility: 'hidden',
                   zIndex: isFlipped ? 2 : 0,
                   WebkitFontSmoothing: 'antialiased',
-                  boxShadow: cardEmerged
-                    ? '0 30px 70px -15px rgba(80, 50, 20, 0.4), 0 12px 25px -8px rgba(80, 50, 20, 0.25), 0 0 0 1px rgba(212,175,55,0.5)'
-                    : '0 8px 25px rgba(90, 65, 40, 0.18)',
+                  boxShadow: '0 25px 60px -15px rgba(80, 50, 20, 0.38), 0 10px 22px -8px rgba(80, 50, 20, 0.22), 0 0 0 1px rgba(212,175,55,0.45)',
                 }}
               >
                 {/* Viền đôi nhũ vàng hoàng gia */}
@@ -468,9 +297,9 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
 
             </motion.div>
 
-            {/* Tooltip gợi ý chạm lật thiệp khi mở thiệp và chưa lật */}
+            {/* Tooltip gợi ý chạm lật thiệp khi chưa lật */}
             <AnimatePresence>
-              {isOpen && !isFlipped && (
+              {!isFlipped && (
                 <motion.div
                   initial={{ opacity: 0, y: 12, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -493,24 +322,19 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
         </div>
       </div>
 
-
-
-      {/* ========================================================
-          7. NÚT KHÁM PHÁ CÂU CHUYỆN KHI ĐÃ LẬT XEM THIỆP
-         ======================================================== */}
+      {/* 7. NÚT KHÁM PHÁ CÂU CHUYỆN KHI ĐÃ LẬT XEM THIỆP */}
       <div className="relative z-30 mt-6 sm:mt-8 flex flex-col items-center">
         <motion.div
           animate={{
-            opacity: isOpen && isFlipped ? 1 : 0,
-            y: isOpen && isFlipped ? 0 : 12,
-            scale: isOpen && isFlipped ? 1 : 0.96,
+            opacity: isFlipped ? 1 : 0,
+            y: isFlipped ? 0 : 12,
+            scale: isFlipped ? 1 : 0.96,
           }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className={`flex flex-col items-center gap-2 ${
-            isOpen && isFlipped ? 'pointer-events-auto' : 'pointer-events-none select-none'
+            isFlipped ? 'pointer-events-auto' : 'pointer-events-none select-none'
           }`}
         >
-          
           <p className="text-base text-amber-800/70 font-['ganhtype',sans-serif] animate-pulse">
             Cuộn xuống để tiếp tục
           </p>
@@ -519,4 +343,3 @@ export function MailboxScene({ onOpen, onFlip, isGuestRoute }: MailboxSceneProps
     </section>
   );
 }
-

@@ -298,7 +298,6 @@ export const BANK_ACCOUNTS: BankAccount[] = [
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
-  // --- Hong Kong series ---
   {
     id: 'gallery-1',
     src: '/images/album/hongkong1.jpg',
@@ -307,71 +306,69 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   },
   {
     id: 'gallery-2',
+    src: '/images/album/aodai1.jpg',
+    aspectClass: 'aspect-[4/3]',
+    bgGradient: 'from-amber-100 to-pink-100',
+  },
+  {
+    id: 'gallery-3',
+    src: '/images/album/stu1.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-amber-50 to-rose-200',
+  },
+  {
+    id: 'gallery-4',
+    src: '/images/album/aodai3.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-sky-100 to-rose-100',
+  },
+  {
+    id: 'gallery-5',
+    src: '/images/album/stu5.jpg',
+    aspectClass: 'aspect-[4/3]',
+    bgGradient: 'from-rose-200 to-amber-100',
+  },
+  {
+    id: 'gallery-6',
     src: '/images/album/hongkong2.jpg',
     aspectClass: 'aspect-[3/4]',
     bgGradient: 'from-amber-100 to-pink-100',
   },
   {
-    id: 'gallery-3',
-    src: '/images/album/hongkong5.jpg',
-    aspectClass: 'aspect-[3/4]',
-    bgGradient: 'from-amber-50 to-rose-200',
-  },
-  // --- Áo dài series ---
-  {
-    id: 'gallery-4',
-    src: '/images/album/aodai1.jpg',
-    aspectClass: 'aspect-[4/3]', // Ngang (3504x2336)
-    bgGradient: 'from-rose-200 to-amber-100',
-  },
-  {
-    id: 'gallery-5',
-    src: '/images/album/aodai3.jpg',
-    aspectClass: 'aspect-[3/4]', // Dọc (2336x3504)
-    bgGradient: 'from-sky-100 to-rose-100',
-  },
-  {
-    id: 'gallery-6',
-    src: '/images/album/aodai6.jpg',
-    aspectClass: 'aspect-[4/3]', // Ngang (3504x2336)
-    bgGradient: 'from-rose-200 to-amber-100',
-  },
-  {
     id: 'gallery-7',
-    src: '/images/album/aodai9.jpg',
-    aspectClass: 'aspect-[3/4]', // Dọc (1536x2304)
+    src: '/images/album/aodai6.jpg',
+    aspectClass: 'aspect-[4/3]',
     bgGradient: 'from-pink-100 to-amber-50',
   },
   {
     id: 'gallery-8',
-    src: '/images/album/aodai7.jpg',
-    aspectClass: 'aspect-[4/3]', // Ngang (3504x2336)
-    bgGradient: 'from-amber-100 to-pink-100',
+    src: '/images/album/stu2.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-amber-50 to-rose-200',
   },
   {
     id: 'gallery-9',
-    src: '/images/album/aodai10.jpg',
-    aspectClass: 'aspect-[3/4]', // Dọc (1513x2269)
-    bgGradient: 'from-amber-50 to-rose-200',
-  },
-  // --- Studio series ---
-  {
-    id: 'gallery-10',
-    src: '/images/album/stu1.jpg',
-    aspectClass: 'aspect-[3/4]', // Dọc (1536x2304)
+    src: '/images/album/aodai9.jpg',
+    aspectClass: 'aspect-[3/4]',
     bgGradient: 'from-rose-200 to-amber-100',
   },
   {
-    id: 'gallery-11',
-    src: '/images/album/stu2.jpg',
-    aspectClass: 'aspect-[3/4]', // Dọc (1536x2304)
+    id: 'gallery-10',
+    src: '/images/album/aodai7.jpg',
+    aspectClass: 'aspect-[4/3]',
     bgGradient: 'from-amber-100 to-pink-100',
   },
   {
-    id: 'gallery-12',
-    src: '/images/album/stu5.jpg',
-    aspectClass: 'aspect-[4/3]', // Ngang (2304x1536)
+    id: 'gallery-11',
+    src: '/images/album/hongkong5.jpg',
+    aspectClass: 'aspect-[3/4]',
     bgGradient: 'from-amber-50 to-rose-200',
+  },
+  {
+    id: 'gallery-12',
+    src: '/images/album/aodai10.jpg',
+    aspectClass: 'aspect-[3/4]',
+    bgGradient: 'from-sky-100 to-rose-100',
   },
 ];
 

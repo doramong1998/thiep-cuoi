@@ -14,7 +14,6 @@ interface AppProps {
 
 function App({ isGuestRoute = false }: AppProps) {
   const [scrollUnlocked, setScrollUnlocked] = useState(false);
-  const [hasOpenedCard, setHasOpenedCard] = useState(false);
   const [hasFlippedCard, setHasFlippedCard] = useState(false);
 
   // Khóa cuộn trang cho đến khi người dùng lật xem mặt sau thiệp cưới
@@ -34,17 +33,14 @@ function App({ isGuestRoute = false }: AppProps) {
     setHasFlippedCard(true);
   };
 
-  console.log("hasOpenedCard", hasOpenedCard)
-
   return (
     <div className="relative min-h-screen">
       {/* Background bức tranh thảo nguyên vườn hoa và animation hoa lá bay thơ mộng */}
       <DreamyMeadowAtmosphere />
 
-      {/* Scene 1: Envelope & 3D Flip Card */}
+      {/* Scene 1: 3D Flip Card Thiệp Báo Hỷ */}
       <MailboxScene 
         isGuestRoute={isGuestRoute}
-        onOpen={() => setHasOpenedCard(true)} 
         onFlip={handleCardFlipped} 
       />
 
